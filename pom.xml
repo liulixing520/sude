@@ -19,6 +19,7 @@
         <maven>3.0.0</maven>
     </prerequisites>
 
+
     <properties>
         <assertj-core.version>3.5.2</assertj-core.version>
         <awaitility.version>1.7.0</awaitility.version>
