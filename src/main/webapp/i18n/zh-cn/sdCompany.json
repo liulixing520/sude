@@ -1,0 +1,25 @@
+{
+    "sudeApp": {
+        "sdCompany" : {
+            "home": {
+                "title": "Sd Companies",
+                "createLabel": "Create a new Sd Company",
+                "createOrEditLabel": "Create or edit a Sd Company",
+                "search": "Search for Sd Company"
+            },
+            "created": "A new Sd Company is created with identifier {{ param }}",
+            "updated": "A Sd Company is updated with identifier {{ param }}",
+            "deleted": "A Sd Company is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Company {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Company"
+            },
+            "companyName": "公司名称",
+            "phone": "联系电话",
+            "fax": "传真",
+            "postCode": "邮编"
+        }
+    }
+}

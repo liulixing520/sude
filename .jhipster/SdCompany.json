@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "companyName",
+            "fieldDescription":"公司名称",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "phone",
+        	"fieldDescription":"联系电话",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "fax",
+        	"fieldDescription":"传真",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "postCode",
+        	"fieldDescription":"邮编",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "sd_company",
+    "entityName": "公司信息",
+    "pagination": "pagination"
+}

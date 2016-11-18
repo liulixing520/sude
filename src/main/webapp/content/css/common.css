@@ -1,0 +1,360 @@
+/*公共样式*/
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	clear: both;
+	zoom: 1;
+}
+
+body{
+	font-family: '微软雅黑' !important;
+}
+table{
+	border:1px solid #dcdcdc;
+}
+thead{
+	background-color: #EEEDED;
+}
+tbody tr:first-child td{
+	/*border-top: 0;*/
+}
+td{
+	color: #111;
+}
+th{
+	color: #999;
+}
+
+tbody tr{
+	background-color: #F9F9F9 !important;
+}
+tbody tr:hover{
+	background-color:#F5F5F5 !important;
+}
+th,td{
+	text-align: center !important;
+	font-family: '微软雅黑';
+	font-weight: normal;
+	font-size: 13px;
+}
+.table>tbody>tr>td{
+	vertical-align: middle;
+}
+.table-striped > tbody > tr:nth-of-type(odd){
+	background-color: transparent;
+}
+.table > thead > tr > th {
+    border-bottom: 1px solid #ddd;
+}
+.table > thead > tr > th:last-child{
+	width: 60px;
+}
+.glyphicon-sort:before{
+	content: '';
+}
+.glyphicon-sort,.glyphicon-sort-by-attributes-alt{
+	width: 14px;
+	height:14px;
+	background: url(../images/up.png) no-repeat center;
+	background-size: 80%;
+	vertical-align: middle;
+	margin-top: -5px;
+	margin-left: 3px;
+}
+.glyphicon-sort-by-attributes:before,.glyphicon-sort-by-attributes-alt:before{
+	content: '';
+}
+.glyphicon-sort-by-attributes{
+	width: 14px;
+	height:14px;
+	background: url(../images/down.png) no-repeat center;
+	background-size: 80%;
+	vertical-align: middle;
+	margin-top: -5px;
+	margin-left: 3px;
+
+}
+.ids{
+	width: 60px;
+}
+.patientName,.price{
+	width: 100px;
+}
+.description{
+	width: 370px;
+}
+.complaintNo,.diseaseName,.serviceName{
+	width: 120px;
+}
+.result,.status{
+	width: 100px;
+}
+.createtime{
+	width: 205px;
+}
+
+
+.well h2{
+	font-size: 15px;
+	width: 150px;
+	border-left: 2px solid #88B7E0;
+	padding-left: 10px;
+	display: block;
+}
+.well .container-fluid{
+	float: right;
+	margin-top: -30px;
+	margin-right: -15px;
+}
+.btn-primary{
+	color: #fff;
+    border: 1px solid #09c;
+    background-color: #09c;
+	border-radius: 0;
+	font-size: 12px;
+}
+.btn-primary:hover {
+    color: #fff;
+    border: 1px solid #28b5d6;
+    background-color: #28b5d6;
+}
+.btn-group .btn-primary,.btn-group .btn-danger{
+	background-color: transparent;
+	border:0;
+	color: #06C;
+	font-size: 12px;
+}
+.btn-group .btn-primary:hover,.btn-group .btn-danger:hover{
+	text-decoration: underline;
+	color: #039;
+}
+
+/*页码*/
+.pages{
+	float: right !important;
+	min-width: 200px;
+	padding-top: 5px;
+	margin-right:10px;
+	margin-bottom: 10px;
+}
+.well{
+	position: relative;
+}
+.pageNum{
+	margin: 0;
+	float: right !important;
+}
+
+/*保险公司信息*/
+.sidebar-menu{
+	width: 143px !important;
+}
+.sidebar-menu.collapsed{
+	width: 80px !important;
+}
+.ng-valid-date .modal-body:after{
+	border-bottom-width:0;
+}
+.page-container .main-content{
+	background-color: #F5F5F5;
+}
+.well{
+	padding: 0;
+	border:0;
+	box-shadow:none;
+}
+.form-inline{
+	border-top: 1px solid #ddd;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+}
+.form-inline .form-group{
+	width: auto;
+	width:30% ;
+}
+label.cbr-inline{
+	float: left;
+    max-width: 100px;
+}
+.form-inline .form-group input{
+	width: 73%;
+    margin-left: 3%;
+}
+.btn.btn-single{
+	float: right;
+	padding: 6px 18px;
+}
+footer.main-footer .footer-text{
+	float: none;
+	text-align: center !important;
+}
+.modal .modal-dialog .modal-content .modal-footer{
+	border-top: 0;
+	padding-right: 15px;
+}
+.seaCondition{
+	width:90%;
+	float: left;
+	padding-bottom: 10px;
+}
+.pull-right{
+	width: 6% !important;
+    margin-left: 4%;
+}
+
+
+/*risk-items*/
+.searchBox{
+	    float: right;
+    margin-top: -58px;
+	/*position: absolute;
+    right: 186px;
+    top: -32px;*/
+}
+.searchBox .form-inline{
+	border-top: 0;
+}
+.searchBox .form-inline .input-group{
+	width: 100% !important;
+}
+.searchBox .form-inline .input-group{
+	padding: 8px 12px;
+}
+.searchBox .btn{
+	padding: 8px 12px;
+}
+
+
+.closed{
+	float: right;
+}
+
+.editable-controls input{
+	width:100%;
+}
+
+/*im-risk-dislog*/
+#tab1 div.proImg input{
+	width: 48.333333%;
+}
+#tab1 div.proImg .picShow{
+	float: right;
+    margin-top: -41px;
+    margin-right: 100px;
+}
+#tab1 div.proImg .picShow img{
+	max-width: 200px !important;
+	max-height: 100px !important;
+	margin-top: 9px !important;
+}
+#tab2 .checkbox-list{
+	margin-bottom: 10px;
+}
+
+#tab2 .modal-body .col-sm-10{
+	padding-left: 0;
+}
+#tab2 .modal-body .col-md-12{
+	border-bottom: 1px solid #dcdcdc;
+    margin-top: -9px;
+    margin-bottom: 6px;
+    padding-left: 0;
+}
+#tab2 .width-44{
+	width: 44%;
+	float: left;
+}
+
+#tab2 div.checkbox{
+	margin-top: 15px;
+}
+#tab2 div.checkbox  label.control-label{
+	padding-left: 0;
+}
+#tab2 .ng-scope input.form-control:last-child{
+	float: right;
+}
+#tab2 .bxqj,#tab2 .jf{
+	margin-left: 158px;
+}
+#tab2 .ng-scope button.btn{
+	margin-top: 2px;
+    border: 1px solid #28b5d6;
+    background-color: #28b5d6;
+}
+#tab2 .ng-scope button.btn i{
+	color: #fff;
+}
+
+#tab2 button.btn.tab2_minus{
+	color: #fff;
+    border: 1px solid #FF5757;
+    background-color:#FF5757;
+}
+#tab3{
+	margin-top:40px;
+}
+#tab3 .tab3_addBtn{
+	display:inline-block;
+	padding:6px 12px;
+	color: #fff;
+    border: 1px solid #28b5d6;
+    background-color: #28b5d6;
+    float: right;
+    margin-top: -45px;
+    margin-right:15px;
+}
+#tab3 .panel-heading{
+	padding-right:17px;
+}
+#tab3 .panel-heading a:before{
+	content:"删除";
+	width:52px;
+	font-size:13px;
+	padding:8px 0;
+	color: #fff;
+    border: 1px solid #FF5757;
+    background-color:#FF5757;
+    text-align:center;
+    margin-top:-47px;
+}
+
+#tab3 .panel-body{
+	
+}	
+#tab3 .panel-default{
+	margin-top:20px;
+	padding:0;
+	border-top:1px solid #dcdcdc;
+}
+.padding_0{
+	padding:0;
+}
+/*新增产品弹出框的高度*/
+.modal-content{
+	min-height: 645px;
+}
+/*下划线*/
+.form-wizard>.tabs>li a:after{
+	height:4px;
+}
+.form-wizard .tab-content {
+    margin-top: 13px;
+}
+
+label[for] {
+  text-align: right;
+  padding-top: 7px;
+  padding-right: 0px;
+}
+
+
