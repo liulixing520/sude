@@ -1,164 +1,168 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
-                <img class="logo-img" src="content/images/logo-jhipster.png"/>
-                <span translate="global.title">Sude</span> <span class="navbar-version">v{{VERSION}}</span>
-            </a>
-        </div>
-        <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
-            <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active">
-                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-home"></span>
-                        <span class="hidden-sm" translate="global.menu.home">Home</span>
-                    </a>
-                </li>
-                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
-                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
-                        <span>
-                            <span class="glyphicon glyphicon-th-list"></span>
-                            <span class="hidden-sm" translate="global.menu.entities.main">
-                                Entities
-                            </span>
-                            <b class="caret"></b>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active">
-                            <a ui-sref="sd-company" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span data-translate="global.menu.entities.sdCompany">Sd Company</span>
-                            </a>
-                        </li>
-                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-                    </ul>
-                </li>
-                <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
-                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
-                        <span>
-                            <span class="glyphicon glyphicon-user"></span>
-                            <span class="hidden-sm" translate="global.menu.account.main">
-                                Account
-                            </span>
-                            <b class="caret"></b>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active" ng-switch-when="true">
-                            <a ui-sref="settings" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-wrench"></span>&nbsp;
-                                <span translate="global.menu.account.settings">Settings</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active" ng-switch-when="true">
-                            <a ui-sref="password" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-lock"></span>&nbsp;
-                                <span translate="global.menu.account.password">Password</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active" ng-switch-when="true">
-                            <a ui-sref="sessions" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-cloud"></span>&nbsp;
-                                <span translate="global.menu.account.sessions">Sessions</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active" ng-switch-when="true">
-                            <a href="" ng-click="vm.logout()" id="logout">
-                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;
-                                <span translate="global.menu.account.logout">Sign out</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active" ng-switch-when="false">
-                            <a href="" ng-click="vm.login()" id="login">
-                                <span class="glyphicon glyphicon-log-in"></span>&nbsp;
-                                <span translate="global.menu.account.login">Sign in</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active" ng-switch-when="false">
-                            <a ui-sref="register" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
-                                <span translate="global.menu.account.register">Register</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
-                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
-                        <span>
-                            <span class="glyphicon glyphicon-tower"></span>
-                            <span class="hidden-sm" translate="global.menu.admin.main">Administration</span>
-                            <b class="caret"></b>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active">
-                            <a ui-sref="user-management" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-user"></span>&nbsp;
-                                <span translate="global.menu.admin.userManagement">User management</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
-                                <span translate="global.menu.admin.metrics">Metrics</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-heart"></span>&nbsp;
-                                <span translate="global.menu.admin.health">Health</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
-                                <span translate="global.menu.admin.configuration">Configuration</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="audits" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-bell"></span>&nbsp;
-                                <span translate="global.menu.admin.audits">Audits</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="logs" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
-                                <span translate="global.menu.admin.logs">Logs</span>
-                            </a>
-                        </li>
-                        <li ng-show="vm.swaggerEnabled" ui-sref-active="active">
-                            <a ui-sref="docs" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-book"></span>&nbsp;
-                                <span translate="global.menu.admin.apidocs">API</span>
-                            </a>
-                        </li>
-                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-                    </ul>
-                </li>
-                <li ui-sref-active="active" uib-dropdown class="dropdown pointer" ng-controller="JhiLanguageController as languageVm">
-                    <a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
-                        <span>
-                            <span class="glyphicon glyphicon-flag"></span>
-                            <span class="hidden-sm" translate="global.menu.language">Language</span>
-                            <b class="caret"></b>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
-                        <li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
-                            <a href="" ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language | findLanguageFromKey}}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+<nav class="navbar user-info-navbar fixed" role="navigation">
+	<ul class="user-info-menu left-links list-inline list-unstyled">
+		<li class="hidden-sm hidden-xs" style="min-height: 76px;"><a
+			href="#" data-toggle="sidebar"> <i class="fa-bars"></i>
+		</a></li>
+		<li class="dropdown hover-line" style="min-height: 76px;"><a
+			href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+				class="fa-envelope-o"></i> <span class="badge badge-green">15</span>
+		</a>
+			<ul class="dropdown-menu messages">
+				<!-- TS14720347963047: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+				<li>
+					<ul
+						class="dropdown-menu-list list-unstyled ps-scrollbar ps-container">
+						<li class="active"><a href="#"> <span class="line">
+									<strong>Luc Chartier</strong> <span class="light small">-
+										yesterday</span>
+							</span> <span class="line desc small"> This ain’t our first item,
+									it is the best of the rest. </span>
+						</a></li>
+						<li class="active"><a href="#"> <span class="line">
+									<strong>Salma Nyberg</strong> <span class="light small">-
+										2 days ago</span>
+							</span> <span class="line desc small"> Oh he decisively
+									impression attachment friendship so if everything. </span>
+						</a></li>
+						<li><a href="#"> <span class="line"> Hayden
+									Cartwright <span class="light small">- a week ago</span>
+							</span> <span class="line desc small"> Whose her enjoy chief new
+									young. Felicity if ye required likewise so doubtful. </span>
+						</a></li>
+						<li><a href="#"> <span class="line"> Sandra
+									Eberhardt <span class="light small">- 16 days ago</span>
+							</span> <span class="line desc small"> On so attention necessary
+									at by provision otherwise existence direction. </span>
+						</a></li>
+						<!-- Repeated -->
+						<li class="active"><a href="#"> <span class="line">
+									<strong>Luc Chartier</strong> <span class="light small">-
+										yesterday</span>
+							</span> <span class="line desc small"> This ain’t our first item,
+									it is the best of the rest. </span>
+						</a></li>
+						<li class="active"><a href="#"> <span class="line">
+									<strong>Salma Nyberg</strong> <span class="light small">-
+										2 days ago</span>
+							</span> <span class="line desc small"> Oh he decisively
+									impression attachment friendship so if everything. </span>
+						</a></li>
+						<li><a href="#"> <span class="line"> Hayden
+									Cartwright <span class="light small">- a week ago</span>
+							</span> <span class="line desc small"> Whose her enjoy chief new
+									young. Felicity if ye required likewise so doubtful. </span>
+						</a></li>
+						<li><a href="#"> <span class="line"> Sandra
+									Eberhardt <span class="light small">- 16 days ago</span>
+							</span> <span class="line desc small"> On so attention necessary
+									at by provision otherwise existence direction. </span>
+						</a></li>
+						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+							<div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+						</div>
+						<div class="ps-scrollbar-y-rail" style="top: 0px; right: 2px;">
+							<div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+						</div>
+					</ul>
+				</li>
+				<li class="external"><a
+					href="http://themes.laborator.co/xenon/ui/mailbox-main/"> <span>All
+							Messages</span> <i class="fa-link-ext"></i>
+				</a></li>
+			</ul></li>
+		<li class="dropdown hover-line" style="min-height: 76px;"><a
+			href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+				class="fa-bell-o"></i> <span class="badge badge-purple">7</span>
+		</a>
+			<ul class="dropdown-menu notifications">
+				<!-- TS147203479615909: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+				<li class="top">
+					<p class="small">
+						<a href="#" class="pull-right">Mark all Read</a> You have <strong>3</strong>
+						new notifications.
+					</p>
+				</li>
+				<li>
+					<ul
+						class="dropdown-menu-list list-unstyled ps-scrollbar ps-container">
+						<li class="active notification-success"><a href="#"> <i
+								class="fa-user"></i> <span class="line"> <strong>New
+										user registered</strong>
+							</span> <span class="line small time"> 30 seconds ago </span>
+						</a></li>
+						<li class="active notification-secondary"><a href="#"> <i
+								class="fa-lock"></i> <span class="line"> <strong>Privacy
+										settings have been changed</strong>
+							</span> <span class="line small time"> 3 hours ago </span>
+						</a></li>
+						<li class="notification-primary"><a href="#"> <i
+								class="fa-thumbs-up"></i> <span class="line"> <strong>Someone
+										special liked this</strong>
+							</span> <span class="line small time"> 2 minutes ago </span>
+						</a></li>
+						<li class="notification-danger"><a href="#"> <i
+								class="fa-calendar"></i> <span class="line"> John
+									cancelled the event </span> <span class="line small time"> 9
+									hours ago </span>
+						</a></li>
+						<li class="notification-info"><a href="#"> <i
+								class="fa-database"></i> <span class="line"> The server
+									is status is stable </span> <span class="line small time">
+									yesterday at 10:30am </span>
+						</a></li>
+						<li class="notification-warning"><a href="#"> <i
+								class="fa-envelope-o"></i> <span class="line"> New
+									comments waiting approval </span> <span class="line small time">
+									last week </span>
+						</a></li>
+						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+							<div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+						</div>
+						<div class="ps-scrollbar-y-rail" style="top: 0px; right: 2px;">
+							<div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+						</div>
+					</ul>
+				</li>
+				<li class="external"><a href="#"> <span>View all
+							notifications</span> <i class="fa-link-ext"></i>
+				</a></li>
+			</ul></li>
+	</ul>
+	<ul class="user-info-menu right-links list-inline list-unstyled">
+		<li class="search-form" style="min-height: 76px;">
+			<form name="userinfo_search_form" method="get"
+				action="http://themes.laborator.co/xenon/extra/search/">
+				<input type="text" name="s" class="form-control search-field"
+					placeholder="Type to search...">
+				<button type="submit" class="btn btn-link">
+					<i class="linecons-search"></i>
+				</button>
+			</form>
+		</li>
+		<li class="dropdown user-profile" style="min-height: 76px;"><a
+			href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"> <img
+				src="http://themes.laborator.co/xenon/assets/images/user-4.png"
+				alt="user-image" class="img-circle img-inline userpic-32" width="28">
+				<span> John Smith <i class="fa-angle-down"></i>
+			</span>
+		</a>
+			<ul class="dropdown-menu user-profile-menu list-unstyled">
+				<li><a href="#edit-profile"> <i class="fa-edit"></i> New
+						Post
+				</a></li>
+				<li><a href="#settings"> <i class="fa-wrench"></i> Settings
+				</a></li>
+				<li><a href="#profile"> <i class="fa-user"></i> Profile
+				</a></li>
+				<li><a href="#help"> <i class="fa-info"></i> Help
+				</a></li>
+				<li class="last"><a
+					href="" ng-click="vm.logout()" id="logout"> <i
+						class="fa-lock"></i> Logout
+				</a></li>
+			</ul></li>
+		<li style="min-height: 76px;"><a href="#" data-toggle="chat">
+				<i class="fa-comments-o"></i>
+		</a></li>
+	</ul>
 </nav>

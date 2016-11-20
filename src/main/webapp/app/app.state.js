@@ -15,7 +15,12 @@
                     templateUrl: 'app/layouts/navbar/navbar.html',
                     controller: 'NavbarController',
                     controllerAs: 'vm'
-                }
+                },
+                'menu@': {
+		            templateUrl: 'app/layouts/menu/menu.html',
+		            controller: 'NavbarController',
+		            controllerAs: 'vm'
+		        }
             },
             resolve: {
                 authorize: ['Auth',

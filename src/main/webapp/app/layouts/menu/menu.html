@@ -1,0 +1,89 @@
+<script src="content/js/bootstrap.min.js" id="script-resource-1"></script>
+<script src="content/js/TweenMax.min.js" id="script-resource-2"></script>
+<script src="content/js/resizeable.js" id="script-resource-3"></script>
+<script src="content/js/joinable.js" id="script-resource-4"></script>
+<script src="content/js/xenon-api.js" id="script-resource-5"></script>
+<script src="content/js/xenon-toggles.js" id="script-resource-6"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="content/js/xenon-custom.js" id="script-resource-7"></script>
+
+<header class="logo-env">
+	<!-- logo -->
+	<div class="logo">
+		<a href="" class="logo-expanded"> <img
+			src="content/images/logo@2x.png" width="80" alt="">
+		</a> <a href="" class="logo-collapsed"> <img
+			src="content/images/logo-collapsed@2x.png" width="40" alt="">
+		</a>
+	</div>
+	<div class="mobile-menu-toggle visible-xs">
+		<a href="#" data-toggle="user-info-menu"> <i class="fa-bell-o"></i>
+			<span class="badge badge-success">7</span>
+		</a> <a href="#" data-toggle="mobile-menu"> <i class="fa-bars"></i>
+		</a>
+	</div>
+	<!--<div class="settings-icon">-->
+		<!--<a href="#" data-toggle="settings-pane" data-animate="true"> <i-->
+			<!--class="linecons-cog"></i>-->
+		<!--</a>-->
+	<!--</div>-->
+</header>
+<ul id="main-menu" class="main-menu">
+	<li ng-class="{'opened active expanded': vm.$state.includes('customerMng')}" class="has-sub">
+		<a ui-sref="insur-company-info"> <i class="linecons-cog"></i><span class="title">客户管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="ld-customer"><a href="javascript:void(0);" ><span  class="title">客户信息</span></a></li>
+			<li ui-sref-active="active" ui-sref="insur-company-info"><a href="javascript:void(0);" ><span class="title">保险公司维护</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('userMng')}" class="has-sub">
+		<a href="javascript:void(0);" ><i class="linecons-desktop"></i><span class="title">用户管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="user-management"><a href="javascript:void(0);"><span class="title">用户管理</span></a></li>
+		</ul>
+	</li>
+	<li	ng-class="{'opened active expanded': vm.$state.includes('protocol')}" class="has-sub">
+		<a href="javascript:void(0);" ><i class="linecons-star"></i><span class="title">协议管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="insur-protocol"><a href="javascript:void(0);"><span class="title">协议信息</span></a></li>
+			<li ui-sref-active="active" ><a href="javascript:void(0);"><span class="title">协议结算</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('riskMng')}"class="has-sub">
+		<a href=""><i class="linecons-mail"></i><span class="title">产品管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="im-risk"><a href="javascript:void(0);"><span class="title">产品定义</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('programMng')}" class="has-sub ">
+		<a href="javascript:void(0);" ><i class="linecons-database"></i><span class="title">项目管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="program-info"><a href="javascript:void(0);"><span class="title">项目信息</span></a></li>
+<!-- 			<li ui-sref-active="active" ui-sref="program-follow"><a href="javascript:void(0);"><span class="title">项目跟进</span></a></li> -->
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('insureMng')}" class="has-sub">
+		<a href="javascript:void(0);"><i class="linecons-params"></i><span class="title">承保管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="lc-cont"><a href="javascript:void(0);"><span class="title">寿险</span></a></li>
+<!-- 			<li ui-sref-active="active" ><a href="lc-cont-car"><span class="title">车险险</span></a></li> -->
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('claimsMng')}" class="has-sub">
+		<a href="javascript:void(0);"><i class="linecons-beaker"></i><span class="title">理赔管理</span></a>
+        <ul style="">
+            <li ui-sref-active="active" ui-sref="ll-case"><a href="javascript:void(0);"><span class="title">寿险</span></a></li>
+            <!--<li ui-sref-active="active" ><a href="javascript:void(0);"><span class="title">财产险</span></a></li>-->
+        </ul>
+	</li>
+	<li class="has-sub">
+		<a href="javascript:void(0);"><i class="linecons-globe"></i><span class="title">结算管理</span></a>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('agentMng')}" class="has-sub">
+		<a href="javascript:void(0);"><i class="linecons-cloud"></i><span class="title">销售管理</span></a>
+		<ul style="">
+            <li ui-sref-active="active" ui-sref="agent-info"><a href="javascript:void(0);"><span class="title">经纪人管理</span></a></li>
+            <li ui-sref-active="active" ui-sref="group-info"><a href="javascript:void(0);"><span class="title">团队管理</span></a></li>
+        </ul>
+	</li>
+</ul>

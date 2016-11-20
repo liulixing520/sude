@@ -1,52 +1,85 @@
-<!doctype html>
-<html class="no-js">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>sude</title>
     <meta name="description" content="">
     <meta name="google" value="notranslate">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css content/css/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
-    
-    <!-- endinject -->
-    <!-- endbuild -->
-    <!-- build:css content/css/main.css -->
-    <link rel="stylesheet" href="content/css/linecons.css"	id="style-resource-2">
-	<link rel="stylesheet" href="content/css/font-awesome.min.css"	id="style-resource-3">
-	<link rel="stylesheet" href="content/css/bootstrap.css"	id="style-resource-4">
-	<link rel="stylesheet" href="content/css/xenon-core.css"	id="style-resource-5">
-	<link rel="stylesheet" href="content/css/xenon-forms.css" id="style-resource-6">
-	<link rel="stylesheet" href="content/css/xenon-components.css"	id="style-resource-7">
-	<link rel="stylesheet" href="content/css/xenon-skins.css" id="style-resource-8">
-	<link rel="stylesheet" href="content/css/custom.css" id="style-resource-9">
-	<link rel="stylesheet" href="content/css/select2-bootstrap.css" id="style-resource-10">
-	<link rel="stylesheet" href="content/css/select2.css" id="style-resource-11">
-	<link rel="stylesheet" href="content/css/multi-select.css" id="style-resource-11">
-	
-	<link rel="stylesheet" href="content/css/common.css">
-    <link rel="stylesheet" href="content/css/main.css">
-    <!-- endbuild -->
-</head>
-<body ng-app="sudeApp" ng-strict-di>
-    <!--[if lt IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <page-ribbon></page-ribbon>
-    <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
+<title>速达物流</title>
+<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+<!-- endinject -->
+<link rel="stylesheet" href="content/css/vendor.css">
+<!-- endbuild -->
+<!-- build:css content/css/main.css -->
+<link rel="stylesheet" href="content/css/main.css">
 
-        <div class="footer" ng-cloak>
-            <p translate="footer">This is your footer</p>
-        </div>
-    </div>
+<!-- <link rel="stylesheet" href="content/css?family=Arimo:400,700,400italic" id="style-resource-1"> -->
+<link rel="stylesheet" href="content/css/linecons.css"	id="style-resource-2">
+<link rel="stylesheet" href="content/css/font-awesome.min.css"	id="style-resource-3">
+<link rel="stylesheet" href="content/css/bootstrap.css"	id="style-resource-4">
+<link rel="stylesheet" href="content/css/xenon-core.css"	id="style-resource-5">
+<link rel="stylesheet" href="content/css/xenon-forms.css" id="style-resource-6">
+<link rel="stylesheet" href="content/css/xenon-components.css"	id="style-resource-7">
+<link rel="stylesheet" href="content/css/xenon-skins.css" id="style-resource-8">
+<link rel="stylesheet" href="content/css/custom.css" id="style-resource-9">
+<link rel="stylesheet" href="content/css/select2-bootstrap.css" id="style-resource-10">
+<link rel="stylesheet" href="content/css/select2.css" id="style-resource-11">
+<link rel="stylesheet" href="content/css/multi-select.css" id="style-resource-11">
+
+<link rel="stylesheet" href="content/css/common.css">
+<script src="content/js/jquery-1.11.1.min.js"></script>
+<script async="" src="content/js/analytics.js"></script>
+<script async="" src="content/js/select2.min.js"></script>
+<script async="" src="content/js/jquery.bootstrap.wizard.min.js"></script>
+
+</head>
+<body class="page-body" ng-app="sudeApp" ng-strict-di>
+	<!-- TS14720347964249: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+	<!-- TS147203479619759: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+	<div class="page-container">
+		<!-- TS14720347965778: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+		<div class="sidebar-menu toggle-others" style="">
+			<div class="sidebar-menu-inner">
+				<div ui-view="menu" ng-cloak>
+				<!-- 菜单-->
+				</div>
+			</div>
+		</div>
+		<div class="main-content" style="">
+			<!-- TS147203479615232: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+			<div ui-view="navbar" ng-cloak>
+			<!-- 头部bar-->
+			</div>
+			<!-- TS14720347962496: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+
+			<div class="well" ui-view="content">
+	            <!-- 正文内容-->
+	        </div>
+
+			<!-- TS14720347969555: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+			<!-- Main Footer -->
+			<footer class="main-footer sticky footer-type-1" style="">
+				<div class="footer-inner">
+					<div class="footer-text">
+						© 2016 <strong>Xenon</strong> theme by <a
+							href="http://laborator.co" target="_blank">Laborator</a> - <a
+							href="http://themeforest.net/item/xenon-bootstrap-admin-theme/9059661?ref=Laborator"
+					</div>
+					<div class="go-up">
+						<a href="#" rel="go-top"> <i class="fa-angle-up"></i>
+						</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- TS147203479618947: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+	</div>
+	<!-- TS147203479619425: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
+
+	<textarea tabindex="-1"
+		style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: 18.5714px; width: 53px;"
+		class="autosizejs" id="autosizejs"></textarea>
+</body>
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
@@ -57,6 +90,7 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>-->
+
 
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->
@@ -79,8 +113,6 @@
     <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
-    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -198,5 +230,4 @@
     <!-- endinject -->
     <!-- endbuild -->
 
-</body>
 </html>
