@@ -4,6 +4,7 @@ import com.sude.sd.SudeApp;
 
 import com.sude.sd.domain.SdCompany;
 import com.sude.sd.repository.SdCompanyRepository;
+import com.sude.sd.service.SdCompanyService;
 import com.sude.sd.repository.search.SdCompanySearchRepository;
 
 import org.junit.Before;
@@ -55,6 +56,9 @@ public class SdCompanyResourceIntTest {
     private SdCompanyRepository sdCompanyRepository;
 
     @Inject
+    private SdCompanyService sdCompanyService;
+
+    @Inject
     private SdCompanySearchRepository sdCompanySearchRepository;
 
     @Inject
@@ -74,8 +78,7 @@ public class SdCompanyResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         SdCompanyResource sdCompanyResource = new SdCompanyResource();
-        ReflectionTestUtils.setField(sdCompanyResource, "sdCompanySearchRepository", sdCompanySearchRepository);
-        ReflectionTestUtils.setField(sdCompanyResource, "sdCompanyRepository", sdCompanyRepository);
+        ReflectionTestUtils.setField(sdCompanyResource, "sdCompanyService", sdCompanyService);
         this.restSdCompanyMockMvc = MockMvcBuilders.standaloneSetup(sdCompanyResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -174,8 +177,8 @@ public class SdCompanyResourceIntTest {
     @Transactional
     public void updateSdCompany() throws Exception {
         // Initialize the database
-        sdCompanyRepository.saveAndFlush(sdCompany);
-        sdCompanySearchRepository.save(sdCompany);
+        sdCompanyService.save(sdCompany);
+
         int databaseSizeBeforeUpdate = sdCompanyRepository.findAll().size();
 
         // Update the sdCompany
@@ -209,8 +212,8 @@ public class SdCompanyResourceIntTest {
     @Transactional
     public void deleteSdCompany() throws Exception {
         // Initialize the database
-        sdCompanyRepository.saveAndFlush(sdCompany);
-        sdCompanySearchRepository.save(sdCompany);
+        sdCompanyService.save(sdCompany);
+
         int databaseSizeBeforeDelete = sdCompanyRepository.findAll().size();
 
         // Get the sdCompany
@@ -231,8 +234,7 @@ public class SdCompanyResourceIntTest {
     @Transactional
     public void searchSdCompany() throws Exception {
         // Initialize the database
-        sdCompanyRepository.saveAndFlush(sdCompany);
-        sdCompanySearchRepository.save(sdCompany);
+        sdCompanyService.save(sdCompany);
 
         // Search the sdCompany
         restSdCompanyMockMvc.perform(get("/api/_search/sd-companies?query=id:" + sdCompany.getId()))

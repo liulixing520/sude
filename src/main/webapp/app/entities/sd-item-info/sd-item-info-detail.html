@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span data-translate="sudeApp.sdItemInfo.detail.title">Sd Item Info</span> {{vm.sdItemInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.sdItemInfo.orderNo">Order No</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.orderNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.tradName">Trad Name</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.tradName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.itemNum">Item Num</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.itemNum}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.weight">Weight</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.weight}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.volume">Volume</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.volume}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.itemUnit">Item Unit</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.itemUnit}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.freight">Freight</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.freight}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.kickBack">Kick Back</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.kickBack}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.cod">Cod</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.cod}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.deliveryExpense">Delivery Expense</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.deliveryExpense}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.claimingValue">Claiming Value</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.claimingValue}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdItemInfo.premium">Premium</span></dt>
+        <dd>
+            <span>{{vm.sdItemInfo.premium}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sd-item-info-detail.edit({id:vm.sdItemInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

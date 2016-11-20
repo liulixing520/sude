@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "customerName",
+            "fieldDescription":"客户名称",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "customerNM",
+        	"fieldDescription":"名称简写",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "sex",
+        	"fieldDescription":"性别",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "mobilePhone",
+        	"fieldDescription":"手机号",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "idCard",
+        	"fieldDescription":"身份证",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "address",
+        	"fieldDescription":"地址",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "bank",
+        	"fieldDescription":"银行",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "bankNo",
+        	"fieldDescription":"银行账号",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "bankOpenName",
+        	"fieldDescription":"开户行",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "company",
+        	"fieldDescription":"公司名",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "custType",
+        	"fieldDescription":"客户类型",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "remark",
+        	"fieldDescription":"备注",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_customer",
+    "entityName": "客户信息",
+    "pagination": "pagination"
+}

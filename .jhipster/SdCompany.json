@@ -25,7 +25,7 @@
     ],
     "changelogDate": "20161114130422",
     "dto": "no",
-    "service": "no",
+    "service": "serviceClass",
     "entityTableName": "sd_company",
     "entityName": "公司信息",
     "pagination": "pagination"

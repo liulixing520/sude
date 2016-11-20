@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="sudeApp.enumeration.detail.title">Enumeration</span> {{vm.enumeration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.enumeration.isDelete">Is Delete</span></dt>
+        <dd>
+            <span>{{vm.enumeration.isDelete}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.enumeration.description">Description</span></dt>
+        <dd>
+            <span>{{vm.enumeration.description}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.enumeration.enumTypeId">Enum Type Id</span></dt>
+        <dd>
+            <span>{{vm.enumeration.enumTypeId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="enumeration-detail.edit({id:vm.enumeration.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,45 @@
+{
+    "sudeApp": {
+        "sdOrderHeader" : {
+            "home": {
+                "title": "发货单",
+                "createLabel": "新增发货单",
+                "createOrEditLabel": "新增或修改发货单",
+                "search": "搜索发货单"
+            },
+            "created": "ID 为 {{ param }} 的发货单被创建",
+            "updated": "ID 为 {{ param }} 的发货单被更新",
+            "deleted": "ID 为 {{ param }} 的发货单被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}发货单?"
+            },
+            "detail": {
+                "title": "发货单"
+            },
+            "orderHeaderNo": "合同编号",
+            "carNo": "车牌号",
+            "driverName": "司机",
+            "mobilePhone": "手机号",
+            "departBatch": "发车批次",
+            "fromStation": "启运地",
+            "toStation": "目的地",
+            "unloadPlace": "卸货地",
+            "cashPay": "现付运费",
+            "driverCollection": "司机代收款",
+            "handlingCharges": "装卸费",
+            "receiveShipment": "接货费",
+            "otherPay": "其他费用",
+            "departureTime": "发车时间",
+            "weight": "本车载重",
+            "practical": "实际重量",
+            "loadParter": "配载员",
+            "reply": "回付运费",
+            "oilCardNo": "油卡卡号",
+            "oilCardBlance": "油卡金额",
+            "freightSum": "运费合计",
+            "arriveFreight": "到付运费",
+            "arriveDriver": "到付驾驶员",
+            "orderHeadStat": "合同状态"
+        }
+    }
+}

@@ -1,0 +1,132 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "orderHeaderNo",
+            "fieldDescription":"合同编号",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "carNo",
+        	"fieldDescription":"车牌号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "driverName",
+        	"fieldDescription":"司机",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "mobilePhone",
+        	"fieldDescription":"手机号",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "departBatch",
+        	"fieldDescription":"发车批次",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "fromStation",
+        	"fieldDescription":"启运地",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "toStation",
+        	"fieldDescription":"目的地",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "unloadPlace",
+        	"fieldDescription":"卸货地",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "cashPay",
+        	"fieldDescription":"现付运费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "driverCollection",
+        	"fieldDescription":"司机代收款",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "handlingCharges",
+        	"fieldDescription":"装卸费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "receiveShipment",
+        	"fieldDescription":"接货费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "otherPay",
+        	"fieldDescription":"其他费用",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "departureTime",
+        	"fieldDescription":"发车时间",
+        	"fieldType": "ZonedDateTime"
+        },
+        {
+        	"fieldName": "weight",
+        	"fieldDescription":"本车载重",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "practical",
+        	"fieldDescription":"实际重量",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "loadParter",
+        	"fieldDescription":"配载员",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "reply",
+        	"fieldDescription":"回付运费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "oilCardNo",
+        	"fieldDescription":"油卡卡号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "oilCardBlance",
+        	"fieldDescription":"油卡金额",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "freightSum",
+        	"fieldDescription":"运费合计",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "arriveFreight",
+        	"fieldDescription":"到付运费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "arriveDriver",
+        	"fieldDescription":"到付驾驶员",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "orderHeadStat",
+        	"fieldDescription":"合同状态",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_order_header",
+    "entityName": "发货单",
+    "pagination": "pagination"
+}

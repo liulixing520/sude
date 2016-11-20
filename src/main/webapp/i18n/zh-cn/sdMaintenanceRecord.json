@@ -1,0 +1,29 @@
+{
+    "sudeApp": {
+        "sdMaintenanceRecord" : {
+            "home": {
+                "title": "车辆维修记录",
+                "createLabel": "新增车辆维修记录",
+                "createOrEditLabel": "新增或修改车辆维修记录",
+                "search": "搜索车辆维修记录"
+            },
+            "created": "ID 为 {{ param }} 的车辆维修记录被创建",
+            "updated": "ID 为 {{ param }} 的车辆维修记录被更新",
+            "deleted": "ID 为 {{ param }} 的车辆维修记录被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}车辆维修记录?"
+            },
+            "detail": {
+                "title": "车辆维修记录"
+            },
+            "carNo": "车牌号",
+            "maintainDate": "维修日期",
+            "sender": "送修人",
+            "sendReason": "送修原因",
+            "repairer": "维修单位",
+            "repaiResult": "修理结果",
+            "repaiCosts": "维修费用",
+            "remark": "备注"
+        }
+    }
+}

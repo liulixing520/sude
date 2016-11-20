@@ -1,0 +1,33 @@
+{
+    "sudeApp": {
+        "sdCustomer" : {
+            "home": {
+                "title": "Sd Customers",
+                "createLabel": "Create a new Sd Customer",
+                "createOrEditLabel": "Create or edit a Sd Customer",
+                "search": "Search for Sd Customer"
+            },
+            "created": "A new Sd Customer is created with identifier {{ param }}",
+            "updated": "A Sd Customer is updated with identifier {{ param }}",
+            "deleted": "A Sd Customer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Customer {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Customer"
+            },
+            "customerName": "Customer Name",
+            "customerNM": "Customer NM",
+            "sex": "Sex",
+            "mobilePhone": "Mobile Phone",
+            "idCard": "Id Card",
+            "address": "Address",
+            "bank": "Bank",
+            "bankNo": "Bank No",
+            "bankOpenName": "Bank Open Name",
+            "company": "Company",
+            "custType": "Cust Type",
+            "remark": "Remark"
+        }
+    }
+}

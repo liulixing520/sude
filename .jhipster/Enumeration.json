@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "isDelete",
+            "fieldDescription":"是否删除",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldDescription":"描述",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enumTypeId",
+            "fieldDescription":"枚举类型",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161120010110",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityName": "枚举",
+    "entityTableName": "enumeration",
+    "pagination": "pagination"
+}

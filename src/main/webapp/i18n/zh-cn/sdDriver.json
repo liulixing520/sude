@@ -1,0 +1,25 @@
+{
+    "sudeApp": {
+        "sdDriver" : {
+            "home": {
+                "title": "司机信息",
+                "createLabel": "新增司机信息",
+                "createOrEditLabel": "新增或修改司机信息",
+                "search": "搜索司机信息"
+            },
+            "created": "ID 为 {{ param }} 的司机信息被创建",
+            "updated": "ID 为 {{ param }} 的司机信息被更新",
+            "deleted": "ID 为 {{ param }} 的司机信息被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}司机信息?"
+            },
+            "detail": {
+                "title": "司机信息"
+            },
+            "driverName": "司机名称",
+            "sex": "性别",
+            "mobilePhone": "手机号",
+            "remark": "备注"
+        }
+    }
+}

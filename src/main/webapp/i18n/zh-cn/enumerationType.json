@@ -1,0 +1,23 @@
+{
+    "sudeApp": {
+        "enumerationType" : {
+            "home": {
+                "title": "枚举类型",
+                "createLabel": "新增枚举类型",
+                "createOrEditLabel": "新增或修改枚举类型",
+                "search": "搜索枚举类型"
+            },
+            "created": "ID 为 {{ param }} 的枚举类型被创建",
+            "updated": "ID 为 {{ param }} 的枚举类型被更新",
+            "deleted": "ID 为 {{ param }} 的枚举类型被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}枚举类型?"
+            },
+            "detail": {
+                "title": "枚举类型"
+            },
+            "isDelete": "是否删除",
+            "description": "描述"
+        }
+    }
+}

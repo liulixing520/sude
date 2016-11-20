@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span data-translate="sudeApp.sdCustomer.detail.title">Sd Customer</span> {{vm.sdCustomer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.sdCustomer.customerName">Customer Name</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.customerName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.customerNM">Customer NM</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.customerNM}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.sex">Sex</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.sex}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.mobilePhone">Mobile Phone</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.mobilePhone}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.idCard">Id Card</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.idCard}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.address">Address</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.address}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.bank">Bank</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.bank}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.bankNo">Bank No</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.bankNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.bankOpenName">Bank Open Name</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.bankOpenName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.company">Company</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.company}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.custType">Cust Type</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.custType}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCustomer.remark">Remark</span></dt>
+        <dd>
+            <span>{{vm.sdCustomer.remark}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sd-customer-detail.edit({id:vm.sdCustomer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

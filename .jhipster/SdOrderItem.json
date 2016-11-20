@@ -1,0 +1,217 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "orderNo",
+            "fieldDescription":"托运单号",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "orderHeaderNo",
+        	"fieldDescription":"货运单号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "itemNo",
+        	"fieldDescription":"托运日期",
+        	"fieldType": "LocalDate"
+        },
+        {
+        	"fieldName": "consignDate",
+        	"fieldDescription":"受理日期",
+        	"fieldType": "LocalDate"
+        },
+        {
+        	"fieldName": "fromStation",
+        	"fieldDescription":"启运站",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "toStation",
+        	"fieldDescription":"到达站",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "middleStation",
+        	"fieldDescription":"经由",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consignerId",
+        	"fieldDescription":"发货人id",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consignerName",
+        	"fieldDescription":"发货人",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consignerAddress",
+        	"fieldDescription":"发货地址",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consignerPhone",
+        	"fieldDescription":"联系电话",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consignerMbPhone",
+        	"fieldDescription":"手机",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "consigneeId",
+        	"fieldDescription":"收货人id",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consigneeName",
+        	"fieldDescription":"收货人",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consigneePhone",
+        	"fieldDescription":"联系电话",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "consigneeMbPhone",
+        	"fieldDescription":"手机",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "consigneeAddress",
+        	"fieldDescription":"收货地址",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "bankNo",
+        	"fieldDescription":"银行卡号",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "bankName",
+        	"fieldDescription":"银行",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "openName",
+        	"fieldDescription":"开户名",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "idCard",
+        	"fieldDescription":"身份证号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "payType",
+        	"fieldDescription":"付款方式",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "cashPay",
+        	"fieldDescription":"现付",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "fetchPay",
+        	"fieldDescription":"提付",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "receiptPay",
+        	"fieldDescription":"回单付",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "monthPay",
+        	"fieldDescription":"月结",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "chargePay",
+        	"fieldDescription":"货款扣",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "transportType",
+        	"fieldDescription":"运输方式",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "backRequire",
+        	"fieldDescription":"回单要求",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "handOverType",
+        	"fieldDescription":"交接方式",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "otherPay",
+        	"fieldDescription":"其他支出",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "payExplain",
+        	"fieldDescription":"费用说明",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "remark",
+        	"fieldDescription":"备注",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "kickBack",
+        	"fieldDescription":"回扣已返",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "cashOwe",
+        	"fieldDescription":"现付尚欠",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "requireItem",
+        	"fieldDescription":"要求控货",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "tagged",
+        	"fieldDescription":"打标签",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "envelopes",
+        	"fieldDescription":"打信封",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "salesMan",
+        	"fieldDescription":"业务员",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "operator",
+        	"fieldDescription":"制单人",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "orderStat",
+        	"fieldDescription":"运单状态",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_order_item",
+    "entityName": "托运单",
+    "pagination": "pagination"
+}

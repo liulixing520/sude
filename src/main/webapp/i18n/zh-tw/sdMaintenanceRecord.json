@@ -1,0 +1,29 @@
+{
+    "sudeApp": {
+        "sdMaintenanceRecord" : {
+            "home": {
+                "title": "Sd Maintenance Records",
+                "createLabel": "Create a new Sd Maintenance Record",
+                "createOrEditLabel": "Create or edit a Sd Maintenance Record",
+                "search": "Search for Sd Maintenance Record"
+            },
+            "created": "A new Sd Maintenance Record is created with identifier {{ param }}",
+            "updated": "A Sd Maintenance Record is updated with identifier {{ param }}",
+            "deleted": "A Sd Maintenance Record is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Maintenance Record {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Maintenance Record"
+            },
+            "carNo": "Car No",
+            "maintainDate": "Maintain Date",
+            "sender": "Sender",
+            "sendReason": "Send Reason",
+            "repairer": "Repairer",
+            "repaiResult": "Repai Result",
+            "repaiCosts": "Repai Costs",
+            "remark": "Remark"
+        }
+    }
+}

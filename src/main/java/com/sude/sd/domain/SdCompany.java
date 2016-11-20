@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A SdCompany.
+ * A 公司信息.
  */
 @Entity
 @Table(name = "sd_company")

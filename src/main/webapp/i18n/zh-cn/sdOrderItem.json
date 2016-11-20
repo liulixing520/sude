@@ -1,0 +1,62 @@
+{
+    "sudeApp": {
+        "sdOrderItem" : {
+            "home": {
+                "title": "托运单",
+                "createLabel": "新增托运单",
+                "createOrEditLabel": "新增或修改托运单",
+                "search": "搜索托运单"
+            },
+            "created": "ID 为 {{ param }} 的托运单被创建",
+            "updated": "ID 为 {{ param }} 的托运单被更新",
+            "deleted": "ID 为 {{ param }} 的托运单被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}托运单?"
+            },
+            "detail": {
+                "title": "托运单"
+            },
+            "orderNo": "托运单号",
+            "orderHeaderNo": "货运单号",
+            "itemNo": "托运日期",
+            "consignDate": "受理日期",
+            "fromStation": "启运站",
+            "toStation": "到达站",
+            "middleStation": "经由",
+            "consignerId": "发货人id",
+            "consignerName": "发货人",
+            "consignerAddress": "发货地址",
+            "consignerPhone": "联系电话",
+            "consignerMbPhone": "手机",
+            "consigneeId": "收货人id",
+            "consigneeName": "收货人",
+            "consigneePhone": "联系电话",
+            "consigneeMbPhone": "手机",
+            "consigneeAddress": "收货地址",
+            "bankNo": "银行卡号",
+            "bankName": "银行",
+            "openName": "开户名",
+            "idCard": "身份证号",
+            "payType": "付款方式",
+            "cashPay": "现付",
+            "fetchPay": "提付",
+            "receiptPay": "回单付",
+            "monthPay": "月结",
+            "chargePay": "货款扣",
+            "transportType": "运输方式",
+            "backRequire": "回单要求",
+            "handOverType": "交接方式",
+            "otherPay": "其他支出",
+            "payExplain": "费用说明",
+            "remark": "备注",
+            "kickBack": "回扣已返",
+            "cashOwe": "现付尚欠",
+            "requireItem": "要求控货",
+            "tagged": "打标签",
+            "envelopes": "打信封",
+            "salesMan": "业务员",
+            "operator": "制单人",
+            "orderStat": "运单状态"
+        }
+    }
+}

@@ -1,0 +1,156 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="sd-order-item.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="sudeApp.sdOrderItem.home.createLabel">
+                        Create new Sd Order Item
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdOrderItem.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="orderNo"><span data-translate="sudeApp.sdOrderItem.orderNo">Order No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="orderHeaderNo"><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="itemNo"><span data-translate="sudeApp.sdOrderItem.itemNo">Item No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="consignDate"><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fromStation"><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="toStation"><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="middleStation"><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="consignerId"><span data-translate="sudeApp.sdOrderItem.consignerId">Consigner Id</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+                    <th jh-sort-by="consignerName"><span data-translate="sudeApp.sdOrderItem.consignerName">Consigner Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="consignerAddress"><span data-translate="sudeApp.sdOrderItem.consignerAddress">Consigner Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="consignerPhone"><span data-translate="sudeApp.sdOrderItem.consignerPhone">Consigner Phone</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="consignerMbPhone"><span data-translate="sudeApp.sdOrderItem.consignerMbPhone">Consigner Mb Phone</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="consigneeId"><span data-translate="sudeApp.sdOrderItem.consigneeId">Consignee Id</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+                    <th jh-sort-by="consigneeName"><span data-translate="sudeApp.sdOrderItem.consigneeName">Consignee Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="consigneePhone"><span data-translate="sudeApp.sdOrderItem.consigneePhone">Consignee Phone</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="consigneeMbPhone"><span data-translate="sudeApp.sdOrderItem.consigneeMbPhone">Consignee Mb Phone</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+                    <th jh-sort-by="consigneeAddress"><span data-translate="sudeApp.sdOrderItem.consigneeAddress">Consignee Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="bankNo"><span data-translate="sudeApp.sdOrderItem.bankNo">Bank No</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="bankName"><span data-translate="sudeApp.sdOrderItem.bankName">Bank Name</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="openName"><span data-translate="sudeApp.sdOrderItem.openName">Open Name</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="idCard"><span data-translate="sudeApp.sdOrderItem.idCard">Id Card</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="payType"><span data-translate="sudeApp.sdOrderItem.payType">Pay Type</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="cashPay"><span data-translate="sudeApp.sdOrderItem.cashPay">Cash Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="fetchPay"><span data-translate="sudeApp.sdOrderItem.fetchPay">Fetch Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="receiptPay"><span data-translate="sudeApp.sdOrderItem.receiptPay">Receipt Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="monthPay"><span data-translate="sudeApp.sdOrderItem.monthPay">Month Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="chargePay"><span data-translate="sudeApp.sdOrderItem.chargePay">Charge Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="transportType"><span data-translate="sudeApp.sdOrderItem.transportType">Transport Type</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="backRequire"><span data-translate="sudeApp.sdOrderItem.backRequire">Back Require</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="handOverType"><span data-translate="sudeApp.sdOrderItem.handOverType">Hand Over Type</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="otherPay"><span data-translate="sudeApp.sdOrderItem.otherPay">Other Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="payExplain"><span data-translate="sudeApp.sdOrderItem.payExplain">Pay Explain</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="remark"><span data-translate="sudeApp.sdOrderItem.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="kickBack"><span data-translate="sudeApp.sdOrderItem.kickBack">Kick Back</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="cashOwe"><span data-translate="sudeApp.sdOrderItem.cashOwe">Cash Owe</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="requireItem"><span data-translate="sudeApp.sdOrderItem.requireItem">Require Item</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="tagged"><span data-translate="sudeApp.sdOrderItem.tagged">Tagged</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="envelopes"><span data-translate="sudeApp.sdOrderItem.envelopes">Envelopes</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="salesMan"><span data-translate="sudeApp.sdOrderItem.salesMan">Sales Man</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="operator"><span data-translate="sudeApp.sdOrderItem.operator">Operator</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="orderStat"><span data-translate="sudeApp.sdOrderItem.orderStat">Order Stat</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sdOrderItem in vm.sdOrderItems track by sdOrderItem.id">
+                    <td><a ui-sref="sd-order-item-detail({id:sdOrderItem.id})">{{sdOrderItem.id}}</a></td>
+                    <td>{{sdOrderItem.orderNo}}</td>
+                    <td>{{sdOrderItem.orderHeaderNo}}</td>
+                        <td>{{sdOrderItem.itemNo | date:'mediumDate'}}</td>
+                        <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
+                    <td>{{sdOrderItem.fromStation}}</td>
+                    <td>{{sdOrderItem.toStation}}</td>
+                    <td>{{sdOrderItem.middleStation}}</td>
+<!--                     <td>{{sdOrderItem.consignerId}}</td> -->
+                    <td>{{sdOrderItem.consignerName}}</td>
+                    <td>{{sdOrderItem.consignerAddress}}</td>
+<!--                     <td>{{sdOrderItem.consignerPhone}}</td> -->
+<!--                     <td>{{sdOrderItem.consignerMbPhone}}</td> -->
+<!--                     <td>{{sdOrderItem.consigneeId}}</td> -->
+                    <td>{{sdOrderItem.consigneeName}}</td>
+<!--                     <td>{{sdOrderItem.consigneePhone}}</td> -->
+<!--                     <td>{{sdOrderItem.consigneeMbPhone}}</td> -->
+                    <td>{{sdOrderItem.consigneeAddress}}</td>
+<!--                     <td>{{sdOrderItem.bankNo}}</td> -->
+<!--                     <td>{{sdOrderItem.bankName}}</td> -->
+<!--                     <td>{{sdOrderItem.openName}}</td> -->
+<!--                     <td>{{sdOrderItem.idCard}}</td> -->
+<!--                     <td>{{sdOrderItem.payType}}</td> -->
+<!--                     <td>{{sdOrderItem.cashPay}}</td> -->
+<!--                     <td>{{sdOrderItem.fetchPay}}</td> -->
+<!--                     <td>{{sdOrderItem.receiptPay}}</td> -->
+<!--                     <td>{{sdOrderItem.monthPay}}</td> -->
+<!--                     <td>{{sdOrderItem.chargePay}}</td> -->
+<!--                     <td>{{sdOrderItem.transportType}}</td> -->
+<!--                     <td>{{sdOrderItem.backRequire}}</td> -->
+<!--                     <td>{{sdOrderItem.handOverType}}</td> -->
+<!--                     <td>{{sdOrderItem.otherPay}}</td> -->
+<!--                     <td>{{sdOrderItem.payExplain}}</td> -->
+<!--                     <td>{{sdOrderItem.remark}}</td> -->
+<!--                     <td>{{sdOrderItem.kickBack}}</td> -->
+<!--                     <td>{{sdOrderItem.cashOwe}}</td> -->
+<!--                     <td>{{sdOrderItem.requireItem}}</td> -->
+<!--                     <td>{{sdOrderItem.tagged}}</td> -->
+<!--                     <td>{{sdOrderItem.envelopes}}</td> -->
+<!--                     <td>{{sdOrderItem.salesMan}}</td> -->
+<!--                     <td>{{sdOrderItem.operator}}</td> -->
+<!--                     <td>{{sdOrderItem.orderStat}}</td> -->
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sd-order-item-detail({id:sdOrderItem.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-order-item.edit({id:sdOrderItem.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-order-item.delete({id:sdOrderItem.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

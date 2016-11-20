@@ -1,0 +1,90 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="sd-maintenance-record.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="sudeApp.sdMaintenanceRecord.home.createLabel">
+                        Create new Sd Maintenance Record
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdMaintenanceRecord.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carNo"><span data-translate="sudeApp.sdMaintenanceRecord.carNo">Car No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="maintainDate"><span data-translate="sudeApp.sdMaintenanceRecord.maintainDate">Maintain Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sender"><span data-translate="sudeApp.sdMaintenanceRecord.sender">Sender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sendReason"><span data-translate="sudeApp.sdMaintenanceRecord.sendReason">Send Reason</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="repairer"><span data-translate="sudeApp.sdMaintenanceRecord.repairer">Repairer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="repaiResult"><span data-translate="sudeApp.sdMaintenanceRecord.repaiResult">Repai Result</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="repaiCosts"><span data-translate="sudeApp.sdMaintenanceRecord.repaiCosts">Repai Costs</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remark"><span data-translate="sudeApp.sdMaintenanceRecord.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sdMaintenanceRecord in vm.sdMaintenanceRecords track by sdMaintenanceRecord.id">
+                    <td><a ui-sref="sd-maintenance-record-detail({id:sdMaintenanceRecord.id})">{{sdMaintenanceRecord.id}}</a></td>
+                    <td>{{sdMaintenanceRecord.carNo}}</td>
+                        <td>{{sdMaintenanceRecord.maintainDate | date:'mediumDate'}}</td>
+                    <td>{{sdMaintenanceRecord.sender}}</td>
+                    <td>{{sdMaintenanceRecord.sendReason}}</td>
+                    <td>{{sdMaintenanceRecord.repairer}}</td>
+                    <td>{{sdMaintenanceRecord.repaiResult}}</td>
+                    <td>{{sdMaintenanceRecord.repaiCosts}}</td>
+                    <td>{{sdMaintenanceRecord.remark}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sd-maintenance-record-detail({id:sdMaintenanceRecord.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-maintenance-record.edit({id:sdMaintenanceRecord.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-maintenance-record.delete({id:sdMaintenanceRecord.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

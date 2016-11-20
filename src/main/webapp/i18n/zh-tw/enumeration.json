@@ -1,0 +1,24 @@
+{
+    "sudeApp": {
+        "enumeration" : {
+            "home": {
+                "title": "Enumerations",
+                "createLabel": "Create a new Enumeration",
+                "createOrEditLabel": "Create or edit a Enumeration",
+                "search": "Search for Enumeration"
+            },
+            "created": "A new Enumeration is created with identifier {{ param }}",
+            "updated": "A Enumeration is updated with identifier {{ param }}",
+            "deleted": "A Enumeration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Enumeration {{ id }}?"
+            },
+            "detail": {
+                "title": "Enumeration"
+            },
+            "isDelete": "Is Delete",
+            "description": "Description",
+            "enumTypeId": "Enum Type Id"
+        }
+    }
+}

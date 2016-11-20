@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "orderNo",
+            "fieldDescription":"托运单号",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "tradName",
+        	"fieldDescription":"品名",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "itemNum",
+        	"fieldDescription":"件数",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "weight",
+        	"fieldDescription":"重量",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "volume",
+        	"fieldDescription":"体积",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "itemUnit",
+        	"fieldDescription":"包装",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "freight",
+        	"fieldDescription":"运费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "kickBack",
+        	"fieldDescription":"回扣",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "cod",
+        	"fieldDescription":"代收货款",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "deliveryExpense",
+        	"fieldDescription":"送货费",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "claimingValue",
+        	"fieldDescription":"申明价值",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "premium",
+        	"fieldDescription":"保险费",
+        	"fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_item_info",
+    "entityName": "运单明细",
+    "pagination": "pagination"
+}

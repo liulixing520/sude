@@ -1,0 +1,33 @@
+{
+    "sudeApp": {
+        "sdItemInfo" : {
+            "home": {
+                "title": "运单明细",
+                "createLabel": "新增运单明细",
+                "createOrEditLabel": "新增或修改运单明细",
+                "search": "搜索运单明细"
+            },
+            "created": "ID 为 {{ param }} 的运单明细被创建",
+            "updated": "ID 为 {{ param }} 的运单明细被更新",
+            "deleted": "ID 为 {{ param }} 的运单明细被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}运单明细?"
+            },
+            "detail": {
+                "title": "运单明细"
+            },
+            "orderNo": "托运单号",
+            "tradName": "品名",
+            "itemNum": "件数",
+            "weight": "重量",
+            "volume": "体积",
+            "itemUnit": "包装",
+            "freight": "运费",
+            "kickBack": "回扣",
+            "cod": "代收货款",
+            "deliveryExpense": "送货费",
+            "claimingValue": "申明价值",
+            "premium": "保险费"
+        }
+    }
+}

@@ -1,0 +1,100 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="sd-car-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="sudeApp.sdCarInfo.home.createLabel">
+                        Create new Sd Car Info
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdCarInfo.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carNo"><span data-translate="sudeApp.sdCarInfo.carNo">Car No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carType"><span data-translate="sudeApp.sdCarInfo.carType">Car Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="engineNumber"><span data-translate="sudeApp.sdCarInfo.engineNumber">Engine Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="buyDate"><span data-translate="sudeApp.sdCarInfo.buyDate">Buy Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="checkLoad"><span data-translate="sudeApp.sdCarInfo.checkLoad">Check Load</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="checkVolume"><span data-translate="sudeApp.sdCarInfo.checkVolume">Check Volume</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carLength"><span data-translate="sudeApp.sdCarInfo.carLength">Car Length</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carWidth"><span data-translate="sudeApp.sdCarInfo.carWidth">Car Width</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carHeight"><span data-translate="sudeApp.sdCarInfo.carHeight">Car Height</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vehicleNo"><span data-translate="sudeApp.sdCarInfo.vehicleNo">Vehicle No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="policyNo"><span data-translate="sudeApp.sdCarInfo.policyNo">Policy No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="carrier"><span data-translate="sudeApp.sdCarInfo.carrier">Carrier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="runNumber"><span data-translate="sudeApp.sdCarInfo.runNumber">Run Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sdCarInfo in vm.sdCarInfos track by sdCarInfo.id">
+                    <td><a ui-sref="sd-car-info-detail({id:sdCarInfo.id})">{{sdCarInfo.id}}</a></td>
+                    <td>{{sdCarInfo.carNo}}</td>
+                    <td>{{sdCarInfo.carType}}</td>
+                    <td>{{sdCarInfo.engineNumber}}</td>
+                        <td>{{sdCarInfo.buyDate | date:'mediumDate'}}</td>
+                    <td>{{sdCarInfo.checkLoad}}</td>
+                    <td>{{sdCarInfo.checkVolume}}</td>
+                    <td>{{sdCarInfo.carLength}}</td>
+                    <td>{{sdCarInfo.carWidth}}</td>
+                    <td>{{sdCarInfo.carHeight}}</td>
+                    <td>{{sdCarInfo.vehicleNo}}</td>
+                    <td>{{sdCarInfo.policyNo}}</td>
+                    <td>{{sdCarInfo.carrier}}</td>
+                    <td>{{sdCarInfo.runNumber}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sd-car-info-detail({id:sdCarInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-car-info.edit({id:sdCarInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-car-info.delete({id:sdCarInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

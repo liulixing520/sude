@@ -2,9 +2,7 @@ package com.sude.sd.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.sude.sd.domain.SdCompany;
-
-import com.sude.sd.repository.SdCompanyRepository;
-import com.sude.sd.repository.search.SdCompanySearchRepository;
+import com.sude.sd.service.SdCompanyService;
 import com.sude.sd.web.rest.util.HeaderUtil;
 import com.sude.sd.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -36,10 +34,7 @@ public class SdCompanyResource {
     private final Logger log = LoggerFactory.getLogger(SdCompanyResource.class);
         
     @Inject
-    private SdCompanyRepository sdCompanyRepository;
-
-    @Inject
-    private SdCompanySearchRepository sdCompanySearchRepository;
+    private SdCompanyService sdCompanyService;
 
     /**
      * POST  /sd-companies : Create a new sdCompany.
@@ -55,8 +50,7 @@ public class SdCompanyResource {
         if (sdCompany.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sdCompany", "idexists", "A new sdCompany cannot already have an ID")).body(null);
         }
-        SdCompany result = sdCompanyRepository.save(sdCompany);
-        sdCompanySearchRepository.save(result);
+        SdCompany result = sdCompanyService.save(sdCompany);
         return ResponseEntity.created(new URI("/api/sd-companies/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("sdCompany", result.getId().toString()))
             .body(result);
@@ -78,8 +72,7 @@ public class SdCompanyResource {
         if (sdCompany.getId() == null) {
             return createSdCompany(sdCompany);
         }
-        SdCompany result = sdCompanyRepository.save(sdCompany);
-        sdCompanySearchRepository.save(result);
+        SdCompany result = sdCompanyService.save(sdCompany);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("sdCompany", sdCompany.getId().toString()))
             .body(result);
@@ -97,7 +90,7 @@ public class SdCompanyResource {
     public ResponseEntity<List<SdCompany>> getAllSdCompanies(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of SdCompanies");
-        Page<SdCompany> page = sdCompanyRepository.findAll(pageable);
+        Page<SdCompany> page = sdCompanyService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sd-companies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -112,7 +105,7 @@ public class SdCompanyResource {
     @Timed
     public ResponseEntity<SdCompany> getSdCompany(@PathVariable Long id) {
         log.debug("REST request to get SdCompany : {}", id);
-        SdCompany sdCompany = sdCompanyRepository.findOne(id);
+        SdCompany sdCompany = sdCompanyService.findOne(id);
         return Optional.ofNullable(sdCompany)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -130,8 +123,7 @@ public class SdCompanyResource {
     @Timed
     public ResponseEntity<Void> deleteSdCompany(@PathVariable Long id) {
         log.debug("REST request to delete SdCompany : {}", id);
-        sdCompanyRepository.delete(id);
-        sdCompanySearchRepository.delete(id);
+        sdCompanyService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("sdCompany", id.toString())).build();
     }
 
@@ -149,7 +141,7 @@ public class SdCompanyResource {
     public ResponseEntity<List<SdCompany>> searchSdCompanies(@RequestParam String query, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to search for a page of SdCompanies for query {}", query);
-        Page<SdCompany> page = sdCompanySearchRepository.search(queryStringQuery(query), pageable);
+        Page<SdCompany> page = sdCompanyService.search(query, pageable);
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/sd-companies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

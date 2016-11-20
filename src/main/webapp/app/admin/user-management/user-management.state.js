@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('user-management', {
-            parent: 'admin',
+            parent: 'userManager',
             url: '/user-management?page&sort',
             data: {
                 authorities: ['ROLE_ADMIN'],
@@ -48,7 +48,7 @@
 
             }        })
         .state('user-management-detail', {
-            parent: 'admin',
+            parent: 'userManager',
             url: '/user/:login',
             data: {
                 authorities: ['ROLE_ADMIN'],

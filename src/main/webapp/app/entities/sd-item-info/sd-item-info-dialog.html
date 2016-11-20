@@ -1,0 +1,111 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySdItemInfoLabel" data-translate="sudeApp.sdItemInfo.home.createOrEditLabel">Create or edit a Sd Item Info</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" ng-show="vm.sdItemInfo.id"> -->
+<!--             <label for="id" data-translate="global.field.id">ID</label> -->
+            <input type="hidden" class="form-control" id="id" name="id"
+                    ng-model="vm.sdItemInfo.id"  />
+<!--         </div> -->
+		<div class="form-group">
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.orderNo" for="field_orderNo">Order No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="orderNo" id="field_orderNo"
+                    ng-model="vm.sdItemInfo.orderNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.tradName" for="field_tradName">Trad Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="tradName" id="field_tradName"
+                    ng-model="vm.sdItemInfo.tradName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.itemNum" for="field_itemNum">Item Num</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="itemNum" id="field_itemNum"
+                    ng-model="vm.sdItemInfo.itemNum"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.weight" for="field_weight">Weight</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="weight" id="field_weight"
+                    ng-model="vm.sdItemInfo.weight"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.volume" for="field_volume">Volume</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="volume" id="field_volume"
+                    ng-model="vm.sdItemInfo.volume"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.itemUnit" for="field_itemUnit">Item Unit</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="itemUnit" id="field_itemUnit"
+                    ng-model="vm.sdItemInfo.itemUnit"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.freight" for="field_freight">Freight</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="freight" id="field_freight"
+                    ng-model="vm.sdItemInfo.freight"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.kickBack" for="field_kickBack">Kick Back</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="kickBack" id="field_kickBack"
+                    ng-model="vm.sdItemInfo.kickBack"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.cod" for="field_cod">Cod</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="cod" id="field_cod"
+                    ng-model="vm.sdItemInfo.cod"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.deliveryExpense" for="field_deliveryExpense">Delivery Expense</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="deliveryExpense" id="field_deliveryExpense"
+                    ng-model="vm.sdItemInfo.deliveryExpense"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.claimingValue" for="field_claimingValue">Claiming Value</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="claimingValue" id="field_claimingValue"
+                    ng-model="vm.sdItemInfo.claimingValue"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdItemInfo.premium" for="field_premium">Premium</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="premium" id="field_premium"
+                    ng-model="vm.sdItemInfo.premium"  />
+            </div>
+        </div>
+	</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

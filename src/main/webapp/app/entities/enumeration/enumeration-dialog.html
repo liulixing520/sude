@@ -1,0 +1,53 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEnumerationLabel" data-translate="sudeApp.enumeration.home.createOrEditLabel">Create or edit a Enumeration</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" >
+            
+        </div>
+		<div class="form-group">
+        <div>
+			<label class="col-sm-1 control-label" for="id" data-translate="global.field.id">ID</label>
+	           <div class="col-sm-2">
+	           <input type="text" class="form-control" id="id" name="id"
+	                   ng-model="vm.enumeration.id"  />
+	           </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.enumeration.isDelete" for="field_isDelete">Is Delete</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="isDelete" id="field_isDelete"
+                    ng-model="vm.enumeration.isDelete"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.enumeration.description" for="field_description">Description</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.enumeration.description"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.enumeration.enumTypeId" for="field_enumTypeId">Enum Type Id</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="enumTypeId" id="field_enumTypeId"
+                    ng-model="vm.enumeration.enumTypeId"  />
+            </div>
+        </div>
+	</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,183 @@
+
+<div>
+    <h2><span data-translate="sudeApp.sdOrderItem.detail.title">Sd Order Item</span> {{vm.sdOrderItem.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.sdOrderItem.orderNo">Order No</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.orderNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.orderHeaderNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.itemNo">Item No</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.itemNo | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.fromStation}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.toStation}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.middleStation}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignerId">Consigner Id</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignerId}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignerName">Consigner Name</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignerName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignerAddress">Consigner Address</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignerAddress}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignerPhone">Consigner Phone</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignerPhone}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consignerMbPhone">Consigner Mb Phone</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consignerMbPhone}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consigneeId">Consignee Id</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consigneeId}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consigneeName">Consignee Name</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consigneeName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consigneePhone">Consignee Phone</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consigneePhone}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consigneeMbPhone">Consignee Mb Phone</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consigneeMbPhone}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.consigneeAddress">Consignee Address</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.consigneeAddress}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.bankNo">Bank No</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.bankNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.bankName">Bank Name</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.bankName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.openName">Open Name</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.openName}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.idCard">Id Card</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.idCard}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.payType">Pay Type</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.payType}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.cashPay">Cash Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.cashPay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.fetchPay">Fetch Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.fetchPay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.receiptPay">Receipt Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.receiptPay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.monthPay">Month Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.monthPay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.chargePay">Charge Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.chargePay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.transportType">Transport Type</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.transportType}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.backRequire">Back Require</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.backRequire}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.handOverType">Hand Over Type</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.handOverType}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.otherPay">Other Pay</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.otherPay}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.payExplain">Pay Explain</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.payExplain}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.remark">Remark</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.remark}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.kickBack">Kick Back</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.kickBack}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.cashOwe">Cash Owe</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.cashOwe}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.requireItem">Require Item</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.requireItem}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.tagged">Tagged</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.tagged}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.envelopes">Envelopes</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.envelopes}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.salesMan">Sales Man</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.salesMan}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.operator">Operator</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.operator}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdOrderItem.orderStat">Order Stat</span></dt>
+        <dd>
+            <span>{{vm.sdOrderItem.orderStat}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sd-order-item-detail.edit({id:vm.sdOrderItem.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

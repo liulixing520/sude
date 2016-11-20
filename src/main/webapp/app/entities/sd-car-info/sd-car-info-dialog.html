@@ -1,0 +1,123 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySdCarInfoLabel" data-translate="sudeApp.sdCarInfo.home.createOrEditLabel">Create or edit a Sd Car Info</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" ng-show="vm.sdCarInfo.id"> -->
+<!--             <label for="id" data-translate="global.field.id">ID</label> -->
+            <input type="hidden" class="form-control" id="id" name="id"
+                    ng-model="vm.sdCarInfo.id"  />
+<!--         </div> -->
+		<div class="form-group">
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carNo" for="field_carNo">Car No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="carNo" id="field_carNo"
+                    ng-model="vm.sdCarInfo.carNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carType" for="field_carType">Car Type</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="carType" id="field_carType"
+                    ng-model="vm.sdCarInfo.carType"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.engineNumber" for="field_engineNumber">Engine Number</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="engineNumber" id="field_engineNumber"
+                    ng-model="vm.sdCarInfo.engineNumber"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.buyDate" for="field_buyDate">Buy Date</label>
+            <div class="col-sm-2">
+                <div class="input-group">
+                    <input id="field_buyDate" type="text" class="form-control" name="buyDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.sdCarInfo.buyDate" is-open="vm.datePickerOpenStatus.buyDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('buyDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.checkLoad" for="field_checkLoad">Check Load</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="checkLoad" id="field_checkLoad"
+                    ng-model="vm.sdCarInfo.checkLoad"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.checkVolume" for="field_checkVolume">Check Volume</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="checkVolume" id="field_checkVolume"
+                    ng-model="vm.sdCarInfo.checkVolume"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carLength" for="field_carLength">Car Length</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="carLength" id="field_carLength"
+                    ng-model="vm.sdCarInfo.carLength"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carWidth" for="field_carWidth">Car Width</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="carWidth" id="field_carWidth"
+                    ng-model="vm.sdCarInfo.carWidth"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carHeight" for="field_carHeight">Car Height</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="carHeight" id="field_carHeight"
+                    ng-model="vm.sdCarInfo.carHeight"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.vehicleNo" for="field_vehicleNo">Vehicle No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="vehicleNo" id="field_vehicleNo"
+                    ng-model="vm.sdCarInfo.vehicleNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.policyNo" for="field_policyNo">Policy No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="policyNo" id="field_policyNo"
+                    ng-model="vm.sdCarInfo.policyNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.carrier" for="field_carrier">Carrier</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="carrier" id="field_carrier"
+                    ng-model="vm.sdCarInfo.carrier"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCarInfo.runNumber" for="field_runNumber">Run Number</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="runNumber" id="field_runNumber"
+                    ng-model="vm.sdCarInfo.runNumber"  />
+            </div>
+        </div>
+	</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+{
+    "sudeApp": {
+        "sdCarInfo" : {
+            "home": {
+                "title": "车辆信息",
+                "createLabel": "新增车辆信息",
+                "createOrEditLabel": "新增或修改车辆信息",
+                "search": "搜索车辆信息"
+            },
+            "created": "ID 为 {{ param }} 的车辆信息被创建",
+            "updated": "ID 为 {{ param }} 的车辆信息被更新",
+            "deleted": "ID 为 {{ param }} 的车辆信息被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}车辆信息?"
+            },
+            "detail": {
+                "title": "车辆信息"
+            },
+            "carNo": "车牌号",
+            "carType": "车型号",
+            "engineNumber": "发动机号码",
+            "buyDate": "购买日期",
+            "checkLoad": "核定载重",
+            "checkVolume": "核定体积",
+            "carLength": "车长",
+            "carWidth": "车宽",
+            "carHeight": "车高",
+            "vehicleNo": "车架号",
+            "policyNo": "保险单号",
+            "carrier": "承保单位",
+            "runNumber": "运营证号"
+        }
+    }
+}

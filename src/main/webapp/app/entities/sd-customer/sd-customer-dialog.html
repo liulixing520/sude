@@ -1,0 +1,111 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySdCustomerLabel" data-translate="sudeApp.sdCustomer.home.createOrEditLabel">Create or edit a Sd Customer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" ng-show="vm.sdCustomer.id"> -->
+<!--             <label for="id" data-translate="global.field.id">ID</label> -->
+            <input type="hidden" class="form-control" id="id" name="id"
+                    ng-model="vm.sdCustomer.id"  />
+<!--         </div> -->
+		<div class="form-group">
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.customerName" for="field_customerName">Customer Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="customerName" id="field_customerName"
+                    ng-model="vm.sdCustomer.customerName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.customerNM" for="field_customerNM">Customer NM</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="customerNM" id="field_customerNM"
+                    ng-model="vm.sdCustomer.customerNM"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.sex" for="field_sex">Sex</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="sex" id="field_sex"
+                    ng-model="vm.sdCustomer.sex"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.mobilePhone" for="field_mobilePhone">Mobile Phone</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="mobilePhone" id="field_mobilePhone"
+                    ng-model="vm.sdCustomer.mobilePhone"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.idCard" for="field_idCard">Id Card</label>
+            <div class="col-sm-3">
+            	<input type="text" class="form-control" name="idCard" id="field_idCard"
+                    ng-model="vm.sdCustomer.idCard"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.address" for="field_address">Address</label>
+            <div class="col-sm-7">
+            	<input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.sdCustomer.address"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.bank" for="field_bank">Bank</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="bank" id="field_bank"
+                    ng-model="vm.sdCustomer.bank"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.bankNo" for="field_bankNo">Bank No</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="bankNo" id="field_bankNo"
+                    ng-model="vm.sdCustomer.bankNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.bankOpenName" for="field_bankOpenName">Bank Open Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="bankOpenName" id="field_bankOpenName"
+                    ng-model="vm.sdCustomer.bankOpenName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.company" for="field_company">Company</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="company" id="field_company"
+                    ng-model="vm.sdCustomer.company"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.custType" for="field_custType">Cust Type</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="custType" id="field_custType"
+                    ng-model="vm.sdCustomer.custType"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.remark" for="field_remark">Remark</label>
+            <div class="col-sm-8">
+            	<input type="text" class="form-control" name="remark" id="field_remark"
+                    ng-model="vm.sdCustomer.remark"  />
+            </div>
+        </div>
+	</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

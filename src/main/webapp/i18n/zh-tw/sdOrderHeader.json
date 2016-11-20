@@ -1,0 +1,45 @@
+{
+    "sudeApp": {
+        "sdOrderHeader" : {
+            "home": {
+                "title": "Sd Order Headers",
+                "createLabel": "Create a new Sd Order Header",
+                "createOrEditLabel": "Create or edit a Sd Order Header",
+                "search": "Search for Sd Order Header"
+            },
+            "created": "A new Sd Order Header is created with identifier {{ param }}",
+            "updated": "A Sd Order Header is updated with identifier {{ param }}",
+            "deleted": "A Sd Order Header is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Order Header {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Order Header"
+            },
+            "orderHeaderNo": "Order Header No",
+            "carNo": "Car No",
+            "driverName": "Driver Name",
+            "mobilePhone": "Mobile Phone",
+            "departBatch": "Depart Batch",
+            "fromStation": "From Station",
+            "toStation": "To Station",
+            "unloadPlace": "Unload Place",
+            "cashPay": "Cash Pay",
+            "driverCollection": "Driver Collection",
+            "handlingCharges": "Handling Charges",
+            "receiveShipment": "Receive Shipment",
+            "otherPay": "Other Pay",
+            "departureTime": "Departure Time",
+            "weight": "Weight",
+            "practical": "Practical",
+            "loadParter": "Load Parter",
+            "reply": "Reply",
+            "oilCardNo": "Oil Card No",
+            "oilCardBlance": "Oil Card Blance",
+            "freightSum": "Freight Sum",
+            "arriveFreight": "Arrive Freight",
+            "arriveDriver": "Arrive Driver",
+            "orderHeadStat": "Order Head Stat"
+        }
+    }
+}

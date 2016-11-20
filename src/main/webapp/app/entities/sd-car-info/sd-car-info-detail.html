@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span data-translate="sudeApp.sdCarInfo.detail.title">Sd Car Info</span> {{vm.sdCarInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.sdCarInfo.carNo">Car No</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.carType">Car Type</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carType}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.engineNumber">Engine Number</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.engineNumber}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.buyDate">Buy Date</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.buyDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.checkLoad">Check Load</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.checkLoad}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.checkVolume">Check Volume</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.checkVolume}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.carLength">Car Length</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carLength}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.carWidth">Car Width</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carWidth}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.carHeight">Car Height</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carHeight}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.vehicleNo">Vehicle No</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.vehicleNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.policyNo">Policy No</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.policyNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.carrier">Carrier</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.carrier}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdCarInfo.runNumber">Run Number</span></dt>
+        <dd>
+            <span>{{vm.sdCarInfo.runNumber}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sd-car-info-detail.edit({id:vm.sdCarInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

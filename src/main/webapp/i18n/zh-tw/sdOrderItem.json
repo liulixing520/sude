@@ -1,0 +1,62 @@
+{
+    "sudeApp": {
+        "sdOrderItem" : {
+            "home": {
+                "title": "Sd Order Items",
+                "createLabel": "Create a new Sd Order Item",
+                "createOrEditLabel": "Create or edit a Sd Order Item",
+                "search": "Search for Sd Order Item"
+            },
+            "created": "A new Sd Order Item is created with identifier {{ param }}",
+            "updated": "A Sd Order Item is updated with identifier {{ param }}",
+            "deleted": "A Sd Order Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Order Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Order Item"
+            },
+            "orderNo": "Order No",
+            "orderHeaderNo": "Order Header No",
+            "itemNo": "Item No",
+            "consignDate": "Consign Date",
+            "fromStation": "From Station",
+            "toStation": "To Station",
+            "middleStation": "Middle Station",
+            "consignerId": "Consigner Id",
+            "consignerName": "Consigner Name",
+            "consignerAddress": "Consigner Address",
+            "consignerPhone": "Consigner Phone",
+            "consignerMbPhone": "Consigner Mb Phone",
+            "consigneeId": "Consignee Id",
+            "consigneeName": "Consignee Name",
+            "consigneePhone": "Consignee Phone",
+            "consigneeMbPhone": "Consignee Mb Phone",
+            "consigneeAddress": "Consignee Address",
+            "bankNo": "Bank No",
+            "bankName": "Bank Name",
+            "openName": "Open Name",
+            "idCard": "Id Card",
+            "payType": "Pay Type",
+            "cashPay": "Cash Pay",
+            "fetchPay": "Fetch Pay",
+            "receiptPay": "Receipt Pay",
+            "monthPay": "Month Pay",
+            "chargePay": "Charge Pay",
+            "transportType": "Transport Type",
+            "backRequire": "Back Require",
+            "handOverType": "Hand Over Type",
+            "otherPay": "Other Pay",
+            "payExplain": "Pay Explain",
+            "remark": "Remark",
+            "kickBack": "Kick Back",
+            "cashOwe": "Cash Owe",
+            "requireItem": "Require Item",
+            "tagged": "Tagged",
+            "envelopes": "Envelopes",
+            "salesMan": "Sales Man",
+            "operator": "Operator",
+            "orderStat": "Order Stat"
+        }
+    }
+}

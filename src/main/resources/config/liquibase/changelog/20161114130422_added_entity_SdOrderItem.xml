@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity SdOrderItem.
+    -->
+    <changeSet id="20161114130422-1" author="jhipster">
+        <createTable tableName="sd_order_item">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="order_header_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="item_no" type="date">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consign_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="from_station" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="to_station" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="middle_station" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consigner_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consigner_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consigner_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consigner_phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consigner_mb_phone" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consignee_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consignee_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consignee_phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consignee_mb_phone" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="consignee_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bank_no" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bank_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="open_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="id_card" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="pay_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="cash_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="fetch_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="receipt_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="month_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="charge_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="transport_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="back_require" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="hand_over_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="other_pay" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="pay_explain" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="remark" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="kick_back" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="cash_owe" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="require_item" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="tagged" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="envelopes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="sales_man" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="operator" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="order_stat" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            
+			<column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

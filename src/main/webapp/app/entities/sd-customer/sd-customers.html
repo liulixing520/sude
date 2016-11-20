@@ -1,0 +1,98 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="sd-customer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="sudeApp.sdCustomer.home.createLabel">
+                        Create new Sd Customer
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdCustomer.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customerName"><span data-translate="sudeApp.sdCustomer.customerName">Customer Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customerNM"><span data-translate="sudeApp.sdCustomer.customerNM">Customer NM</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sex"><span data-translate="sudeApp.sdCustomer.sex">Sex</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mobilePhone"><span data-translate="sudeApp.sdCustomer.mobilePhone">Mobile Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idCard"><span data-translate="sudeApp.sdCustomer.idCard">Id Card</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span data-translate="sudeApp.sdCustomer.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank"><span data-translate="sudeApp.sdCustomer.bank">Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bankNo"><span data-translate="sudeApp.sdCustomer.bankNo">Bank No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bankOpenName"><span data-translate="sudeApp.sdCustomer.bankOpenName">Bank Open Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="company"><span data-translate="sudeApp.sdCustomer.company">Company</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="custType"><span data-translate="sudeApp.sdCustomer.custType">Cust Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remark"><span data-translate="sudeApp.sdCustomer.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sdCustomer in vm.sdCustomers track by sdCustomer.id">
+                    <td><a ui-sref="sd-customer-detail({id:sdCustomer.id})">{{sdCustomer.id}}</a></td>
+                    <td>{{sdCustomer.customerName}}</td>
+                    <td>{{sdCustomer.customerNM}}</td>
+                    <td>{{sdCustomer.sex}}</td>
+                    <td>{{sdCustomer.mobilePhone}}</td>
+                    <td>{{sdCustomer.idCard}}</td>
+                    <td>{{sdCustomer.address}}</td>
+                    <td>{{sdCustomer.bank}}</td>
+                    <td>{{sdCustomer.bankNo}}</td>
+                    <td>{{sdCustomer.bankOpenName}}</td>
+                    <td>{{sdCustomer.company}}</td>
+                    <td>{{sdCustomer.custType}}</td>
+                    <td>{{sdCustomer.remark}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sd-customer-detail({id:sdCustomer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-customer.edit({id:sdCustomer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-customer.delete({id:sdCustomer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

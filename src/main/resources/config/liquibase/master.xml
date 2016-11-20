@@ -6,6 +6,15 @@
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdCompany.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161120010110_added_entity_Enumeration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161120005602_added_entity_EnumerationType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdCustomer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdCarInfo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdMaintenanceRecord.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdDriver.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdOrderHeader.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdOrderItem.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114130422_added_entity_SdItemInfo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

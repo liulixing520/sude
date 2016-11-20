@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "carNo",
+            "fieldDescription":"车牌号",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "carType",
+        	"fieldDescription":"车型号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "engineNumber",
+        	"fieldDescription":"发动机号码",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "buyDate",
+        	"fieldDescription":"购买日期",
+        	"fieldType": "LocalDate"
+        },
+        {
+        	"fieldName": "checkLoad",
+        	"fieldDescription":"核定载重",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "checkVolume",
+        	"fieldDescription":"核定体积",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "carLength",
+        	"fieldDescription":"车长",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "carWidth",
+        	"fieldDescription":"车宽",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "carHeight",
+        	"fieldDescription":"车高",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "vehicleNo",
+        	"fieldDescription":"车架号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "policyNo",
+        	"fieldDescription":"保险单号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "carrier",
+        	"fieldDescription":"承保单位",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "runNumber",
+        	"fieldDescription":"运营证号",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_car_info",
+    "entityName": "车辆信息",
+    "pagination": "pagination"
+}

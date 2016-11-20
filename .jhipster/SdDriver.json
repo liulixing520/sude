@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "driverName",
+            "fieldDescription":"司机名称",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "sex",
+        	"fieldDescription":"性别",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "mobilePhone",
+        	"fieldDescription":"手机号",
+        	"fieldType": "Long"
+        },
+        {
+        	"fieldName": "remark",
+        	"fieldDescription":"备注",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_driver",
+    "entityName": "司机信息",
+    "pagination": "pagination"
+}

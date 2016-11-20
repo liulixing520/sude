@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+        	"fieldName": "carNo",
+        	"fieldDescription":"车牌号",
+        	"fieldType": "String"
+        },
+        {
+            "fieldName": "maintainDate",
+            "fieldDescription":"维修日期",
+            "fieldType": "LocalDate"
+        },
+        {
+        	"fieldName": "sender",
+        	"fieldDescription":"送修人",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "sendReason",
+        	"fieldDescription":"送修原因",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "repairer",
+        	"fieldDescription":"维修单位",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "repaiResult",
+        	"fieldDescription":"修理结果",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "repaiCosts",
+        	"fieldDescription":"维修费用",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "remark",
+        	"fieldDescription":"备注",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_maintenance_record",
+    "entityName": "车辆维修记录",
+    "pagination": "pagination"
+}

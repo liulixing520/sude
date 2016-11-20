@@ -1,0 +1,23 @@
+{
+    "sudeApp": {
+        "enumerationType" : {
+            "home": {
+                "title": "Enumeration Types",
+                "createLabel": "Create a new Enumeration Type",
+                "createOrEditLabel": "Create or edit a Enumeration Type",
+                "search": "Search for Enumeration Type"
+            },
+            "created": "A new Enumeration Type is created with identifier {{ param }}",
+            "updated": "A Enumeration Type is updated with identifier {{ param }}",
+            "deleted": "A Enumeration Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Enumeration Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Enumeration Type"
+            },
+            "isDelete": "Is Delete",
+            "description": "Description"
+        }
+    }
+}

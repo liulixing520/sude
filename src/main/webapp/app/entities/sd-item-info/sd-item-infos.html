@@ -1,0 +1,98 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="sd-item-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="sudeApp.sdItemInfo.home.createLabel">
+                        Create new Sd Item Info
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdItemInfo.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="orderNo"><span data-translate="sudeApp.sdItemInfo.orderNo">Order No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tradName"><span data-translate="sudeApp.sdItemInfo.tradName">Trad Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="itemNum"><span data-translate="sudeApp.sdItemInfo.itemNum">Item Num</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="weight"><span data-translate="sudeApp.sdItemInfo.weight">Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="volume"><span data-translate="sudeApp.sdItemInfo.volume">Volume</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="itemUnit"><span data-translate="sudeApp.sdItemInfo.itemUnit">Item Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freight"><span data-translate="sudeApp.sdItemInfo.freight">Freight</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="kickBack"><span data-translate="sudeApp.sdItemInfo.kickBack">Kick Back</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cod"><span data-translate="sudeApp.sdItemInfo.cod">Cod</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="deliveryExpense"><span data-translate="sudeApp.sdItemInfo.deliveryExpense">Delivery Expense</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="claimingValue"><span data-translate="sudeApp.sdItemInfo.claimingValue">Claiming Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="premium"><span data-translate="sudeApp.sdItemInfo.premium">Premium</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sdItemInfo in vm.sdItemInfos track by sdItemInfo.id">
+                    <td><a ui-sref="sd-item-info-detail({id:sdItemInfo.id})">{{sdItemInfo.id}}</a></td>
+                    <td>{{sdItemInfo.orderNo}}</td>
+                    <td>{{sdItemInfo.tradName}}</td>
+                    <td>{{sdItemInfo.itemNum}}</td>
+                    <td>{{sdItemInfo.weight}}</td>
+                    <td>{{sdItemInfo.volume}}</td>
+                    <td>{{sdItemInfo.itemUnit}}</td>
+                    <td>{{sdItemInfo.freight}}</td>
+                    <td>{{sdItemInfo.kickBack}}</td>
+                    <td>{{sdItemInfo.cod}}</td>
+                    <td>{{sdItemInfo.deliveryExpense}}</td>
+                    <td>{{sdItemInfo.claimingValue}}</td>
+                    <td>{{sdItemInfo.premium}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="sd-item-info-detail({id:sdItemInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-item-info.edit({id:sdItemInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="sd-item-info.delete({id:sdItemInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

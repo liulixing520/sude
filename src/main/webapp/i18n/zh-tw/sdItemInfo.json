@@ -1,0 +1,33 @@
+{
+    "sudeApp": {
+        "sdItemInfo" : {
+            "home": {
+                "title": "Sd Item Infos",
+                "createLabel": "Create a new Sd Item Info",
+                "createOrEditLabel": "Create or edit a Sd Item Info",
+                "search": "Search for Sd Item Info"
+            },
+            "created": "A new Sd Item Info is created with identifier {{ param }}",
+            "updated": "A Sd Item Info is updated with identifier {{ param }}",
+            "deleted": "A Sd Item Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Item Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Item Info"
+            },
+            "orderNo": "Order No",
+            "tradName": "Trad Name",
+            "itemNum": "Item Num",
+            "weight": "Weight",
+            "volume": "Volume",
+            "itemUnit": "Item Unit",
+            "freight": "Freight",
+            "kickBack": "Kick Back",
+            "cod": "Cod",
+            "deliveryExpense": "Delivery Expense",
+            "claimingValue": "Claiming Value",
+            "premium": "Premium"
+        }
+    }
+}

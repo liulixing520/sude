@@ -1,0 +1,25 @@
+{
+    "sudeApp": {
+        "sdDriver" : {
+            "home": {
+                "title": "Sd Drivers",
+                "createLabel": "Create a new Sd Driver",
+                "createOrEditLabel": "Create or edit a Sd Driver",
+                "search": "Search for Sd Driver"
+            },
+            "created": "A new Sd Driver is created with identifier {{ param }}",
+            "updated": "A Sd Driver is updated with identifier {{ param }}",
+            "deleted": "A Sd Driver is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Driver {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Driver"
+            },
+            "driverName": "Driver Name",
+            "sex": "Sex",
+            "mobilePhone": "Mobile Phone",
+            "remark": "Remark"
+        }
+    }
+}

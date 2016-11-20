@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('SdCompanyDialogController', SdCompanyDialogController);
 
-    SdCompanyDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'SdCompany'];
+    SdCompanyDialogController.$inject = ['$timeout', '$scope', '$stateParams',  'entity', 'SdCompany'];
 
-    function SdCompanyDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, SdCompany) {
+    function SdCompanyDialogController ($timeout, $scope, $stateParams,  entity, SdCompany) {
         var vm = this;
 
         vm.sdCompany = entity;
@@ -19,7 +19,6 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
         }
 
         function save () {
@@ -33,7 +32,6 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('sudeApp:sdCompanyUpdate', result);
-            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 

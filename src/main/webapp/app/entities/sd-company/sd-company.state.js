@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('sd-company', {
-            parent: 'entity',
+            parent: 'baseInfo',
             url: '/sd-company?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
@@ -52,7 +52,7 @@
             }
         })
         .state('sd-company-detail', {
-            parent: 'entity',
+            parent: 'baseInfo',
             url: '/sd-company/{id}',
             data: {
                 authorities: ['ROLE_USER'],
@@ -89,6 +89,30 @@
             data: {
                 authorities: ['ROLE_USER']
             },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/sd-company/sd-company-dialog.html',
+                    controller: 'SdCompanyDialogController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('sdCompany');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'SdCompany', function($stateParams, SdCompany) {
+                    return SdCompany.get({id : $stateParams.id}).$promise;
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'sd-company',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }]
+            },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/sd-company/sd-company-dialog.html',
@@ -114,30 +138,18 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/sd-company/sd-company-dialog.html',
                     controller: 'SdCompanyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                companyName: null,
-                                phone: null,
-                                fax: null,
-                                postCode: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('sd-company', null, { reload: 'sd-company' });
-                }, function() {
-                    $state.go('sd-company');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+            	entity: ['SdCompany', function(SdCompany) {
+                    return SdCompany.get({id : '4'}).$promise;
+                }]
+            }
         })
         .state('sd-company.edit', {
             parent: 'sd-company',

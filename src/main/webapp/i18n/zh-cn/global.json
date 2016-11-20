@@ -8,6 +8,15 @@
             "entities": {
                 "main": "数据",
                 "sdCompany": "Sd Company",
+                "enumeration": "Enumeration",
+                "enumerationType": "Enumeration Type",
+                "sdCustomer": "Sd Customer",
+                "sdCarInfo": "Sd Car Info",
+                "sdMaintenanceRecord": "Sd Maintenance Record",
+                "sdDriver": "Sd Driver",
+                "sdOrderHeader": "Sd Order Header",
+                "sdOrderItem": "Sd Order Item",
+                "sdItemInfo": "Sd Item Info",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

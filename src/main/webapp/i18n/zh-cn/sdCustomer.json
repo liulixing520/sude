@@ -1,0 +1,33 @@
+{
+    "sudeApp": {
+        "sdCustomer" : {
+            "home": {
+                "title": "客户信息",
+                "createLabel": "新增客户信息",
+                "createOrEditLabel": "新增或修改客户信息",
+                "search": "搜索客户信息"
+            },
+            "created": "ID 为 {{ param }} 的客户信息被创建",
+            "updated": "ID 为 {{ param }} 的客户信息被更新",
+            "deleted": "ID 为 {{ param }} 的客户信息被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}客户信息?"
+            },
+            "detail": {
+                "title": "客户信息"
+            },
+            "customerName": "客户名称",
+            "customerNM": "名称简写",
+            "sex": "性别",
+            "mobilePhone": "手机号",
+            "idCard": "身份证",
+            "address": "地址",
+            "bank": "银行",
+            "bankNo": "银行账号",
+            "bankOpenName": "开户行",
+            "company": "公司名",
+            "custType": "客户类型",
+            "remark": "备注"
+        }
+    }
+}
