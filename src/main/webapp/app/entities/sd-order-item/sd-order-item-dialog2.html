@@ -1,0 +1,324 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySdOrderItemLabel" data-translate="sudeApp.sdOrderItem.home.createOrEditLabel">Create or edit a Sd Order Item</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" ng-show="vm.sdOrderItem.id"> -->
+<!--             <label for="id" data-translate="global.field.id">ID</label> -->
+            <input type="hidden" class="form-control" id="id" name="id"
+                    ng-model="vm.sdOrderItem.id"  />
+<!--         </div> -->
+		<div class="form-group">
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.orderNo" for="field_orderNo">Order No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="orderNo" id="field_orderNo"
+                    ng-model="vm.sdOrderItem.orderNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.orderHeaderNo" for="field_orderHeaderNo">Order Header No</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="orderHeaderNo" id="field_orderHeaderNo"
+                    ng-model="vm.sdOrderItem.orderHeaderNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.itemNo" for="field_itemNo">Item No</label>
+            <div class="col-sm-2">
+                <div class="input-group">
+                    <input id="field_itemNo" type="text" class="form-control" name="itemNo" uib-datepicker-popup="{{dateformat}}" ng-model="vm.sdOrderItem.itemNo" is-open="vm.datePickerOpenStatus.itemNo"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('itemNo')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignDate" for="field_consignDate">Consign Date</label>
+            <div class="col-sm-2">
+                <div class="input-group">
+                    <input id="field_consignDate" type="text" class="form-control" name="consignDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.sdOrderItem.consignDate" is-open="vm.datePickerOpenStatus.consignDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('consignDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.fromStation" for="field_fromStation">From Station</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="fromStation" id="field_fromStation"
+                    ng-model="vm.sdOrderItem.fromStation"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.toStation" for="field_toStation">To Station</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="toStation" id="field_toStation"
+                    ng-model="vm.sdOrderItem.toStation"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.middleStation" for="field_middleStation">Middle Station</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="middleStation" id="field_middleStation"
+                    ng-model="vm.sdOrderItem.middleStation"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignerId" for="field_consignerId">Consigner Id</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consignerId" id="field_consignerId"
+                    ng-model="vm.sdOrderItem.consignerId"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignerName" for="field_consignerName">Consigner Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consignerName" id="field_consignerName"
+                    ng-model="vm.sdOrderItem.consignerName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignerAddress" for="field_consignerAddress">Consigner Address</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consignerAddress" id="field_consignerAddress"
+                    ng-model="vm.sdOrderItem.consignerAddress"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignerPhone" for="field_consignerPhone">Consigner Phone</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consignerPhone" id="field_consignerPhone"
+                    ng-model="vm.sdOrderItem.consignerPhone"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consignerMbPhone" for="field_consignerMbPhone">Consigner Mb Phone</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="consignerMbPhone" id="field_consignerMbPhone"
+                    ng-model="vm.sdOrderItem.consignerMbPhone"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consigneeId" for="field_consigneeId">Consignee Id</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consigneeId" id="field_consigneeId"
+                    ng-model="vm.sdOrderItem.consigneeId"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consigneeName" for="field_consigneeName">Consignee Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consigneeName" id="field_consigneeName"
+                    ng-model="vm.sdOrderItem.consigneeName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consigneePhone" for="field_consigneePhone">Consignee Phone</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consigneePhone" id="field_consigneePhone"
+                    ng-model="vm.sdOrderItem.consigneePhone"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consigneeMbPhone" for="field_consigneeMbPhone">Consignee Mb Phone</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="consigneeMbPhone" id="field_consigneeMbPhone"
+                    ng-model="vm.sdOrderItem.consigneeMbPhone"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.consigneeAddress" for="field_consigneeAddress">Consignee Address</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="consigneeAddress" id="field_consigneeAddress"
+                    ng-model="vm.sdOrderItem.consigneeAddress"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.bankNo" for="field_bankNo">Bank No</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="bankNo" id="field_bankNo"
+                    ng-model="vm.sdOrderItem.bankNo"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.bankName" for="field_bankName">Bank Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="bankName" id="field_bankName"
+                    ng-model="vm.sdOrderItem.bankName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.openName" for="field_openName">Open Name</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="openName" id="field_openName"
+                    ng-model="vm.sdOrderItem.openName"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.idCard" for="field_idCard">Id Card</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="idCard" id="field_idCard"
+                    ng-model="vm.sdOrderItem.idCard"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.payType" for="field_payType">Pay Type</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="payType" id="field_payType"
+                    ng-model="vm.sdOrderItem.payType"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.cashPay" for="field_cashPay">Cash Pay</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="cashPay" id="field_cashPay"
+                    ng-model="vm.sdOrderItem.cashPay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.fetchPay" for="field_fetchPay">Fetch Pay</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="fetchPay" id="field_fetchPay"
+                    ng-model="vm.sdOrderItem.fetchPay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.receiptPay" for="field_receiptPay">Receipt Pay</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="receiptPay" id="field_receiptPay"
+                    ng-model="vm.sdOrderItem.receiptPay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.monthPay" for="field_monthPay">Month Pay</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="monthPay" id="field_monthPay"
+                    ng-model="vm.sdOrderItem.monthPay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.chargePay" for="field_chargePay">Charge Pay</label>
+            <div class="col-sm-2">
+            	<input type="number" class="form-control" name="chargePay" id="field_chargePay"
+                    ng-model="vm.sdOrderItem.chargePay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.transportType" for="field_transportType">Transport Type</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="transportType" id="field_transportType"
+                    ng-model="vm.sdOrderItem.transportType"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.backRequire" for="field_backRequire">Back Require</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="backRequire" id="field_backRequire"
+                    ng-model="vm.sdOrderItem.backRequire"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.handOverType" for="field_handOverType">Hand Over Type</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="handOverType" id="field_handOverType"
+                    ng-model="vm.sdOrderItem.handOverType"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.otherPay" for="field_otherPay">Other Pay</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="otherPay" id="field_otherPay"
+                    ng-model="vm.sdOrderItem.otherPay"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.payExplain" for="field_payExplain">Pay Explain</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="payExplain" id="field_payExplain"
+                    ng-model="vm.sdOrderItem.payExplain"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.remark" for="field_remark">Remark</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="remark" id="field_remark"
+                    ng-model="vm.sdOrderItem.remark"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.kickBack" for="field_kickBack">Kick Back</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="kickBack" id="field_kickBack"
+                    ng-model="vm.sdOrderItem.kickBack"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.cashOwe" for="field_cashOwe">Cash Owe</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="cashOwe" id="field_cashOwe"
+                    ng-model="vm.sdOrderItem.cashOwe"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.requireItem" for="field_requireItem">Require Item</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="requireItem" id="field_requireItem"
+                    ng-model="vm.sdOrderItem.requireItem"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.tagged" for="field_tagged">Tagged</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="tagged" id="field_tagged"
+                    ng-model="vm.sdOrderItem.tagged"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.envelopes" for="field_envelopes">Envelopes</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="envelopes" id="field_envelopes"
+                    ng-model="vm.sdOrderItem.envelopes"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.salesMan" for="field_salesMan">Sales Man</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="salesMan" id="field_salesMan"
+                    ng-model="vm.sdOrderItem.salesMan"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.operator" for="field_operator">Operator</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="operator" id="field_operator"
+                    ng-model="vm.sdOrderItem.operator"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderItem.orderStat" for="field_orderStat">Order Stat</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="orderStat" id="field_orderStat"
+                    ng-model="vm.sdOrderItem.orderStat"  />
+            </div>
+        </div>
+	</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
