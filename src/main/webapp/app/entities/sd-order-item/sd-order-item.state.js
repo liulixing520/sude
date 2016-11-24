@@ -114,7 +114,7 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            onEnter: ['$stateParams', '$state', '$uibModal','SequenceValue', function($stateParams, $state, $uibModal,SequenceValue) {
                 $uibModal.open({
                     templateUrl: 'app/entities/sd-order-item/sd-order-item-dialog.html',
                     controller: 'SdOrderItemDialogController',
@@ -123,8 +123,9 @@
                     size: 'lg',
                     resolve: {
                         entity: function () {
+                        	var orderNo = SequenceValue.getNextSeqId({id:"SdOrderItem"}).$promise;
                             return {
-                                orderNo: null,
+                                orderNo: orderNo,
                                 orderHeaderNo: null,
                                 itemNo: null,
                                 consignDate: null,

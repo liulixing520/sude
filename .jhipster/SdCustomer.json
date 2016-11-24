@@ -23,6 +23,11 @@
         	"fieldType": "Long"
         },
         {
+        	"fieldName": "phone",
+        	"fieldDescription":"联系电话",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "idCard",
         	"fieldDescription":"身份证",
         	"fieldType": "String"

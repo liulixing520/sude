@@ -94,6 +94,7 @@ public class SdCustomerResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sd-customers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
 
     /**
      * GET  /sd-customers/:id : get the "id" sdCustomer.
@@ -146,5 +147,22 @@ public class SdCustomerResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    /**
+     * 搜索客户、托运单录入时调用
+     *
+     * @param query the query of the sdCustomer search 
+     * @param pageable the pagination information
+     * @return the result of the search
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/_search/searchSdCustomers")
+    @Timed
+    public List<SdCustomer> searchSdCustomers(@RequestParam String query)
+        throws URISyntaxException {
+        log.debug("REST request to search for a page of SdCustomers for query {}", query);
+        List<SdCustomer> list = sdCustomerService.search(query);
+        return list;
+    }
+    
 
 }

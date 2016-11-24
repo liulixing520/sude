@@ -1,0 +1,23 @@
+{
+    "sudeApp": {
+        "sequenceValueItem" : {
+            "home": {
+                "title": "序列单号",
+                "createLabel": "新增序列单号",
+                "createOrEditLabel": "新增或修改序列单号",
+                "search": "搜索序列单号"
+            },
+            "created": "ID 为 {{ param }} 的序列单号被创建",
+            "updated": "ID 为 {{ param }} 的序列单号被更新",
+            "deleted": "ID 为 {{ param }} 的序列单号被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}序列单号?"
+            },
+            "detail": {
+                "title": "序列单号"
+            },
+            "id": "实体名",
+        	"seqId": "序列号"
+        }
+    }
+}

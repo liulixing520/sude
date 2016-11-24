@@ -37,7 +37,19 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="id_card" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="recive_car" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="recive_driver" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
@@ -69,6 +81,9 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="others" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             
 			<column name="created_by" type="varchar(50)">
                 <constraints nullable="false"/>

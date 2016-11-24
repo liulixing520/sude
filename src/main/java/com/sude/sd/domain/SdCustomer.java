@@ -34,6 +34,9 @@ public class SdCustomer extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "mobile_phone")
     private Long mobilePhone;  // 手机号
+    
+    @Column(name = "phone")
+    private String phone;  // 电话
 
     @Column(name = "id_card")
     private String idCard;  // 身份证
@@ -66,8 +69,16 @@ public class SdCustomer extends AbstractAuditingEntity implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getPhone() {
+		return phone;
+	}
 
-    public String getCustomerName() {
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCustomerName() {
         return customerName;
     }
 

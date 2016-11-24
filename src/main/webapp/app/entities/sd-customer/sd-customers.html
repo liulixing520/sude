@@ -39,6 +39,7 @@
                     <th jh-sort-by="customerNM"><span data-translate="sudeApp.sdCustomer.customerNM">Customer NM</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="sex"><span data-translate="sudeApp.sdCustomer.sex">Sex</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="mobilePhone"><span data-translate="sudeApp.sdCustomer.mobilePhone">Mobile Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone"><span data-translate="sudeApp.sdCustomer.phone"> Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="idCard"><span data-translate="sudeApp.sdCustomer.idCard">Id Card</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="address"><span data-translate="sudeApp.sdCustomer.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bank"><span data-translate="sudeApp.sdCustomer.bank">Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -52,11 +53,12 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdCustomer in vm.sdCustomers track by sdCustomer.id">
-                    <td><a ui-sref="sd-customer-detail({id:sdCustomer.id})">{{sdCustomer.id}}</a></td>
+                    <td><a ui-sref="sd-customer-detail({customerName:sdCustomer.customerName})">{{sdCustomer.customerName}}</a></td>
                     <td>{{sdCustomer.customerName}}</td>
                     <td>{{sdCustomer.customerNM}}</td>
                     <td>{{sdCustomer.sex}}</td>
                     <td>{{sdCustomer.mobilePhone}}</td>
+                    <td>{{sdCustomer.phone}}</td>
                     <td>{{sdCustomer.idCard}}</td>
                     <td>{{sdCustomer.address}}</td>
                     <td>{{sdCustomer.bank}}</td>

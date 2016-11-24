@@ -1,0 +1,17 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+        	"fieldName": "seqId",
+        	"fieldDescription":"序列号",
+        	"fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sequence_value_item",
+    "entityName": "序列单号",
+    "pagination": "pagination"
+}

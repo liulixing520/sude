@@ -13,11 +13,6 @@
         	"fieldType": "String"
         },
         {
-        	"fieldName": "itemNo",
-        	"fieldDescription":"托运日期",
-        	"fieldType": "LocalDate"
-        },
-        {
         	"fieldName": "consignDate",
         	"fieldDescription":"受理日期",
         	"fieldType": "LocalDate"
@@ -103,6 +98,16 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "reciveCar",
+        	"fieldDescription":"接货车号",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "reciveDriver",
+        	"fieldDescription":"接货司机",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "idCard",
         	"fieldDescription":"身份证号",
         	"fieldType": "String"
@@ -165,6 +170,11 @@
         {
         	"fieldName": "remark",
         	"fieldDescription":"备注",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "others",
+        	"fieldDescription":"其他",
         	"fieldType": "String"
         },
         {

@@ -29,10 +29,6 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="item_no" type="date">
-                <constraints nullable="true" />
-            </column>
-            
             <column name="consign_date" type="date">
                 <constraints nullable="true" />
             </column>

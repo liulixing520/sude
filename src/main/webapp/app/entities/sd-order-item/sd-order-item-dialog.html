@@ -41,6 +41,7 @@ label[for] {
 }
 </style>
 
+    
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <div class="modal-header">
@@ -50,65 +51,80 @@ label[for] {
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-<!--         <div class="form-group" ng-show="vm.sdOrderItem.id"> -->
-<!--             <label for="id" data-translate="global.field.id">ID</label> -->
-            <input type="hidden" class="form-control" id="id" name="id"
-                    ng-model="vm.sdOrderItem.id"  />
-<!--         </div> -->
-		<div width="100%" >
+        <input type="hidden" class="form-control" id="id" name="id"  ng-model="vm.sdOrderItem.id"  />
+		<div width="100%" class="">
 		<div style="line-height: 32px;">
-			<div style="width:33%;float:left;text-align: left;;">运单号:&nbsp;&nbsp;<span style="color:red;font-weight:bold;font-family: monospace;font-size: 21px;">0000033</span></div>
+			<div style="width:33%;float:left;text-align: left;;">运单号:&nbsp;&nbsp;<span style="color:red;font-weight:bold;font-family: monospace;font-size: 21px;" ng-bind="vm.sdOrderItem.orderNo">0000033</span></div>
 			<div style="width:34%;float:left;text-align: center;font-size: 24px;letter-spacing: 10px;margin-top: -10px;">货物托运凭证</div>
-			<div style="width:33%;float:right;text-align: right;;">运单号受理日期:&nbsp;&nbsp;2016-11-03&nbsp;&nbsp;</div>
+			<div style="width:33%;float:right;text-align: right;;">运单受理日期:&nbsp;&nbsp;<span ng-bind="vm.sdOrderItem.consignDate"></span>
+<!-- 			<div class="col-sm-2"> -->
+<!--                 <div class="input-group"> -->
+<!--                     <input id="field_departureTime" type="text" class="form-control" name="departureTime" datetime-picker="{{dateformat}}" ng-model="vm.sdOrderHeader.departureTime" is-open="vm.datePickerOpenStatus.departureTime" -->
+<!--                       /> -->
+<!--                     <span class="input-group-btn"> -->
+<!--                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('departureTime')"><i class="glyphicon glyphicon-calendar"></i></button> -->
+<!--                     </span> -->
+<!--                 </div> -->
+<!--             </div> -->
+			&nbsp;&nbsp;</div>
 		</div>
 		<table class="gridtable" style="border-top: 2px solid;" >
 			<tr>
 				<td>启&nbsp;&nbsp;运&nbsp;&nbsp;站</td>
-				<td><select></select></td>
+				<td><select ng-model="vm.sdOrderItem.fromStation"><option>长乐</option></select></td>
 				<td>到&nbsp;&nbsp;达&nbsp;&nbsp;站</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><select ng-model="vm.sdOrderItem.toStation"><option>温州</option></select></td>
 				<td>经&nbsp;&nbsp;&nbsp;&nbsp;由</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.middleStation"/></td>
 				<td>货&nbsp;&nbsp;&nbsp;&nbsp;号</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.orderNo"/></td>
 			</tr>
 			<tr>
 				<td>发&nbsp;&nbsp;货&nbsp;&nbsp;人</td>
-				<td colspan="3"><input type="text" name="" value="" /></td>
+				<td colspan="3">
+					<input type="text" name="consignerName" id="consignerName"  ng-model="vm.sdOrderItem.consignerName"  placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsignerDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)"  />
+<!-- 					typeahead-loading="loadingLocations" typeahead-no-results="noResults" -->
+<!-- 					<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
+					<input type="hidden" name="consignerId" id="consignerId"  ng-model="vm.sdOrderItem.consignerId" />
+				</td>
 				<td>联系电话</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="consignerPhone" id="consignerPhone" value="" ng-model="vm.sdOrderItem.consignerPhone"/></td>
 				<td>手&nbsp;&nbsp;机&nbsp;&nbsp;号</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="consignerMbPhone" id="consignerMbPhone" value="" ng-model="vm.sdOrderItem.consignerMbPhone"/>
+				</td>
 			</tr>
 			<tr>
 				<td>收&nbsp;&nbsp;货&nbsp;&nbsp;人</td>
-				<td colspan="3"><input type="text" name="" value="" /></td>
+				<td colspan="3">
+					<input type="text" name="consigneeName" id="consigneeName" value="" ng-model="vm.sdOrderItem.consigneeName" placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsigneeDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)" />
+					<input type="hidden" name="consigneeId" id="consigneeId" value="" ng-model="vm.sdOrderItem.consigneeId"/>
+				</td>
 				<td>联系电话</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="consigneePhone" id="consigneePhone" value="" ng-model="vm.sdOrderItem.consigneePhone"/></td>
 				<td>手&nbsp;&nbsp;机&nbsp;&nbsp;号</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="consigneeMbPhone" id="consigneeMbPhone" value="" ng-model="vm.sdOrderItem.consigneeMbPhone"/></td>
 			</tr>
 			<tr>
 				<td>收货地址</td>
-				<td colspan="3"><input type="text" name="" value="" /></td>
+				<td colspan="3"><input type="text" name="consigneeAddress" id="consigneeAddress" ng-model="vm.sdOrderItem.consigneeAddress" value="" /></td>
 				<td>接货车号</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.reciveCar" /></td>
 				<td>接货司机</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.reciveDriver" /></td>
 			</tr>
 			<tr>
 				<td>发货地址</td>
-				<td ><input type="text" name="" value="" /></td>
+				<td ><input type="text" name="consignerAddress" id="consignerAddress" ng-model="vm.sdOrderItem.consignerAddress" value="" /></td>
 				<td>银行卡号</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.bankNo"/></td>
 				<td>开&nbsp;&nbsp;户&nbsp;&nbsp;行</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.bankName" value="" /></td>
 				<td>开&nbsp;&nbsp;户&nbsp;&nbsp;名</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.openName" /></td>
 			</tr>
 			<tr>
 				<td>身份证号</td>
-				<td colspan="3"><input type="text" name="" value="" /></td>
+				<td colspan="3"><input type="text" ng-model="vm.sdOrderItem.idCard" /></td>
 				<td></td>
 				<td colspan="3"></td>
 			</tr>
@@ -186,51 +202,78 @@ label[for] {
 			<tr>
 				<td>付款方式</td>
 				<td>
-					<select name="" >
-						<option>1111</option>
-						<option>1111</option>
-						<option>1111</option>
-						<option>1111</option>
-						<option>1111</option>
+					<select ng-model="vm.sdOrderItem.payType"  >
+						<option>现付</option>
+						<option>提付</option>
+						<option>回单付</option>
+						<option>月结</option>
+						<option>贷款扣</option>
 					</select>
 				</td>
 				<td>现&nbsp;&nbsp;&nbsp;&nbsp;付</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.cashPay"/></td>
 				<td>提&nbsp;&nbsp;&nbsp;&nbsp;付</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.fetchPay"/></td>
 				<td>回&nbsp;&nbsp;单&nbsp;&nbsp;付</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.receiptPay"/></td>
 				<td>月&nbsp;&nbsp;结</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.monthPay"/></td>
 				<td>贷&nbsp;&nbsp;扣&nbsp;&nbsp;款</td>
-				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.chargePay"/></td>
 			</tr>
 			<tr>
 				<td>运输方式</td>
-				<td><input type="text" name="" value="" /></td>
+				<td>
+					<select ng-model="vm.sdOrderItem.transportType"  >
+						<option>公路快运</option>
+						<option>铁路运输</option>
+					</select>
+				</td>
 				<td>回单要求</td>
-				<td><input type="text" name="" value="" /></td>
+				<td>
+					<select ng-model="vm.sdOrderItem.backRequire"  >
+						<option>无</option>
+					</select>
+				</td>
 				<td>交接方式</td>
-				<td><input type="text" name="" value="" /></td>
+				<td>
+					<select ng-model="vm.sdOrderItem.handOverType"  >
+						<option>自提</option>
+						<option>送货上门</option>
+					</select>
+				</td>
 				<td>其他支出</td>
-				<td colspan="2"><input type="text" name="" value="" /></td>
+				<td colspan="2"><input type="text" ng-model="vm.sdOrderItem.otherPay" /></td>
 				<td>费用说明</td>
-				<td colspan="2"><input type="text" name="" value="" /></td>
+				<td colspan="2"><input type="text" ng-model="vm.sdOrderItem.payExplain" /></td>
 			</tr>
 			<tr>
 				<td>备&nbsp;&nbsp;&nbsp;&nbsp;注</td>
-				<td colspan="5"><input type="text" name="" value="" /></td>
+				<td colspan="5"><input type="text" ng-model="vm.sdOrderItem.remark" /></td>
 				<td>其&nbsp;&nbsp;&nbsp;&nbsp;他</td>
-				<td colspan="5"><input type="text" name="" value="" /></td>
+				<td colspan="5" >
+				<div style="text-align: left;">
+					<label class="checkbox-inline">
+					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.kickBack" ng-true-value="true" ng-false-value="false" id="s1"><label for="s1" >回扣已返&nbsp;&nbsp;</label>
+					</label>
+					<label class="checkbox-inline">
+					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.cashOwe" ng-true-value="true" ng-false-value="false" id="s2"><label for="s2" >现付尚欠&nbsp;&nbsp;</label>
+					</label>
+					<label class="checkbox-inline">
+					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.requireItem" ng-true-value="true" ng-false-value="false" id="s3"><label for="s3" >要求控货&nbsp;&nbsp;</label>
+					</label>
+				</div>
+								
+				</td>
 			</tr>
 		</table>
 		<div style="line-height: 32px;">
-			<div style="float:left;"><input type="checkbox" id="a1" /><label for="a1" >打标签&nbsp;&nbsp;</label></div>
-			<div style="float:left;"><input type="checkbox" id="a2" /><label for="a2">打信封&nbsp;&nbsp;</label></div>
+			<div style="float:left;"><input type="checkbox" id="a1" ng-checked="vm.sdOrderItem.tagged == 'true'" ng-model="vm.sdOrderItem.tagged" ng-true-value="true" ng-false-value="false"/><label for="a1" >打标签&nbsp;&nbsp;</label></div>
+			<div style="float:left;"><input type="checkbox" id="a2" ng-checked="vm.sdOrderItem.envelopes == 'true'" ng-model="vm.sdOrderItem.envelopes" ng-true-value="true" ng-false-value="false"/><label for="a2">打信封&nbsp;&nbsp;</label></div>
 			<div style="float:left;"><input type="checkbox" id="a3" /><label for="a3">打回扣凭证&nbsp;&nbsp;</label></div>
 			<div style="float:left;"><input type="checkbox" id="a4" /><label for="a4">打装卸单&nbsp;&nbsp;</label></div>
 			<div style="float:left;"><input type="checkbox" id="a4" /><label for="a4">发送短信&nbsp;&nbsp;</label></div>
-			<div style="float:right;">制单人：<span style="font-size: 15px;color: #015F84;" >秀腾宇&nbsp;&nbsp;</span></div>
+			<div style="float:right;">制单人：<span style="font-size: 15px;color: #015F84;" >秀腾宇&nbsp;&nbsp;<input type="hidden" ng-model="vm.sdOrderItem.others"  /></span></div>
 		</div>
 		</div>
     </div>

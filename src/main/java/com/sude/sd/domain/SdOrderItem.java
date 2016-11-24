@@ -31,9 +31,6 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
     @Column(name = "order_header_no")
     private String orderHeaderNo;  // 货运单号
 
-    @Column(name = "item_no")
-    private LocalDate itemNo;  // 托运日期
-
     @Column(name = "consign_date")
     private LocalDate consignDate;  // 受理日期
 
@@ -87,6 +84,12 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
 
     @Column(name = "id_card")
     private String idCard;  // 身份证号
+    
+    @Column(name = "recive_car")
+    private String reciveCar;  // 接货车号
+    
+    @Column(name = "recive_driver")
+    private String rreciveDriver;  // 接货司机
 
     @Column(name = "pay_type")
     private String payType;  // 付款方式
@@ -123,6 +126,9 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
 
     @Column(name = "remark")
     private String remark;  // 备注
+    
+    @Column(name = "others")
+    private String others;  // 其他
 
     @Column(name = "kick_back")
     private String kickBack;  // 回扣已返
@@ -156,7 +162,31 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
         this.id = id;
     }
 
-    public String getOrderNo() {
+    public String getReciveCar() {
+		return reciveCar;
+	}
+
+	public String getOthers() {
+		return others;
+	}
+
+	public void setOthers(String others) {
+		this.others = others;
+	}
+
+	public void setReciveCar(String reciveCar) {
+		this.reciveCar = reciveCar;
+	}
+
+	public String getRreciveDriver() {
+		return rreciveDriver;
+	}
+
+	public void setRreciveDriver(String rreciveDriver) {
+		this.rreciveDriver = rreciveDriver;
+	}
+
+	public String getOrderNo() {
         return orderNo;
     }
 
@@ -180,19 +210,6 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
 
     public void setOrderHeaderNo(String orderHeaderNo) {
         this.orderHeaderNo = orderHeaderNo;
-    }
-
-    public LocalDate getItemNo() {
-        return itemNo;
-    }
-
-    public SdOrderItem itemNo(LocalDate itemNo) {
-        this.itemNo = itemNo;
-        return this;
-    }
-
-    public void setItemNo(LocalDate itemNo) {
-        this.itemNo = itemNo;
     }
 
     public LocalDate getConsignDate() {
@@ -715,7 +732,6 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
             "id=" + id +
             ", orderNo='" + orderNo + "'" +
             ", orderHeaderNo='" + orderHeaderNo + "'" +
-            ", itemNo='" + itemNo + "'" +
             ", consignDate='" + consignDate + "'" +
             ", fromStation='" + fromStation + "'" +
             ", toStation='" + toStation + "'" +

@@ -2,7 +2,9 @@ package com.sude.sd.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.sude.sd.domain.SdOrderItem;
+import com.sude.sd.domain.SequenceValueItem;
 import com.sude.sd.service.SdOrderItemService;
+import com.sude.sd.service.SequenceValueItemService;
 import com.sude.sd.web.rest.util.HeaderUtil;
 import com.sude.sd.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -35,7 +37,8 @@ public class SdOrderItemResource {
         
     @Inject
     private SdOrderItemService sdOrderItemService;
-
+    @Inject
+    private SequenceValueItemService sequenceValueItemService;
     /**
      * POST  /sd-order-items : Create a new sdOrderItem.
      *
@@ -51,6 +54,8 @@ public class SdOrderItemResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sdOrderItem", "idexists", "A new sdOrderItem cannot already have an ID")).body(null);
         }
         SdOrderItem result = sdOrderItemService.save(sdOrderItem);
+        //更新seqId
+        sequenceValueItemService.updateSeqId(this.getClass().getName(), Long.valueOf(result.getOrderNo()));
         return ResponseEntity.created(new URI("/api/sd-order-items/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("sdOrderItem", result.getId().toString()))
             .body(result);

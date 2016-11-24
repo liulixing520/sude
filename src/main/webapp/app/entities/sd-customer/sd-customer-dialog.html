@@ -8,11 +8,6 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-<!--         <div class="form-group" ng-show="vm.sdCustomer.id"> -->
-<!--             <label for="id" data-translate="global.field.id">ID</label> -->
-            <input type="hidden" class="form-control" id="id" name="id"
-                    ng-model="vm.sdCustomer.id"  />
-<!--         </div> -->
 		<div class="form-group">
         <div >
             <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.customerName" for="field_customerName">Customer Name</label>
@@ -43,17 +38,24 @@
             </div>
         </div>
         <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.idCard" for="field_idCard">Id Card</label>
-            <div class="col-sm-3">
-            	<input type="text" class="form-control" name="idCard" id="field_idCard"
-                    ng-model="vm.sdCustomer.idCard"  />
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.phone" for="field_phone">Phone</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.sdCustomer.phone"  />
             </div>
         </div>
         <div >
             <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.address" for="field_address">Address</label>
-            <div class="col-sm-7">
+            <div class="col-sm-2">
             	<input type="text" class="form-control" name="address" id="field_address"
                     ng-model="vm.sdCustomer.address"  />
+            </div>
+        </div>
+        <div >
+            <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.idCard" for="field_idCard">Id Card</label>
+            <div class="col-sm-2">
+            	<input type="text" class="form-control" name="idCard" id="field_idCard"
+                    ng-model="vm.sdCustomer.idCard"  />
             </div>
         </div>
         <div >
@@ -93,7 +95,7 @@
         </div>
         <div >
             <label class="col-sm-1 control-label" data-translate="sudeApp.sdCustomer.remark" for="field_remark">Remark</label>
-            <div class="col-sm-8">
+            <div class="col-sm-11">
             	<input type="text" class="form-control" name="remark" id="field_remark"
                     ng-model="vm.sdCustomer.remark"  />
             </div>

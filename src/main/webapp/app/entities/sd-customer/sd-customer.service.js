@@ -2,9 +2,10 @@
     'use strict';
     angular
         .module('sudeApp')
-        .factory('SdCustomer', SdCustomer);
+        .factory('SdCustomer', SdCustomer).factory('SearchSdCustomers', SearchSdCustomers);
 
     SdCustomer.$inject = ['$resource'];
+    SearchSdCustomers.$inject = ['$resource'];
 
     function SdCustomer ($resource) {
         var resourceUrl =  'api/sd-customers/:id';
@@ -22,5 +23,13 @@
             },
             'update': { method:'PUT' }
         });
+    }
+    
+    function SearchSdCustomers ($resource) {
+    	var resourceUrl =  'api/_search/searchSdCustomers';
+    	
+    	return $resource(resourceUrl, {}, {
+    		'query': { method: 'GET', isArray: true}
+    	});
     }
 })();

@@ -20,6 +20,7 @@
             "customerNM": "名称简写",
             "sex": "性别",
             "mobilePhone": "手机号",
+            "phone": "联系电话",
             "idCard": "身份证",
             "address": "地址",
             "bank": "银行",

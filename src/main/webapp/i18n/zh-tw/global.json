@@ -17,6 +17,7 @@
                 "sdOrderHeader": "Sd Order Header",
                 "sdOrderItem": "Sd Order Item",
                 "sdItemInfo": "Sd Item Info",
+                "sequenceValueItem": "Sequence Value Item",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
