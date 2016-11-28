@@ -1,5 +1,5 @@
 <div>
-    <jhi-alert></jhi-alert>
+<!--     <jhi-alert></jhi-alert> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
@@ -35,12 +35,10 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="orderNo"><span data-translate="sudeApp.sdOrderItem.orderNo">Order No</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="orderHeaderNo"><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="itemNo"><span data-translate="sudeApp.sdOrderItem.itemNo">Item No</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="consignDate"><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="fromStation"><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="toStation"><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fromStationName"><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="toStationName"><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="middleStation"><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span> <span class="glyphicon glyphicon-sort"></span></th>
 <!--                     <th jh-sort-by="consignerId"><span data-translate="sudeApp.sdOrderItem.consignerId">Consigner Id</span> <span class="glyphicon glyphicon-sort"></span></th> -->
                     <th jh-sort-by="consignerName"><span data-translate="sudeApp.sdOrderItem.consignerName">Consigner Name</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -82,12 +80,10 @@
             <tbody>
                 <tr ng-repeat="sdOrderItem in vm.sdOrderItems track by sdOrderItem.id">
                     <td><a ui-sref="sd-order-item-detail({id:sdOrderItem.id})">{{sdOrderItem.id}}</a></td>
-                    <td>{{sdOrderItem.orderNo}}</td>
                     <td>{{sdOrderItem.orderHeaderNo}}</td>
-                        <td>{{sdOrderItem.itemNo | date:'mediumDate'}}</td>
-                        <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
-                    <td>{{sdOrderItem.fromStation}}</td>
-                    <td>{{sdOrderItem.toStation}}</td>
+                    <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
+                    <td>{{sdOrderItem.fromStationName}}</td>
+                    <td>{{sdOrderItem.toStationName}}</td>
                     <td>{{sdOrderItem.middleStation}}</td>
 <!--                     <td>{{sdOrderItem.consignerId}}</td> -->
                     <td>{{sdOrderItem.consignerName}}</td>
@@ -125,12 +121,12 @@
 <!--                     <td>{{sdOrderItem.orderStat}}</td> -->
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="sd-order-item-detail({id:sdOrderItem.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
-                            </button>
+<!--                             <button type="submit" -->
+<!--                                     ui-sref="sd-order-item-detail({id:sdOrderItem.id})" -->
+<!--                                     class="btn btn-info btn-sm"> -->
+<!--                                 <span class="glyphicon glyphicon-eye-open"></span> -->
+<!--                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span> -->
+<!--                             </button> -->
                             <button type="submit"
                                     ui-sref="sd-order-item.edit({id:sdOrderItem.id})"
                                     class="btn btn-primary btn-sm">

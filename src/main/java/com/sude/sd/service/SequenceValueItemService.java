@@ -106,7 +106,8 @@ public class SequenceValueItemService {
         long retSeqId = 1;
         if(sequenceValueItem !=null && !"".equals(sequenceValueItem)){
         	if(sequenceValueItem.getSeqId()>0){
-        		retSeqId++;
+        		retSeqId = sequenceValueItem.getSeqId();
+        		retSeqId+=1;
         	}else{
         		return retSeqId;
         	}
@@ -120,16 +121,16 @@ public class SequenceValueItemService {
      *  @param id  the entityName
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
     public void updateSeqId(String id,Long seqId) {
         log.debug("Request to get SequenceValueItem : {}", id);
         SequenceValueItem sequenceValueItem = sequenceValueItemRepository.findOne(id);
         if(sequenceValueItem !=null && !"".equals(sequenceValueItem)){
         	sequenceValueItem.setSeqId(seqId);
         }else{
+        	sequenceValueItem = new SequenceValueItem();
         	sequenceValueItem.setId(id);
         	sequenceValueItem.setSeqId(seqId);
         }
-        sequenceValueItemRepository.save(sequenceValueItem);
+        this.save(sequenceValueItem);
     }
 }

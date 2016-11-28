@@ -57,6 +57,19 @@ public class SdItemInfoService {
         Page<SdItemInfo> result = sdItemInfoRepository.findAll(pageable);
         return result;
     }
+    
+    /**
+     *  Get all the sdItemInfos.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<SdItemInfo> findByOrderNo(String orderNo) {
+    	log.debug("Request to get all SdItemInfos");
+    	List<SdItemInfo> result = sdItemInfoRepository.findByOrderNo(orderNo);
+    	return result;
+    }
 
     /**
      *  Get one sdItemInfo by id.

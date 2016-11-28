@@ -32,6 +32,9 @@
             <column name="driver_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="driver_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             
             <column name="mobile_phone" type="bigint">
                 <constraints nullable="true" />

@@ -109,8 +109,8 @@
             }]
         })
         .state('sd-order-header.new', {
-            parent: 'sd-order-header',
-            url: '/new',
+            parent: 'sd-order-item-loading',
+            url: '/new?ids',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -153,9 +153,9 @@
                         }
                     }
                 }).result.then(function() {
-                    $state.go('sd-order-header', null, { reload: 'sd-order-header' });
+                    $state.go('sd-order-item-loading', null, { reload: 'sd-order-item-loading' });
                 }, function() {
-                    $state.go('sd-order-header');
+                    $state.go('sd-order-item-loading');
                 });
             }]
         })

@@ -57,6 +57,19 @@ public class EnumerationTypeService {
         Page<EnumerationType> result = enumerationTypeRepository.findAll(pageable);
         return result;
     }
+    
+    /**
+     *  Get all the enumerationTypes.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<EnumerationType> findAll() {
+    	log.debug("Request to get all EnumerationTypes");
+    	List<EnumerationType> result = enumerationTypeRepository.findAll();
+    	return result;
+    }
 
     /**
      *  Get one enumerationType by id.

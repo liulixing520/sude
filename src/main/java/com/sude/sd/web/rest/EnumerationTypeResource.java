@@ -146,5 +146,20 @@ public class EnumerationTypeResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    /**
+     * GET  /enumeration-types : 获取枚举类型
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of enumerationTypes in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/getAllEnumerationType")
+    @Timed
+    public List<EnumerationType> getAllEnumerationType()
+        throws URISyntaxException {
+        log.debug("REST request to get a page of EnumerationTypes");
+        List<EnumerationType> result = enumerationTypeService.findAll();
+        return result;
+    }
 
 }

@@ -2,9 +2,10 @@
     'use strict';
     angular
         .module('sudeApp')
-        .factory('SdItemInfo', SdItemInfo);
+        .factory('SdItemInfo', SdItemInfo).factory('SdItemInfos', SdItemInfos);
 
     SdItemInfo.$inject = ['$resource'];
+    SdItemInfos.$inject = ['$resource'];
 
     function SdItemInfo ($resource) {
         var resourceUrl =  'api/sd-item-infos/:id';
@@ -22,5 +23,13 @@
             },
             'update': { method:'PUT' }
         });
+    }
+    
+    function SdItemInfos ($resource) {
+    	var resourceUrl =  'api/getItemInfoByOrderNo/:id';
+    	
+    	return $resource(resourceUrl, {}, {
+    		'query': { method: 'GET', isArray: true}
+    	});
     }
 })();

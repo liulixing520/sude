@@ -3,6 +3,7 @@
         "sdOrderItem" : {
             "home": {
                 "title": "托运单",
+                "loadingTitle": "分单配载",
                 "createLabel": "新增托运单",
                 "createOrEditLabel": "新增或修改托运单",
                 "search": "搜索托运单"
@@ -23,6 +24,7 @@
             "fromStation": "启运站",
             "toStation": "到达站",
             "middleStation": "经由",
+            "goodsNo": "货号",
             "consignerId": "发货人id",
             "consignerName": "发货人",
             "consignerAddress": "发货地址",

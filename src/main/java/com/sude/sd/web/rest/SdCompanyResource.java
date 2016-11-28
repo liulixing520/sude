@@ -94,6 +94,22 @@ public class SdCompanyResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sd-companies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    /**
+     * GET  /sd-companies : get all the sdCompanies.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of sdCompanies in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/getsd-companies")
+    @Timed
+    public List<SdCompany> getAllSdCompanies()
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of SdCompanies");
+    	List<SdCompany> result = sdCompanyService.findAll();
+    	return result;
+    }
 
     /**
      * GET  /sd-companies/:id : get the "id" sdCompany.

@@ -33,6 +33,9 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
 
     @Column(name = "driver_name")
     private String driverName;  // 司机
+    
+    @Column(name = "driver_id")
+    private String driverId;  // 司机
 
     @Column(name = "mobile_phone")
     private Long mobilePhone;  // 手机号
@@ -122,7 +125,15 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
         return carNo;
     }
 
-    public SdOrderHeader carNo(String carNo) {
+    public String getDriverId() {
+		return driverId;
+	}
+
+	public void setDriverId(String driverId) {
+		this.driverId = driverId;
+	}
+
+	public SdOrderHeader carNo(String carNo) {
         this.carNo = carNo;
         return this;
     }

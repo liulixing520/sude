@@ -18,6 +18,11 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "driverId",
+        	"fieldDescription":"司机",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "mobilePhone",
         	"fieldDescription":"手机号",
         	"fieldType": "Long"

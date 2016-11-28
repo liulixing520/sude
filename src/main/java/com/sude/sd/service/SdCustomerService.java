@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sude.sd.domain.SdCustomer;
+import com.sude.sd.domain.SdOrderItem;
 import com.sude.sd.repository.SdCustomerRepository;
 import com.sude.sd.repository.search.SdCustomerSearchRepository;
 
@@ -134,5 +135,44 @@ public class SdCustomerService {
 			result.add(element);
 		}
 		return result;
+	}
+	
+	/**
+	 * 检测是否有已存在同名、同手机号客户/如果不存在则新增
+	 * 
+	 * @param SdOrderItem
+	 * @return the list of entities
+	 */
+	public SdOrderItem checkHasCustomer(SdOrderItem sdOrderItem) {
+		log.debug("Request to get findByCustomerNameAndMobilePhone");
+		String consignerName = sdOrderItem.getConsignerName();
+	    Long consignerMbPhone = sdOrderItem.getConsignerMbPhone();
+	    String consignerAddress = sdOrderItem.getConsignerAddress();
+	    String consignerPhone = sdOrderItem.getConsignerPhone();
+		List<SdCustomer> result = sdCustomerRepository.findByCustomerNameAndMobilePhone(consignerName,consignerMbPhone);
+		if(result.size() == 0 ){
+			SdCustomer sdCustomer = new SdCustomer();
+			sdCustomer.setCustomerName(consignerName);
+			sdCustomer.setMobilePhone(consignerMbPhone);
+			sdCustomer.setPhone(consignerPhone);
+			sdCustomer.setAddress(consignerAddress);
+			sdCustomer = save(sdCustomer);
+			sdOrderItem.setConsignerId(sdCustomer.getId()+"");
+		}
+		String consigneeName = sdOrderItem.getConsigneeName();
+		Long consigneeMbPhone = sdOrderItem.getConsigneeMbPhone();
+		String consigneeAddress = sdOrderItem.getConsigneeAddress();
+		String consigneePhone = sdOrderItem.getConsigneePhone();
+		List<SdCustomer> result2 = sdCustomerRepository.findByCustomerNameAndMobilePhone(consigneeName,consigneeMbPhone);
+		if(result2.size() == 0 ){
+			SdCustomer sdCustomer = new SdCustomer();
+			sdCustomer.setCustomerName(consigneeName);
+			sdCustomer.setMobilePhone(consigneeMbPhone);
+			sdCustomer.setPhone(consigneePhone);
+			sdCustomer.setAddress(consigneeAddress);
+			save(sdCustomer);
+			sdOrderItem.setConsigneeId(sdCustomer.getId()+"");
+		}
+		return sdOrderItem;
 	}
 }

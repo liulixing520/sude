@@ -1,5 +1,5 @@
 <div>
-    <jhi-alert></jhi-alert>
+<!--     <jhi-alert></jhi-alert> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
@@ -35,18 +35,18 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="isDelete"><span data-translate="sudeApp.enumeration.isDelete">Is Delete</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span data-translate="sudeApp.enumeration.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="enumTypeId"><span data-translate="sudeApp.enumeration.enumTypeId">Enum Type Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="isDelete"><span data-translate="sudeApp.enumeration.isDelete">Is Delete</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="enumeration in vm.enumerations track by enumeration.id">
                     <td><a ui-sref="enumeration-detail({id:enumeration.id})">{{enumeration.id}}</a></td>
-                    <td>{{enumeration.isDelete}}</td>
                     <td>{{enumeration.description}}</td>
                     <td>{{enumeration.enumTypeId}}</td>
+                    <td>{{enumeration.isDelete}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

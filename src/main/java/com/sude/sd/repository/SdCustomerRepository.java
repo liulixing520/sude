@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface SdCustomerRepository extends JpaRepository<SdCustomer,Long> {
 
+	List<SdCustomer> findByCustomerNameAndMobilePhone(String customerName,Long mobilePhone);
 }

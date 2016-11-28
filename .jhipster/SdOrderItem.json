@@ -23,13 +23,28 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "fromStationName",
+        	"fieldDescription":"启运站名称",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "toStation",
         	"fieldDescription":"到达站",
         	"fieldType": "String"
         },
         {
+        	"fieldName": "toStationName",
+        	"fieldDescription":"到达站名称",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "middleStation",
         	"fieldDescription":"经由",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "goodsNo",
+        	"fieldDescription":"货号",
         	"fieldType": "String"
         },
         {

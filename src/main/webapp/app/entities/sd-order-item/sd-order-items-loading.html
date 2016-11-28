@@ -1,0 +1,84 @@
+<div>
+<!--     <jhi-alert></jhi-alert> -->
+<!--     <div class="container-fluid"> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-xs-4 no-padding-left"> -->
+<!--                 <button class="btn btn-primary" ui-sref="sd-order-item.new" > -->
+<!--                     <span class="glyphicon glyphicon-plus"></span> -->
+<!--                     <span class="hidden-xs"  data-translate="sudeApp.sdOrderItem.home.createLabel"> -->
+<!--                         Create new Sd Order Item -->
+<!--                     </span> -->
+<!--                 </button> -->
+<!--             </div> -->
+<!--             <div class="col-xs-8 no-padding-right"> -->
+<!--                 <form name="searchForm" class="form-inline"> -->
+<!--                     <div class="input-group pull-right" > -->
+<!--                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'sudeApp.sdOrderItem.home.search' | translate }}"> -->
+<!--                         <span  class="input-group-btn width-min" > -->
+<!--                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)"> -->
+<!--                                 <span class="glyphicon glyphicon-search"></span> -->
+<!--                             </button> -->
+<!--                         </span> -->
+<!--                         <span class="input-group-btn width-min" ng-if="vm.currentSearch"> -->
+<!--                             <button class="btn btn-info" ng-click="vm.clear()"> -->
+<!--                                 <span class="glyphicon glyphicon-trash"></span> -->
+<!--                             </button> -->
+<!--                         </span> -->
+<!--                     </div> -->
+<!--                 </form> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!--     <br/> -->
+    <div class="table-responsive">
+        <div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">分单配载</h3>
+				</div>
+				<div class="panel-body">
+					<button class="btn btn-primary"  ng-disabled="vm.ids.length == 0 " ui-sref="sd-order-header.new({ids:vm.ids.toString()})" >生成货运单</button>
+					<table class="table table-bordered table-striped" id="example-2">
+						<thead>
+							<tr>
+								<th class="no-sorting" style="width:2%">
+									<input type="checkbox" class="cbr" ng-model="vm.selectedAll" ng-click="selectedAll($event)">
+								</th>
+								<th style="width:6%"><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> </th>
+			                    <th style="width:8%"><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> </th>
+			                    <th style="width:6%"><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> </th>
+			                    <th style="width:6%"><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> </th>
+			                    <th style="width:6%"><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span> </th>
+			                    <th style="width:6%"><span data-translate="sudeApp.sdOrderItem.consignerName">Consigner Name</span> </th>
+			                    <th style="width:18%"><span data-translate="sudeApp.sdOrderItem.consignerAddress">Consigner Address</span> </th>
+			                    <th style="width:6%"><span data-translate="sudeApp.sdOrderItem.consigneeName">Consignee Name</span> </th>
+			                    <th style="width:18%"><span data-translate="sudeApp.sdOrderItem.consigneeAddress">Consignee Address</span> </th>
+							</tr>
+						</thead>
+						
+						<tbody class="middle-align">
+							<tr ng-repeat="sdOrderItem in vm.sdOrderItems track by sdOrderItem.id">
+								<td>
+									<input type="checkbox" class="cbr"  ng-checked="vm.selectedAll" ng-click="selectedOne($event,sdOrderItem.id)">
+								</td>
+			                    <td>{{sdOrderItem.id}}</td>
+		                        <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
+			                    <td>{{sdOrderItem.fromStationName}}</td>
+			                    <td>{{sdOrderItem.toStationName}}</td>
+			                    <td>{{sdOrderItem.middleStation}}</td>
+			                    <td>{{sdOrderItem.consignerName}}</td>
+			                    <td>{{sdOrderItem.consignerAddress}}</td>
+			                    <td>{{sdOrderItem.consigneeName}}</td>
+			                    <td>{{sdOrderItem.consigneeAddress}}</td>
+		                    </tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+        
+    </div>
+    <div class="text-right">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -31,6 +31,9 @@ public class SdOrderHeaderService {
 
     @Inject
     private SdOrderHeaderSearchRepository sdOrderHeaderSearchRepository;
+    
+    @Inject
+    private SequenceValueItemService sequenceValueItemService;
 
     /**
      * Save a sdOrderHeader.
@@ -94,4 +97,19 @@ public class SdOrderHeaderService {
         Page<SdOrderHeader> result = sdOrderHeaderSearchRepository.search(queryStringQuery(query), pageable);
         return result;
     }
+    
+    /**
+     *  获取下个合同号
+     *
+     *  @param id the id of the entity
+     *  @return the entity
+     */
+    @Transactional(readOnly = true) 
+    public String getNextHeaderNo() {
+        log.debug("Request to get SdOrderHeader : {}");
+        Long seqId = sequenceValueItemService.getNextSeqIdLong("SdOrderHeader");
+        
+        return "";
+    }
+    
 }

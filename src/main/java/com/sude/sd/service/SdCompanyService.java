@@ -57,6 +57,19 @@ public class SdCompanyService {
         Page<SdCompany> result = sdCompanyRepository.findAll(pageable);
         return result;
     }
+    
+    /**
+     *  Get all the sdCompanies.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<SdCompany> findAll() {
+    	log.debug("Request to get all SdCompanies");
+    	List<SdCompany> result = sdCompanyRepository.findAll();
+    	return result;
+    }
 
     /**
      *  Get one sdCompany by id.

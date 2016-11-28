@@ -1,0 +1,23 @@
+{
+    "sudeApp": {
+        "sdStation" : {
+            "home": {
+                "title": "站点",
+                "createLabel": "新增站点",
+                "createOrEditLabel": "新增或修改站点",
+                "search": "搜索站点"
+            },
+            "created": "ID 为 {{ param }} 的站点被创建",
+            "updated": "ID 为 {{ param }} 的站点被更新",
+            "deleted": "ID 为 {{ param }} 的站点被删除",
+            "delete": {
+                "question": "你确定要删除ID 为 {{ param }}站点?"
+            },
+            "detail": {
+                "title": "站点"
+            },
+            "stationName": "站点",
+            "stationNM": "缩写名字"
+        }
+    }
+}

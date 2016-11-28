@@ -341,7 +341,7 @@ footer.main-footer .footer-text{
 }
 /*新增产品弹出框的高度*/
 .modal-content{
-	min-height: 645px;
+/* 	min-height: 645px; */
 }
 /*下划线*/
 .form-wizard>.tabs>li a:after{

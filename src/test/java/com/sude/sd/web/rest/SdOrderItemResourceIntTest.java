@@ -206,9 +206,7 @@ public class SdOrderItemResourceIntTest {
      */
     public static SdOrderItem createEntity(EntityManager em) {
         SdOrderItem sdOrderItem = new SdOrderItem()
-                .orderNo(DEFAULT_ORDER_NO)
                 .orderHeaderNo(DEFAULT_ORDER_HEADER_NO)
-                .itemNo(DEFAULT_ITEM_NO)
                 .consignDate(DEFAULT_CONSIGN_DATE)
                 .fromStation(DEFAULT_FROM_STATION)
                 .toStation(DEFAULT_TO_STATION)
@@ -272,9 +270,7 @@ public class SdOrderItemResourceIntTest {
         List<SdOrderItem> sdOrderItems = sdOrderItemRepository.findAll();
         assertThat(sdOrderItems).hasSize(databaseSizeBeforeCreate + 1);
         SdOrderItem testSdOrderItem = sdOrderItems.get(sdOrderItems.size() - 1);
-        assertThat(testSdOrderItem.getOrderNo()).isEqualTo(DEFAULT_ORDER_NO);
         assertThat(testSdOrderItem.getOrderHeaderNo()).isEqualTo(DEFAULT_ORDER_HEADER_NO);
-        assertThat(testSdOrderItem.getItemNo()).isEqualTo(DEFAULT_ITEM_NO);
         assertThat(testSdOrderItem.getConsignDate()).isEqualTo(DEFAULT_CONSIGN_DATE);
         assertThat(testSdOrderItem.getFromStation()).isEqualTo(DEFAULT_FROM_STATION);
         assertThat(testSdOrderItem.getToStation()).isEqualTo(DEFAULT_TO_STATION);
@@ -329,7 +325,7 @@ public class SdOrderItemResourceIntTest {
         restSdOrderItemMockMvc.perform(get("/api/sd-order-items?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId().intValue())))
+                .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId())))
                 .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
                 .andExpect(jsonPath("$.[*].orderHeaderNo").value(hasItem(DEFAULT_ORDER_HEADER_NO.toString())))
                 .andExpect(jsonPath("$.[*].itemNo").value(hasItem(DEFAULT_ITEM_NO.toString())))
@@ -383,7 +379,7 @@ public class SdOrderItemResourceIntTest {
         restSdOrderItemMockMvc.perform(get("/api/sd-order-items/{id}", sdOrderItem.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(sdOrderItem.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(sdOrderItem.getId()))
             .andExpect(jsonPath("$.orderNo").value(DEFAULT_ORDER_NO.toString()))
             .andExpect(jsonPath("$.orderHeaderNo").value(DEFAULT_ORDER_HEADER_NO.toString()))
             .andExpect(jsonPath("$.itemNo").value(DEFAULT_ITEM_NO.toString()))
@@ -446,9 +442,7 @@ public class SdOrderItemResourceIntTest {
         // Update the sdOrderItem
         SdOrderItem updatedSdOrderItem = sdOrderItemRepository.findOne(sdOrderItem.getId());
         updatedSdOrderItem
-                .orderNo(UPDATED_ORDER_NO)
                 .orderHeaderNo(UPDATED_ORDER_HEADER_NO)
-                .itemNo(UPDATED_ITEM_NO)
                 .consignDate(UPDATED_CONSIGN_DATE)
                 .fromStation(UPDATED_FROM_STATION)
                 .toStation(UPDATED_TO_STATION)
@@ -497,9 +491,7 @@ public class SdOrderItemResourceIntTest {
         List<SdOrderItem> sdOrderItems = sdOrderItemRepository.findAll();
         assertThat(sdOrderItems).hasSize(databaseSizeBeforeUpdate);
         SdOrderItem testSdOrderItem = sdOrderItems.get(sdOrderItems.size() - 1);
-        assertThat(testSdOrderItem.getOrderNo()).isEqualTo(UPDATED_ORDER_NO);
         assertThat(testSdOrderItem.getOrderHeaderNo()).isEqualTo(UPDATED_ORDER_HEADER_NO);
-        assertThat(testSdOrderItem.getItemNo()).isEqualTo(UPDATED_ITEM_NO);
         assertThat(testSdOrderItem.getConsignDate()).isEqualTo(UPDATED_CONSIGN_DATE);
         assertThat(testSdOrderItem.getFromStation()).isEqualTo(UPDATED_FROM_STATION);
         assertThat(testSdOrderItem.getToStation()).isEqualTo(UPDATED_TO_STATION);
@@ -576,7 +568,7 @@ public class SdOrderItemResourceIntTest {
         restSdOrderItemMockMvc.perform(get("/api/_search/sd-order-items?query=id:" + sdOrderItem.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId())))
             .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
             .andExpect(jsonPath("$.[*].orderHeaderNo").value(hasItem(DEFAULT_ORDER_HEADER_NO.toString())))
             .andExpect(jsonPath("$.[*].itemNo").value(hasItem(DEFAULT_ITEM_NO.toString())))

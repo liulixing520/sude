@@ -94,6 +94,22 @@ public class SdItemInfoResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sd-item-infos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    /**
+     * GET  /sd-item-infos : 根据orderNo查找货物明细
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of sdItemInfos in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/getItemInfoByOrderNo")
+    @Timed
+    public List<SdItemInfo> getItemInfoByOrderNo(String orderNo)
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of SdItemInfos");
+    	List<SdItemInfo> result = sdItemInfoService.findByOrderNo(orderNo);
+    	return result;
+    }
 
     /**
      * GET  /sd-item-infos/:id : get the "id" sdItemInfo.

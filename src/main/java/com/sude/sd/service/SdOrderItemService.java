@@ -56,6 +56,19 @@ public class SdOrderItemService {
         Page<SdOrderItem> result = sdOrderItemRepository.findAll(pageable);
         return result;
     }
+    
+    /**
+     *  Get all the sdOrderItems.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public Page<SdOrderItem> findByOrderStat(String orderStat,Pageable pageable) {
+    	log.debug("Request to get all SdOrderItems");
+    	Page<SdOrderItem> result = sdOrderItemRepository.findByOrderStat(orderStat,pageable);
+    	return result;
+    }
 
     /**
      *  Get one sdOrderItem by id.
@@ -64,7 +77,7 @@ public class SdOrderItemService {
      *  @return the entity
      */
     @Transactional(readOnly = true) 
-    public SdOrderItem findOne(Long id) {
+    public SdOrderItem findOne(String id) {
         log.debug("Request to get SdOrderItem : {}", id);
         SdOrderItem sdOrderItem = sdOrderItemRepository.findOne(id);
         return sdOrderItem;
@@ -75,7 +88,7 @@ public class SdOrderItemService {
      *
      *  @param id the id of the entity
      */
-    public void delete(Long id) {
+    public void delete(String id) {
         log.debug("Request to delete SdOrderItem : {}", id);
         sdOrderItemRepository.delete(id);
         sdOrderItemSearchRepository.delete(id);

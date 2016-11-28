@@ -1,10 +1,10 @@
 package com.sude.sd.repository;
 
-import com.sude.sd.domain.SdItemInfo;
-
-import org.springframework.data.jpa.repository.*;
-
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sude.sd.domain.SdItemInfo;
 
 /**
  * Spring Data JPA repository for the SdItemInfo entity.
@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface SdItemInfoRepository extends JpaRepository<SdItemInfo,Long> {
 
+	List<SdItemInfo> findByOrderNo(String orderNo);
 }

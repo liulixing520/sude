@@ -39,6 +39,9 @@ table.sumStyle {
 label[for] {
 	padding-top: 0px;
 }
+.input-align-center td input,select{
+	text-align:center;
+}
 </style>
 
     
@@ -51,38 +54,35 @@ label[for] {
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <input type="hidden" class="form-control" id="id" name="id"  ng-model="vm.sdOrderItem.id"  />
 		<div width="100%" class="">
 		<div style="line-height: 32px;">
-			<div style="width:33%;float:left;text-align: left;;">运单号:&nbsp;&nbsp;<span style="color:red;font-weight:bold;font-family: monospace;font-size: 21px;" ng-bind="vm.sdOrderItem.orderNo">0000033</span></div>
+			<div style="width:33%;float:left;text-align: left;;">运单号:&nbsp;&nbsp;<span style="color:red;font-weight:bold;font-family: monospace;font-size: 21px;" ng-bind="vm.sdOrderItem.id" ></span></div>
 			<div style="width:34%;float:left;text-align: center;font-size: 24px;letter-spacing: 10px;margin-top: -10px;">货物托运凭证</div>
-			<div style="width:33%;float:right;text-align: right;;">运单受理日期:&nbsp;&nbsp;<span ng-bind="vm.sdOrderItem.consignDate"></span>
-<!-- 			<div class="col-sm-2"> -->
-<!--                 <div class="input-group"> -->
-<!--                     <input id="field_departureTime" type="text" class="form-control" name="departureTime" datetime-picker="{{dateformat}}" ng-model="vm.sdOrderHeader.departureTime" is-open="vm.datePickerOpenStatus.departureTime" -->
-<!--                       /> -->
-<!--                     <span class="input-group-btn"> -->
-<!--                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('departureTime')"><i class="glyphicon glyphicon-calendar"></i></button> -->
-<!--                     </span> -->
-<!--                 </div> -->
-<!--             </div> -->
+			<div style="width:33%;float:right;text-align: right;;">运单受理日期:&nbsp;&nbsp;<span ng-bind="vm.sdOrderItem.consignDate | date:'mediumDate'"></span>
 			&nbsp;&nbsp;</div>
 		</div>
 		<table class="gridtable" style="border-top: 2px solid;" >
 			<tr>
 				<td>启&nbsp;&nbsp;运&nbsp;&nbsp;站</td>
-				<td><select ng-model="vm.sdOrderItem.fromStation"><option>长乐</option></select></td>
+				<td>
+					<select class="form-control" ng-model="vm.sdOrderItem.fromStation" >
+						<option ng-repeat="sdStation in vm.sdStations " value="{{sdStation.id}}">{{sdStation.stationName}}</option>
+					</select>
+					<input type="hidden" ng-model="vm.sdOrderItem.fromStationName" />
+				</td>
 				<td>到&nbsp;&nbsp;达&nbsp;&nbsp;站</td>
-				<td><select ng-model="vm.sdOrderItem.toStation"><option>温州</option></select></td>
+				<td>
+					<input type="text" name="toStationName" autocomplete="off" id="toStationName"  ng-model="vm.sdOrderItem.toStationName"  placeHolder="" typeahead-on-select="setconStationDetail($item, $model)" uib-typeahead="sdStation as sdStation.stationName for sdStation in getStation($viewValue)"  />
+					<input type="hidden" ng-model="vm.sdOrderItem.toStation" />
 				<td>经&nbsp;&nbsp;&nbsp;&nbsp;由</td>
 				<td><input type="text" ng-model="vm.sdOrderItem.middleStation"/></td>
 				<td>货&nbsp;&nbsp;&nbsp;&nbsp;号</td>
-				<td><input type="text" ng-model="vm.sdOrderItem.orderNo"/></td>
+				<td><input type="text" ng-model="vm.sdOrderItem.goodsNo" /></td>
 			</tr>
 			<tr>
 				<td>发&nbsp;&nbsp;货&nbsp;&nbsp;人</td>
 				<td colspan="3">
-					<input type="text" name="consignerName" id="consignerName"  ng-model="vm.sdOrderItem.consignerName"  placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsignerDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)"  />
+					<input type="text" name="consignerName" autocomplete="off" id="consignerName"  ng-model="vm.sdOrderItem.consignerName"  placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsignerDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)"  />
 <!-- 					typeahead-loading="loadingLocations" typeahead-no-results="noResults" -->
 <!-- 					<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
 					<input type="hidden" name="consignerId" id="consignerId"  ng-model="vm.sdOrderItem.consignerId" />
@@ -90,19 +90,19 @@ label[for] {
 				<td>联系电话</td>
 				<td><input type="text" name="consignerPhone" id="consignerPhone" value="" ng-model="vm.sdOrderItem.consignerPhone"/></td>
 				<td>手&nbsp;&nbsp;机&nbsp;&nbsp;号</td>
-				<td><input type="text" name="consignerMbPhone" id="consignerMbPhone" value="" ng-model="vm.sdOrderItem.consignerMbPhone"/>
+				<td><input type="number" name="consignerMbPhone" id="consignerMbPhone" value="" ng-model="vm.sdOrderItem.consignerMbPhone"/>
 				</td>
 			</tr>
 			<tr>
 				<td>收&nbsp;&nbsp;货&nbsp;&nbsp;人</td>
 				<td colspan="3">
-					<input type="text" name="consigneeName" id="consigneeName" value="" ng-model="vm.sdOrderItem.consigneeName" placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsigneeDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)" />
+					<input type="text" name="consigneeName" autocomplete="off" id="consigneeName" value="" ng-model="vm.sdOrderItem.consigneeName" placeHolder="输入姓名或地址即可自动搜索" typeahead-on-select="setconsigneeDetail($item, $model)" uib-typeahead="customer as customer.customerName for customer in getCustomer($viewValue)" />
 					<input type="hidden" name="consigneeId" id="consigneeId" value="" ng-model="vm.sdOrderItem.consigneeId"/>
 				</td>
 				<td>联系电话</td>
 				<td><input type="text" name="consigneePhone" id="consigneePhone" value="" ng-model="vm.sdOrderItem.consigneePhone"/></td>
 				<td>手&nbsp;&nbsp;机&nbsp;&nbsp;号</td>
-				<td><input type="text" name="consigneeMbPhone" id="consigneeMbPhone" value="" ng-model="vm.sdOrderItem.consigneeMbPhone"/></td>
+				<td><input type="number" name="consigneeMbPhone" id="consigneeMbPhone" value="" ng-model="vm.sdOrderItem.consigneeMbPhone"/></td>
 			</tr>
 			<tr>
 				<td>收货地址</td>
@@ -116,7 +116,7 @@ label[for] {
 				<td>发货地址</td>
 				<td ><input type="text" name="consignerAddress" id="consignerAddress" ng-model="vm.sdOrderItem.consignerAddress" value="" /></td>
 				<td>银行卡号</td>
-				<td><input type="text" ng-model="vm.sdOrderItem.bankNo"/></td>
+				<td><input type="number" ng-model="vm.sdOrderItem.bankNo"/></td>
 				<td>开&nbsp;&nbsp;户&nbsp;&nbsp;行</td>
 				<td><input type="text" ng-model="vm.sdOrderItem.bankName" value="" /></td>
 				<td>开&nbsp;&nbsp;户&nbsp;&nbsp;名</td>
@@ -144,70 +144,49 @@ label[for] {
 			<th>申明价值</th>
 			<th>保险费</th>
 		</tr>
-		<tr>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
+		<tr  ng-repeat="sdItemInfo in vm.sdItemInfos" class="input-align-center">
+			
+			<td style="width:8%">
+				<select class="form-control" ng-model="sdItemInfo.tradName" >
+					<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRADENAME'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
+				</select>
+			</td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.itemNum" ng-keyup="vm.sumOfItems('itemNum')" ng-change="vm.sumOfItems('itemNum')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.weight" ng-keyup="vm.sumOfItems('weight')" ng-change="vm.sumOfItems('weight')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.volume" ng-keyup="vm.sumOfItems('volume')" ng-change="vm.sumOfItems('volume')"/></td>
+			<td style="width:6%">
+				<select class="form-control" ng-model="sdItemInfo.itemUnit" >
+					<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'ITEMUNIT'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
+				</select>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.freight" ng-keyup="vm.sumOfItems('freight')" ng-change="vm.sumOfItems('freight')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.kickBack" ng-keyup="vm.sumOfItems('kickBack')" ng-change="vm.sumOfItems('kickBack')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.cod" ng-keyup="vm.sumOfItems('cod')" ng-change="vm.sumOfItems('cod')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.deliveryExpense" ng-keyup="vm.sumOfItems('deliveryExpense')" ng-change="vm.sumOfItems('deliveryExpense')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.claimingValue" ng-keyup="vm.sumOfItems('claimingValue')" ng-change="vm.sumOfItems('claimingValue')"/></td>
+			<td style="width:8%"><input type="number" name="" value="" ng-model="sdItemInfo.premium" ng-keyup="vm.sumOfItems('premium')" ng-change="vm.sumOfItems('premium')"/></td>
 		</tr>
-		<tr>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-		</tr>
-		<tr>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-			<td><input type="text" name="" value="" /></td>
-		</tr>
+		
 		<tr >
-			<td>&nbsp;</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>合&nbsp;&nbsp;计</td>
+			<td ng-bind="vm.itemNum"></td>
+			<td ng-bind="vm.weight"></td>
+			<td ng-bind="vm.volume"></td>
+			<td ></td>
+			<td ng-bind="vm.freight"></td>
+			<td ng-bind="vm.kickBack"></td>
+			<td ng-bind="vm.cod"></td>
+			<td ng-bind="vm.deliveryExpense"></td>
+			<td ng-bind="vm.claimingValue"></td>
+			<td ng-bind="vm.premium"></td>
 		</tr>
 		</table>
 		
 		<table class="gridtable width8" style="border-bottom: 2px solid;">
 			<tr>
 				<td>付款方式</td>
-				<td>
-					<select ng-model="vm.sdOrderItem.payType"  >
-						<option>现付</option>
-						<option>提付</option>
-						<option>回单付</option>
-						<option>月结</option>
-						<option>贷款扣</option>
+				<td style="width: 9%">
+					<select class="form-control" ng-model="vm.sdOrderItem.payType" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'PAYTYPE'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
 					</select>
 				</td>
 				<td>现&nbsp;&nbsp;&nbsp;&nbsp;付</td>
@@ -224,22 +203,20 @@ label[for] {
 			<tr>
 				<td>运输方式</td>
 				<td>
-					<select ng-model="vm.sdOrderItem.transportType"  >
-						<option>公路快运</option>
-						<option>铁路运输</option>
+					<select class="form-control" ng-model="vm.sdOrderItem.transportType" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSPORTTYPE'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
 					</select>
 				</td>
 				<td>回单要求</td>
 				<td>
-					<select ng-model="vm.sdOrderItem.backRequire"  >
+					<select class="form-control" ng-model="vm.sdOrderItem.backRequire"  >
 						<option>无</option>
 					</select>
 				</td>
 				<td>交接方式</td>
-				<td>
-					<select ng-model="vm.sdOrderItem.handOverType"  >
-						<option>自提</option>
-						<option>送货上门</option>
+				<td style="width: 9%">
+					<select class="form-control" ng-model="vm.sdOrderItem.handOverType" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'HANDOVERTYPE'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
 					</select>
 				</td>
 				<td>其他支出</td>
@@ -252,17 +229,17 @@ label[for] {
 				<td colspan="5"><input type="text" ng-model="vm.sdOrderItem.remark" /></td>
 				<td>其&nbsp;&nbsp;&nbsp;&nbsp;他</td>
 				<td colspan="5" >
-				<div style="text-align: left;">
-					<label class="checkbox-inline">
-					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.kickBack" ng-true-value="true" ng-false-value="false" id="s1"><label for="s1" >回扣已返&nbsp;&nbsp;</label>
-					</label>
-					<label class="checkbox-inline">
-					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.cashOwe" ng-true-value="true" ng-false-value="false" id="s2"><label for="s2" >现付尚欠&nbsp;&nbsp;</label>
-					</label>
-					<label class="checkbox-inline">
-					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.requireItem" ng-true-value="true" ng-false-value="false" id="s3"><label for="s3" >要求控货&nbsp;&nbsp;</label>
-					</label>
-				</div>
+<!-- 				<div style="text-align: left;"> -->
+<!-- 					<label class="checkbox-inline"> -->
+<!-- 					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.kickBack" ng-true-value="true" ng-false-value="false" id="s1"><label for="s1" >回扣已返&nbsp;&nbsp;</label> -->
+<!-- 					</label> -->
+<!-- 					<label class="checkbox-inline"> -->
+<!-- 					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.cashOwe" ng-true-value="true" ng-false-value="false" id="s2"><label for="s2" >现付尚欠&nbsp;&nbsp;</label> -->
+<!-- 					</label> -->
+<!-- 					<label class="checkbox-inline"> -->
+<!-- 					    <input type="checkbox" name="kickBack" ng-model="vm.sdOrderItem.requireItem" ng-true-value="true" ng-false-value="false" id="s3"><label for="s3" >要求控货&nbsp;&nbsp;</label> -->
+<!-- 					</label> -->
+<!-- 				</div> -->
 								
 				</td>
 			</tr>

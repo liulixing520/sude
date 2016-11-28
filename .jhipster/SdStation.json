@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "stationName",
+            "fieldDescription":"站点",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "stationNM",
+        	"fieldDescription":"缩写名字",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_station",
+    "entityName": "站点",
+    "pagination": "pagination"
+}

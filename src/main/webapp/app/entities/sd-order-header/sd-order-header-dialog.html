@@ -1,193 +1,143 @@
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+	width:100%;
+	line-height: 30px;
+	border-left: 2px solid;
+    border-right: 2px solid;
+}
+table.gridtable th {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	color:#333333;
+}
+table.gridtable td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+}
+table.gridtable td input,select{
+	border-left:0px;
+	border-top:0px;
+	border-right:0px;
+	border-bottom:1px;
+	width:100%;padding:0;margin:0
+}
+table.sumStyle {
+	background-color: #red;
+}
 
+.width8 tr td{
+	width:8%;
+}
+label[for] {
+	padding-top: 0px;
+}
+.input-align-center td input,select{
+	text-align:center;
+}
+</style>
+
+    
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="mySdOrderHeaderLabel" data-translate="sudeApp.sdOrderHeader.home.createOrEditLabel">Create or edit a Sd Order Header</h4>
+        <h4 class="modal-title" id="mySdOrderItemLabel" data-translate="sudeApp.sdOrderHeader.home.createOrEditLabel">Create or edit a Sd Order Item</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-<!--         <div class="form-group" ng-show="vm.sdOrderHeader.id"> -->
-<!--             <label for="id" data-translate="global.field.id">ID</label> -->
-            <input type="hidden" class="form-control" id="id" name="id"
-                    ng-model="vm.sdOrderHeader.id"  />
-<!--         </div> -->
-		<div class="form-group">
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.orderHeaderNo" for="field_orderHeaderNo">Order Header No</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="orderHeaderNo" id="field_orderHeaderNo"
-                    ng-model="vm.sdOrderHeader.orderHeaderNo"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.carNo" for="field_carNo">Car No</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="carNo" id="field_carNo"
-                    ng-model="vm.sdOrderHeader.carNo"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.driverName" for="field_driverName">Driver Name</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="driverName" id="field_driverName"
-                    ng-model="vm.sdOrderHeader.driverName"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.mobilePhone" for="field_mobilePhone">Mobile Phone</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="mobilePhone" id="field_mobilePhone"
-                    ng-model="vm.sdOrderHeader.mobilePhone"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.departBatch" for="field_departBatch">Depart Batch</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="departBatch" id="field_departBatch"
-                    ng-model="vm.sdOrderHeader.departBatch"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.fromStation" for="field_fromStation">From Station</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="fromStation" id="field_fromStation"
-                    ng-model="vm.sdOrderHeader.fromStation"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.toStation" for="field_toStation">To Station</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="toStation" id="field_toStation"
-                    ng-model="vm.sdOrderHeader.toStation"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.unloadPlace" for="field_unloadPlace">Unload Place</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="unloadPlace" id="field_unloadPlace"
-                    ng-model="vm.sdOrderHeader.unloadPlace"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.cashPay" for="field_cashPay">Cash Pay</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="cashPay" id="field_cashPay"
-                    ng-model="vm.sdOrderHeader.cashPay"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.driverCollection" for="field_driverCollection">Driver Collection</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="driverCollection" id="field_driverCollection"
-                    ng-model="vm.sdOrderHeader.driverCollection"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.handlingCharges" for="field_handlingCharges">Handling Charges</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="handlingCharges" id="field_handlingCharges"
-                    ng-model="vm.sdOrderHeader.handlingCharges"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.receiveShipment" for="field_receiveShipment">Receive Shipment</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="receiveShipment" id="field_receiveShipment"
-                    ng-model="vm.sdOrderHeader.receiveShipment"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.otherPay" for="field_otherPay">Other Pay</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="otherPay" id="field_otherPay"
-                    ng-model="vm.sdOrderHeader.otherPay"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.departureTime" for="field_departureTime">Departure Time</label>
-            <div class="col-sm-2">
-                <div class="input-group">
-                    <input id="field_departureTime" type="text" class="form-control" name="departureTime" datetime-picker="{{dateformat}}" ng-model="vm.sdOrderHeader.departureTime" is-open="vm.datePickerOpenStatus.departureTime"
-                      />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('departureTime')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.weight" for="field_weight">Weight</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="weight" id="field_weight"
-                    ng-model="vm.sdOrderHeader.weight"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.practical" for="field_practical">Practical</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="practical" id="field_practical"
-                    ng-model="vm.sdOrderHeader.practical"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.loadParter" for="field_loadParter">Load Parter</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="loadParter" id="field_loadParter"
-                    ng-model="vm.sdOrderHeader.loadParter"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.reply" for="field_reply">Reply</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="reply" id="field_reply"
-                    ng-model="vm.sdOrderHeader.reply"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.oilCardNo" for="field_oilCardNo">Oil Card No</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="oilCardNo" id="field_oilCardNo"
-                    ng-model="vm.sdOrderHeader.oilCardNo"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.oilCardBlance" for="field_oilCardBlance">Oil Card Blance</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="oilCardBlance" id="field_oilCardBlance"
-                    ng-model="vm.sdOrderHeader.oilCardBlance"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.freightSum" for="field_freightSum">Freight Sum</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="freightSum" id="field_freightSum"
-                    ng-model="vm.sdOrderHeader.freightSum"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.arriveFreight" for="field_arriveFreight">Arrive Freight</label>
-            <div class="col-sm-2">
-            	<input type="number" class="form-control" name="arriveFreight" id="field_arriveFreight"
-                    ng-model="vm.sdOrderHeader.arriveFreight"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.arriveDriver" for="field_arriveDriver">Arrive Driver</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="arriveDriver" id="field_arriveDriver"
-                    ng-model="vm.sdOrderHeader.arriveDriver"  />
-            </div>
-        </div>
-        <div >
-            <label class="col-sm-1 control-label" data-translate="sudeApp.sdOrderHeader.orderHeadStat" for="field_orderHeadStat">Order Head Stat</label>
-            <div class="col-sm-2">
-            	<input type="text" class="form-control" name="orderHeadStat" id="field_orderHeadStat"
-                    ng-model="vm.sdOrderHeader.orderHeadStat"  />
-            </div>
-        </div>
-	</div>
+		<div width="100%" class="">
+		<div style="line-height: 32px;">
+			<div style="text-align: center;font-size: 24px;letter-spacing: 10px;margin-top: -10px; margin-bottom: 14px;">发货单</div>
+		</div>
+		<table class="gridtable" style="border-top: 2px solid;" >
+			<tr>
+				<td style="width:10%">合同编号</td>
+				<td style="width:12%">
+					<input type="text" ng-model="vm.sdOrderHeader.orderHeaderNo"/>
+				</td>
+				<td style="width:10%">车号</td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.carNo"/></td>
+				<td style="width:10%">司机姓名</td>
+				<td style="width:12%">
+					<input type="text" ng-model="vm.sdOrderHeader.driverName"/>
+					<input type="hidden" ng-model="vm.sdOrderHeader.driverId"/>
+					</td>
+				<td style="width:10%">联系电话</td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.mobilePhone" /></td>
+			</tr>
+			<tr>
+				<td>发车批次</td>
+				<td >
+					<input type="text" name="consignerName" autocomplete="off" id="departBatch"  ng-model="vm.sdOrderHeader.departBatch"/>
+					<input type="hidden" name="consignerId" id="consignerId"  ng-model="vm.sdOrderHeader.consignerId" />
+				</td>
+				<td>起运地</td>
+				<td>
+					<select class="form-control" ng-model="vm.sdOrderHeader.fromStation" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
+					</select>
+				</td>
+				<td>目的地</td>
+				<td>
+					<select class="form-control" ng-model="vm.sdOrderHeader.toStation" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
+					</select>
+				</td>
+				<td>卸货地</td>
+				<td >
+					<select class="form-control" ng-model="vm.sdOrderHeader.unloadPlace" >
+						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+		<table class="gridtable" style="border-bottom: 2px solid;" >
+			<tr>
+				<td  style="width:10%">现付运费</td>
+				<td style="width:10%"><input type="text"  ng-model="vm.sdOrderHeader.cashPay"/></td>
+				<td style="width:10%">司机代收款</td>
+				<td style="width:10%" ><input type="text" ng-model="vm.sdOrderHeader.driverCollection" value="" /></td>
+				<td style="width:10%">本车装卸费</td>
+				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.handlingCharges" /></td>
+				<td style="width:10%">本车接货费</td>
+				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.receiveShipment" /></td>
+				<td style="width:10%">回付运费</td>
+				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.reply" /></td>
+			</tr>
+			<tr>
+				<td>油卡卡号</td>
+				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardNo" /></td>
+				<td>油卡金额</td>
+				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardBlance" /></td>
+				<td>运费合计</td>
+				<td ><input type="text" ng-model="vm.sdOrderHeader.freightSum" /></td>
+				<td>本车其他费用</td>
+				<td ><input type="text"  ng-model="vm.sdOrderHeader.otherPay" value="" /></td>
+				<td>发车日期</td>
+				<td><input type="number" ng-model="vm.sdOrderHeader.departureTime"/></td>
+			</tr>
+			<tr>
+				<td>本车载重</td>
+				<td><input type="text" ng-model="vm.sdOrderHeader.weight" value="" /></td>
+				<td>实际重量</td>
+				<td><input type="text" ng-model="vm.sdOrderHeader.practical" /></td>
+				<td>配载员</td>
+				<td><input type="text" ng-model="vm.sdOrderHeader.loadParter" /></td>
+				<td colspan="4"> </td>
+			</tr>
+			
+		</table>
+		</div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

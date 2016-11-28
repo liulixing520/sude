@@ -18,11 +18,8 @@
     -->
     <changeSet id="20161114130422-1" author="jhipster">
         <createTable tableName="sd_order_item">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+            <column name="id" type="varchar(255)" >
                 <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="order_no" type="varchar(255)">
-                <constraints nullable="true" />
             </column>
             
             <column name="order_header_no" type="varchar(255)">
@@ -36,12 +33,22 @@
             <column name="from_station" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="from_station_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             
             <column name="to_station" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="to_station_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             
             <column name="middle_station" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="goods_no" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
@@ -178,6 +185,15 @@
             </column>
             
             <column name="order_stat" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="others" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recive_car" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recive_driver" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

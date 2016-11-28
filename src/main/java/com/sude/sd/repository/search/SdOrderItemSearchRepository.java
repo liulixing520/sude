@@ -6,5 +6,5 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 /**
  * Spring Data ElasticSearch repository for the SdOrderItem entity.
  */
-public interface SdOrderItemSearchRepository extends ElasticsearchRepository<SdOrderItem, Long> {
+public interface SdOrderItemSearchRepository extends ElasticsearchRepository<SdOrderItem, String> {
 }

@@ -30,11 +30,12 @@
 </header>
 <ul id="main-menu" class="main-menu">
 	<li ng-class="{'opened active expanded': vm.$state.includes('baseInfo')}" class="has-sub">
-		<a ui-sref="insur-company-info"> <i class="linecons-cog"></i><span class="title">基础信息</span></a>
+		<a href="javascript:void(0);"> <i class="linecons-cog"></i><span class="title">基础信息</span></a>
 		<ul style="">
 			<li ui-sref-active="active" ui-sref="sd-company.new"><a href="javascript:void(0);" ><span  class="title">公司资料</span></a></li>
 			<li ui-sref-active="active" ui-sref="enumeration"><a href="javascript:void(0);" ><span class="title">数据字典</span></a></li>
-			<li ui-sref-active="active" ui-sref="insur-company-info"><a href="javascript:void(0);" ><span class="title">操作日志</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-station"><a href="javascript:void(0);" ><span class="title">收发货站</span></a></li>
+			<li ui-sref-active="active" ><a href="javascript:void(0);" ><span class="title">操作日志</span></a></li>
 		</ul>
 	</li>
 	<li ng-class="{'opened active expanded': vm.$state.includes('userManager')}" class="has-sub">
@@ -61,7 +62,7 @@
 		<a href="javascript:void(0);" ><i class="linecons-database"></i><span class="title">货单承运</span></a>
 		<ul style="">
 			<li ui-sref-active="active" ui-sref="sd-order-item"><a href="javascript:void(0);"><span class="title">托运单号</span></a></li>
-			<li ui-sref-active="active" ui-sref="sd-order-header"><a href="javascript:void(0);"><span class="title">分单配载</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-order-item-loading"><a href="javascript:void(0);"><span class="title">分单配载</span></a></li>
 		</ul>
 	</li>
 	<li ng-class="{'opened active expanded': vm.$state.includes('insureMng')}" class="has-sub">

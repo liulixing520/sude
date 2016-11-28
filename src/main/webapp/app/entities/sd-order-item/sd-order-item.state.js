@@ -51,6 +51,49 @@
                 }]
             }
         })
+        .state('sd-order-item-loading', {
+        	parent: 'orderManager',
+        	url: '/sd-order-item-loading?page&sort&search',
+        	data: {
+        		authorities: ['ROLE_USER'],
+        		pageTitle: 'sudeApp.sdOrderItem.home.loadingTitle'
+        	},
+        	views: {
+        		'content@': {
+        			templateUrl: 'app/entities/sd-order-item/sd-order-items-loading.html',
+        			controller: 'SdOrderItemLoadingController',
+        			controllerAs: 'vm'
+        		}
+        	},
+        	params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('sdOrderItem');
+                    $translatePartialLoader.addPart('sdOrderHeader');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
         .state('sd-order-item-detail', {
             parent: 'orderManager',
             url: '/sd-order-item/{id}',
@@ -123,9 +166,8 @@
                     size: 'lg',
                     resolve: {
                         entity: function () {
-                        	var orderNo = SequenceValue.getNextSeqId({id:"SdOrderItem"}).$promise;
                             return {
-                                orderNo: orderNo,
+                                orderNo: null,
                                 orderHeaderNo: null,
                                 itemNo: null,
                                 consignDate: null,
@@ -168,7 +210,17 @@
                                 orderStat: null,
                                 id: null
                             };
-                        }
+                        },
+                        sequence: ['SequenceValue',function(SequenceValue){
+                        	return SequenceValue.getNextSeqId({id:'SdOrderItem'}).$promise;
+                        }],
+                        itemInfos: function(){
+                        	var items = [{id:null},{id:null},{id:null},{id:null}];
+                    		return items;
+                    	},
+                    	stations:['SdStation',function(SdStation){
+                    		return SdStation.query({page: 0,size: 100,sort: null}).$promise;
+                    	}]
                     }
                 }).result.then(function() {
                     $state.go('sd-order-item', null, { reload: 'sd-order-item' });
@@ -193,7 +245,16 @@
                     resolve: {
                         entity: ['SdOrderItem', function(SdOrderItem) {
                             return SdOrderItem.get({id : $stateParams.id}).$promise;
-                        }]
+                        }],
+                        //查询实体序列号
+                        sequence: null,
+                        itemInfos: ['SdItemInfos', function(SdItemInfos) {
+                        	//查询运单明细物品
+                    		return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
+                    	}],
+                    	stations:['SdStation',function(SdStation){
+                    		return SdStation.query({page: 0,size: 100,sort: null}).$promise;
+                    	}]
                     }
                 }).result.then(function() {
                     $state.go('sd-order-item', null, { reload: 'sd-order-item' });

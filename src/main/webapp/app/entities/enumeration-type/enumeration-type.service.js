@@ -2,9 +2,10 @@
     'use strict';
     angular
         .module('sudeApp')
-        .factory('EnumerationType', EnumerationType);
+        .factory('EnumerationType', EnumerationType).factory('EnumerationTypes', EnumerationTypes);
 
     EnumerationType.$inject = ['$resource'];
+    EnumerationTypes.$inject = ['$resource'];
 
     function EnumerationType ($resource) {
         var resourceUrl =  'api/enumeration-types/:id';
@@ -22,5 +23,12 @@
             },
             'update': { method:'PUT' }
         });
+    }
+    function EnumerationTypes ($resource) {
+    	var resourceUrl =  'api/getAllEnumerationType';
+    	
+    	return $resource(resourceUrl, {}, {
+    		'query': { method: 'GET', isArray: true}
+    	});
     }
 })();

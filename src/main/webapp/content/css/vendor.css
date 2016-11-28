@@ -5147,7 +5147,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5; }
+/*   border-top: 1px solid #e5e5e5; } */
   .modal-footer:before, .modal-footer:after {
     content: " ";
     display: table; }

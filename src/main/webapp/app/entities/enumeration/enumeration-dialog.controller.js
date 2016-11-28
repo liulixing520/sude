@@ -5,15 +5,16 @@
         .module('sudeApp')
         .controller('EnumerationDialogController', EnumerationDialogController);
 
-    EnumerationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Enumeration'];
+    EnumerationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Enumeration','EnumerationTypes'];
 
-    function EnumerationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Enumeration) {
+    function EnumerationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Enumeration,EnumerationTypes) {
         var vm = this;
 
         vm.enumeration = entity;
         vm.clear = clear;
         vm.save = save;
-
+        vm.enumerationTypes = EnumerationTypes.query();
+        
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });

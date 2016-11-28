@@ -1,3 +1,7 @@
-id;is_delete;description
-
-
+id;is_delete;description;created_by;created_date
+TRANSTATION;N;运输站点;admin;2016-11-26 10:02:59
+PAYTYPE;N;付款方式;admin;2016-11-26 10:02:59
+TRANSPORTTYPE;N;运输方式;admin;2016-11-26 10:02:59
+HANDOVERTYPE;N;交接方式;admin;2016-11-26 10:02:59
+TRADENAME;N;品名;admin;2016-11-26 10:02:59
+ITEMUNIT;N;包装单位;admin;2016-11-26 10:02:59

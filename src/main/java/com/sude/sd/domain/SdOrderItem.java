@@ -22,11 +22,7 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "order_no")
-    private String orderNo;  // 托运单号
+    private String id;// 托运单号
 
     @Column(name = "order_header_no")
     private String orderHeaderNo;  // 货运单号
@@ -36,12 +32,21 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
 
     @Column(name = "from_station")
     private String fromStation;  // 启运站
+    
+    @Column(name = "from_station_name")
+    private String fromStationName;  // 启运站名称
 
     @Column(name = "to_station")
     private String toStation;  // 到达站
+    
+    @Column(name = "to_station_name")
+    private String toStationName;  // 到达站名称
 
     @Column(name = "middle_station")
     private String middleStation;  // 经由
+    
+    @Column(name = "goods_no")
+    private String goodsNo;  // 货号
 
     @Column(name = "consigner_id")
     private String consignerId;  // 发货人id
@@ -154,15 +159,23 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
     @Column(name = "order_stat")
     private String orderStat;  // 运单状态
 
-    public Long getId() {
-        return id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getReciveCar() {
+	public String getGoodsNo() {
+		return goodsNo;
+	}
+
+	public void setGoodsNo(String goodsNo) {
+		this.goodsNo = goodsNo;
+	}
+
+	public String getReciveCar() {
 		return reciveCar;
 	}
 
@@ -186,18 +199,6 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
 		this.rreciveDriver = rreciveDriver;
 	}
 
-	public String getOrderNo() {
-        return orderNo;
-    }
-
-    public SdOrderItem orderNo(String orderNo) {
-        this.orderNo = orderNo;
-        return this;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
 
     public String getOrderHeaderNo() {
         return orderHeaderNo;
@@ -242,7 +243,23 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
         return toStation;
     }
 
-    public SdOrderItem toStation(String toStation) {
+    public String getFromStationName() {
+		return fromStationName;
+	}
+
+	public void setFromStationName(String fromStationName) {
+		this.fromStationName = fromStationName;
+	}
+
+	public String getToStationName() {
+		return toStationName;
+	}
+
+	public void setToStationName(String toStationName) {
+		this.toStationName = toStationName;
+	}
+
+	public SdOrderItem toStation(String toStation) {
         this.toStation = toStation;
         return this;
     }
@@ -730,7 +747,6 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
     public String toString() {
         return "SdOrderItem{" +
             "id=" + id +
-            ", orderNo='" + orderNo + "'" +
             ", orderHeaderNo='" + orderHeaderNo + "'" +
             ", consignDate='" + consignDate + "'" +
             ", fromStation='" + fromStation + "'" +

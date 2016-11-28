@@ -147,7 +147,7 @@
             },
             resolve: {
             	entity: ['SdCompany', function(SdCompany) {
-                    return SdCompany.get({id : '4'}).$promise;
+                    return SdCompany.get({id:'1'});
                 }]
             }
         })
