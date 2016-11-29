@@ -126,7 +126,7 @@ public class SequenceValueItemResourceIntTest {
         restSequenceValueItemMockMvc.perform(get("/api/sequence-value-items?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(sequenceValueItem.getId().intValue())))
+                .andExpect(jsonPath("$.[*].id").value(hasItem(sequenceValueItem.getId())))
                 .andExpect(jsonPath("$.[*].seqId").value(hasItem(DEFAULT_SEQ_ID.intValue())));
     }
 
@@ -140,7 +140,7 @@ public class SequenceValueItemResourceIntTest {
         restSequenceValueItemMockMvc.perform(get("/api/sequence-value-items/{id}", sequenceValueItem.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(sequenceValueItem.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(sequenceValueItem.getId()))
             .andExpect(jsonPath("$.seqId").value(DEFAULT_SEQ_ID.intValue()));
     }
 
@@ -213,7 +213,7 @@ public class SequenceValueItemResourceIntTest {
         restSequenceValueItemMockMvc.perform(get("/api/_search/sequence-value-items?query=id:" + sequenceValueItem.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(sequenceValueItem.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(sequenceValueItem.getId())))
             .andExpect(jsonPath("$.[*].seqId").value(hasItem(DEFAULT_SEQ_ID.intValue())));
     }
 }
