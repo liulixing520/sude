@@ -20,6 +20,7 @@
         "email": "邮箱",
         "activated": "已激活",
         "deactivated": "失效",
+        "station": "站点",
         "profiles": "资料",
         "langKey": "语言",
         "createdBy": "创建于",

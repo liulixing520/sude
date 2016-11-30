@@ -30,6 +30,9 @@ public class PinYin2Abbreviation {
     // 根据一个包含汉字的字符串返回一个汉字拼音首字母的字符串 最重要的一个方法，思路如下：一个个字符读入、判断、输出  
   
     public static String cn2py(String SourceStr) {  
+    	if(null == SourceStr || "".equals(SourceStr)){
+    		return "";
+    	}
         String Result = "";  
         int StrLength = SourceStr.length();  
         int i;  

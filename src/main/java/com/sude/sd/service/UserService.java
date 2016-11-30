@@ -120,6 +120,7 @@ public class UserService {
         user.setFirstName(managedUserVM.getFirstName());
         user.setLastName(managedUserVM.getLastName());
         user.setEmail(managedUserVM.getEmail());
+        user.setStation(managedUserVM.getStation());
         if (managedUserVM.getLangKey() == null) {
             user.setLangKey("zh-cn"); // default language
         } else {
@@ -156,7 +157,7 @@ public class UserService {
     }
 
     public void updateUser(Long id, String login, String firstName, String lastName, String email,
-        boolean activated, String langKey, Set<String> authorities) {
+        boolean activated, String langKey, Set<String> authorities,String station) {
 
         userRepository
             .findOneById(id)
@@ -167,6 +168,7 @@ public class UserService {
                 u.setEmail(email);
                 u.setActivated(activated);
                 u.setLangKey(langKey);
+                u.setStation(station);
                 Set<Authority> managedAuthorities = u.getAuthorities();
                 managedAuthorities.clear();
                 authorities.stream().forEach(

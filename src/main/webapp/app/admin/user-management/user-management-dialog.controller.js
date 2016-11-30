@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('UserManagementDialogController',UserManagementDialogController);
 
-    UserManagementDialogController.$inject = ['$stateParams', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService'];
+    UserManagementDialogController.$inject = ['$stateParams', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService','SdStation'];
 
-    function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User, JhiLanguageService) {
+    function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User, JhiLanguageService,SdStation) {
         var vm = this;
 
         vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
@@ -15,7 +15,7 @@
         vm.languages = null;
         vm.save = save;
         vm.user = entity;
-
+        vm.sdStations = SdStation.query({page: 0,size: 100,sort: null});
 
         JhiLanguageService.getAll().then(function (languages) {
             vm.languages = languages;

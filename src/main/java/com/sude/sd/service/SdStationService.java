@@ -129,20 +129,26 @@ public class SdStationService {
      *  @return the list of entities
      */
     public SdOrderItem checkHasStation(SdOrderItem sdOrderItem) {
-    	List<SdStation> list = sdStationRepository.findByStationName(sdOrderItem.getToStationName());
-    	if(list.size() == 0){
-    		SdStation sdStation = new SdStation();
-    		sdStation.setStationName(sdOrderItem.getToStationName());
-    		 //汉字转字母
-            String enName = PinYin2Abbreviation.cn2py(sdOrderItem.getToStationName());
-            sdStation.setStationNM(enName);
-            sdStation = save(sdStation);
-            sdOrderItem.setToStation(sdStation.getId()+"");
+    	String toStationName = sdOrderItem.getToStationName();
+    	if(null !=toStationName && !"".equals(toStationName)){
+    		List<SdStation> list = sdStationRepository.findByStationName(toStationName);
+    		if(list.size() == 0){
+    			SdStation sdStation = new SdStation();
+    			sdStation.setStationName(sdOrderItem.getToStationName());
+    			//汉字转字母
+    			String enName = PinYin2Abbreviation.cn2py(toStationName);
+    			sdStation.setStationNM(enName);
+    			sdStation = save(sdStation);
+    			sdOrderItem.setToStation(sdStation.getId()+"");
+    		}
     	}
     	//启运地默认必须有值
-    	SdStation sdStation = sdStationRepository.findOne(Long.valueOf(sdOrderItem.getFromStation()));
-    	if(sdStation != null){
-    		sdOrderItem.setFromStationName(sdStation.getStationName());
+    	String fromStation = sdOrderItem.getFromStation();
+    	if(null !=fromStation && !"".equals(fromStation)){
+    		SdStation sdStation = sdStationRepository.findOne(Long.valueOf(sdOrderItem.getFromStation()));
+    		if(sdStation != null){
+    			sdOrderItem.setFromStationName(sdStation.getStationName());
+    		}
     	}
 		return sdOrderItem;
 	}

@@ -48,7 +48,15 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="from_station_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="to_station" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="to_station_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

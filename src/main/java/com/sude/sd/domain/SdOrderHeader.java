@@ -45,9 +45,15 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
 
     @Column(name = "from_station")
     private String fromStation;  // 启运地
+    
+    @Column(name = "from_station_name")
+    private String fromStationName;  // 启运地名称
 
     @Column(name = "to_station")
     private String toStation;  // 目的地
+    
+    @Column(name = "to_station_name")
+    private String toStationName;  // 目的地名称
 
     @Column(name = "unload_place")
     private String unloadPlace;  // 卸货地

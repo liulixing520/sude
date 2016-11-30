@@ -60,10 +60,28 @@ label[for] {
 		</div>
 		<table class="gridtable" style="border-top: 2px solid;" >
 			<tr>
+				<td>起运地</td>
+				<td>
+					<select class="form-control" ng-model="vm.sdOrderHeader.fromStation" >
+						<option ng-repeat="sdStation in vm.sdStations " value="{{sdStation.id}}">{{sdStation.stationName}}</option>
+					</select>
+				</td>
+				<td>目的地</td>
+				<td>
+					<input type="text" name="toStationName" autocomplete="off" id="toStationName"  ng-model="vm.sdOrderHeader.toStationName"  placeHolder="" typeahead-on-select="setconStationDetail($item, $model)" uib-typeahead="sdStation as sdStation.stationName for sdStation in getStation($viewValue)"  />
+					<input type="hidden" ng-model="vm.sdOrderItem.toStation" />
+				</td>
+				<td>卸货地</td>
+				<td >
+					<input type="text" name="unloadPlace" autocomplete="off" id="unloadPlace"  ng-model="vm.sdOrderHeader.unloadPlace"  placeHolder="" typeahead-on-select="setconStationUnload($item, $model)" uib-typeahead="sdStation as sdStation.stationName for sdStation in getStation($viewValue)"  />
+				</td>
 				<td style="width:10%">合同编号</td>
 				<td style="width:12%">
 					<input type="text" ng-model="vm.sdOrderHeader.orderHeaderNo"/>
 				</td>
+				
+			</tr>
+			<tr>
 				<td style="width:10%">车号</td>
 				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.carNo"/></td>
 				<td style="width:10%">司机姓名</td>
@@ -73,67 +91,51 @@ label[for] {
 					</td>
 				<td style="width:10%">联系电话</td>
 				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.mobilePhone" /></td>
-			</tr>
-			<tr>
 				<td>发车批次</td>
 				<td >
 					<input type="text" name="consignerName" autocomplete="off" id="departBatch"  ng-model="vm.sdOrderHeader.departBatch"/>
 					<input type="hidden" name="consignerId" id="consignerId"  ng-model="vm.sdOrderHeader.consignerId" />
 				</td>
-				<td>起运地</td>
-				<td>
-					<select class="form-control" ng-model="vm.sdOrderHeader.fromStation" >
-						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
-					</select>
-				</td>
-				<td>目的地</td>
-				<td>
-					<select class="form-control" ng-model="vm.sdOrderHeader.toStation" >
-						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
-					</select>
-				</td>
-				<td>卸货地</td>
-				<td >
-					<select class="form-control" ng-model="vm.sdOrderHeader.unloadPlace" >
-						<option ng-repeat="enumeration in vm.enumerations | filter:{enumTypeId:'TRANSTATION'}" value="{{enumeration.description}}">{{enumeration.description}}</option>
-					</select>
-				</td>
+				
 			</tr>
 			
 		</table>
 		<table class="gridtable" style="border-bottom: 2px solid;" >
 			<tr>
-				<td  style="width:10%">现付运费</td>
-				<td style="width:10%"><input type="text"  ng-model="vm.sdOrderHeader.cashPay"/></td>
+				<td style="width:10%">现付运费</td>
+				<td style="width:12%"><input type="text"  ng-model="vm.sdOrderHeader.cashPay"/></td>
 				<td style="width:10%">司机代收款</td>
-				<td style="width:10%" ><input type="text" ng-model="vm.sdOrderHeader.driverCollection" value="" /></td>
+				<td style="width:12%" ><input type="text" ng-model="vm.sdOrderHeader.driverCollection" value="" /></td>
 				<td style="width:10%">本车装卸费</td>
-				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.handlingCharges" /></td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.handlingCharges" /></td>
 				<td style="width:10%">本车接货费</td>
-				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.receiveShipment" /></td>
-				<td style="width:10%">回付运费</td>
-				<td style="width:10%"><input type="text" ng-model="vm.sdOrderHeader.reply" /></td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.receiveShipment" /></td>
 			</tr>
 			<tr>
+				<td >回付运费</td>
+				<td ><input type="text" ng-model="vm.sdOrderHeader.reply" /></td>
 				<td>油卡卡号</td>
 				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardNo" /></td>
 				<td>油卡金额</td>
 				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardBlance" /></td>
 				<td>运费合计</td>
 				<td ><input type="text" ng-model="vm.sdOrderHeader.freightSum" /></td>
+				
+			</tr>
+			<tr>
 				<td>本车其他费用</td>
 				<td ><input type="text"  ng-model="vm.sdOrderHeader.otherPay" value="" /></td>
 				<td>发车日期</td>
 				<td><input type="number" ng-model="vm.sdOrderHeader.departureTime"/></td>
-			</tr>
-			<tr>
 				<td>本车载重</td>
 				<td><input type="text" ng-model="vm.sdOrderHeader.weight" value="" /></td>
 				<td>实际重量</td>
 				<td><input type="text" ng-model="vm.sdOrderHeader.practical" /></td>
+			</tr>
 				<td>配载员</td>
 				<td><input type="text" ng-model="vm.sdOrderHeader.loadParter" /></td>
-				<td colspan="4"> </td>
+				<td colspan="6"> </td>
+			<tr>
 			</tr>
 			
 		</table>

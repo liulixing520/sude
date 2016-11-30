@@ -25,6 +25,9 @@ public class UserDTO {
 
     @Size(max = 50)
     private String lastName;
+    
+    @Size(max = 50)
+    private String station;
 
     @Email
     @Size(min = 5, max = 100)
@@ -79,7 +82,15 @@ public class UserDTO {
         return activated;
     }
 
-    public String getLangKey() {
+    public String getStation() {
+		return station;
+	}
+
+	public void setStation(String station) {
+		this.station = station;
+	}
+
+	public String getLangKey() {
         return langKey;
     }
 

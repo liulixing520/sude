@@ -38,8 +38,18 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "fromStationName",
+        	"fieldDescription":"启运地名称",
+        	"fieldType": "String"
+        },
+        {
         	"fieldName": "toStation",
         	"fieldDescription":"目的地",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "toStationName",
+        	"fieldDescription":"目的地名称",
         	"fieldType": "String"
         },
         {

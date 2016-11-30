@@ -52,6 +52,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 50)
     @Column(name = "last_name", length = 50)
     private String lastName;
+    
+    @Size(max = 50)
+    @Column(name = "station", length = 50)
+    private String station;
 
     @Email
     @Size(max = 100)
@@ -141,7 +145,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public boolean getActivated() {
+    public String getStation() {
+		return station;
+	}
+
+	public void setStation(String station) {
+		this.station = station;
+	}
+
+	public boolean getActivated() {
         return activated;
     }
 

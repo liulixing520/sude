@@ -109,17 +109,20 @@
         	for (var i = vm.sdItemInfos.length; i--;) {
       	       var itemInfo = vm.sdItemInfos[i];
       	       itemInfo.orderNo = result.id;
-      	       if (itemInfo.id !== null) {
-      	    	  	SdItemInfo.update(itemInfo, onSaveSuccess, onSaveError);
-                } else {
-                	SdItemInfo.save(itemInfo, onSaveSuccess, onSaveError);
-                }
+      	       if(itemInfo.tradName !==undefined && itemInfo.tradName !=="")
+  	    	   if (itemInfo.id !== null) {
+  	    		   SdItemInfo.update(itemInfo, onSaveSuccess, onSaveError);
+  	    	   } else {
+  	    		   SdItemInfo.save(itemInfo, onSaveSuccess, onSaveError);
+  	    	   }
       	    }
+        	
+        	$scope.$emit('sudeApp:sdOrderItemUpdate', result);
+            $uibModalInstance.close(result);
+            vm.isSaving = false;
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('sudeApp:sdOrderItemUpdate', result);
-            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 
