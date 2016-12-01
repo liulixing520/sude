@@ -113,6 +113,20 @@ public class SdStationResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    
+    /**
+     * GET  /sd-stations/:id : get the "id" sdStation.
+     *
+     * @param id the id of the sdStation to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the sdStation, or with status 404 (Not Found)
+     */
+    @GetMapping("/get-one-station/{id}")
+    @Timed
+    public SdStation getOneStation(@PathVariable Long id) {
+    	log.debug("REST request to get SdStation : {}", id);
+    	SdStation sdStation = sdStationService.findOne(id);
+    	return sdStation;
+    }
 
     /**
      * DELETE  /sd-stations/:id : delete the "id" sdStation.

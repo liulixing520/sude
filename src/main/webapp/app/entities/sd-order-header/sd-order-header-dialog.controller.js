@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('SdOrderHeaderDialogController', SdOrderHeaderDialogController);
 
-    SdOrderHeaderDialogController.$inject = ['Principal','$timeout', '$scope','$http', '$stateParams', '$uibModalInstance', 'entity','SdStation', 'SdOrderHeader'];
+    SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader'];
 
-    function SdOrderHeaderDialogController (Principal,$timeout, $scope,$http, $stateParams, $uibModalInstance, entity,SdStation, SdOrderHeader) {
+    function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader) {
         var vm = this;
 
         vm.sdOrderHeader = entity;
@@ -17,10 +17,14 @@
         vm.save = save;
         vm.ids = $stateParams.ids;
         vm.sdStations = SdStation.query({page: 0,size: 100,sort: null});
+        vm.nowDate = $filter("date")(new Date(), "yyyyMM");
+        vm.sdOrderHeader.orderHeaderNo = vm.nowDate+"-"+sequence.seqId;
         
         Principal.identity().then(function(account) {
-            vm.currentAccount = account;
+            vm.sdOrderHeader.fromStation = account.station;
+            vm.station = SdStation.get({id:vm.sdOrderHeader.fromStation}).$promise;
         });
+        
         
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -74,6 +78,19 @@
         //选中卸货地站
         $scope.setconStationUnload = function ($item, $model) { 
         	vm.sdOrderHeader.unloadPlace = $item.stationName;
+        };
+        
+        // 选择起运地改变合同编号
+        $scope.changeStation = function(selectedValue) {
+//        	vm.sdOrderHeader.orderHeaderNo = OneSdStation.get({id:selectedValue}).then.stationNM + vm.nowDate+"-"+sequence.seqId;
+//        	return $http.get('/api/get-one-station', {
+//        		params: {
+//        			id: selectedValue,
+//        			sensor: false
+//        		}
+//        	}).then(function(response){
+//        		vm.sdOrderHeader.orderHeaderNo =response.stationNM + vm.nowDate+"-"+sequence.seqId; 
+//        	});
         };
     }
 })();

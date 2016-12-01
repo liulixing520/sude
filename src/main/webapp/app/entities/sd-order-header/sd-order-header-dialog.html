@@ -62,8 +62,8 @@ label[for] {
 			<tr>
 				<td>起运地</td>
 				<td>
-					<select class="form-control" ng-model="vm.sdOrderHeader.fromStation" >
-						<option ng-repeat="sdStation in vm.sdStations " value="{{sdStation.id}}">{{sdStation.stationName}}</option>
+					<select class="form-control" ng-change="changeStation(vm.sdOrderHeader.fromStation)" ng-model="vm.sdOrderHeader.fromStation" >
+						<option ng-repeat="sdStation in vm.sdStations " value="{{sdStation.id}}" stationNM="{{sdStation.stationNM}}">{{sdStation.stationName}}</option>
 					</select>
 				</td>
 				<td>目的地</td>

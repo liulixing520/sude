@@ -105,11 +105,9 @@ public class SdOrderHeaderService {
      *  @return the entity
      */
     @Transactional(readOnly = true) 
-    public String getNextHeaderNo() {
+    public Long getNextHeaderNo() {
         log.debug("Request to get SdOrderHeader : {}");
-        Long seqId = sequenceValueItemService.getNextSeqIdLong("SdOrderHeader");
-        
-        return "";
+        return sequenceValueItemService.getNextSeqIdLong("SdOrderHeader");
     }
     
 }

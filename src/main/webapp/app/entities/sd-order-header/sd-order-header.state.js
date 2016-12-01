@@ -150,7 +150,10 @@
                                 orderHeadStat: null,
                                 id: null
                             };
-                        }
+                        },
+                        sequence: ['SdOrderHeaders',function(SdOrderHeaders){
+                        	return SdOrderHeaders.get().$promise;
+                        }]
                     }
                 }).result.then(function() {
                     $state.go('sd-order-item-loading', null, { reload: 'sd-order-item-loading' });

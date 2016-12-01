@@ -2,9 +2,10 @@
     'use strict';
     angular
         .module('sudeApp')
-        .factory('SdOrderHeader', SdOrderHeader);
+        .factory('SdOrderHeader', SdOrderHeader).factory('SdOrderHeaders', SdOrderHeaders);
 
     SdOrderHeader.$inject = ['$resource', 'DateUtils'];
+    SdOrderHeaders.$inject = ['$resource', 'DateUtils'];
 
     function SdOrderHeader ($resource, DateUtils) {
         var resourceUrl =  'api/sd-order-headers/:id';
@@ -23,5 +24,13 @@
             },
             'update': { method:'PUT' }
         });
+    }
+    
+    function SdOrderHeaders ($resource, DateUtils) {
+    	var resourceUrl =  'api/sdOrderHeaders';
+    	
+    	return $resource(resourceUrl, {}, {
+    		'get': { method: 'GET'}
+    	});
     }
 })();
