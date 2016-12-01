@@ -65,7 +65,7 @@ public class SdCarInfoService {
      *  @return the entity
      */
     @Transactional(readOnly = true) 
-    public SdCarInfo findOne(Long id) {
+    public SdCarInfo findOne(String id) {
         log.debug("Request to get SdCarInfo : {}", id);
         SdCarInfo sdCarInfo = sdCarInfoRepository.findOne(id);
         return sdCarInfo;
@@ -76,7 +76,7 @@ public class SdCarInfoService {
      *
      *  @param id the id of the entity
      */
-    public void delete(Long id) {
+    public void delete(String id) {
         log.debug("Request to delete SdCarInfo : {}", id);
         sdCarInfoRepository.delete(id);
         sdCarInfoSearchRepository.delete(id);
@@ -93,5 +93,18 @@ public class SdCarInfoService {
         log.debug("Request to search for a page of SdCarInfos for query {}", query);
         Page<SdCarInfo> result = sdCarInfoSearchRepository.search(queryStringQuery(query), pageable);
         return result;
+    }
+    
+    /**
+     * Search for the sdCarInfo by carNo
+     *
+     *  @param query the query of the search
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<SdCarInfo> findByIdLike(String id) {
+    	log.debug("Request to search for a page of SdCarInfos for query {}", id);
+    	List<SdCarInfo> result = sdCarInfoRepository.findByIdLike(id);
+    	return result;
     }
 }

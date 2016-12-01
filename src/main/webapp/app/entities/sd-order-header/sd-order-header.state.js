@@ -178,6 +178,9 @@
                     resolve: {
                         entity: ['SdOrderHeader', function(SdOrderHeader) {
                             return SdOrderHeader.get({id : $stateParams.id}).$promise;
+                        }],
+                        sequence: ['SdOrderHeaders',function(SdOrderHeaders){
+                        	return SdOrderHeaders.get().$promise;
                         }]
                     }
                 }).result.then(function() {

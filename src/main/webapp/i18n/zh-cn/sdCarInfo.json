@@ -16,7 +16,7 @@
             "detail": {
                 "title": "车辆信息"
             },
-            "carNo": "车牌号",
+            "id": "车牌号",
             "carType": "车型号",
             "engineNumber": "发动机号码",
             "buyDate": "购买日期",

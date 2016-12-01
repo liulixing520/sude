@@ -2,6 +2,8 @@ package com.sude.sd.service;
 
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
+import java.util.Iterator;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -106,4 +108,17 @@ public class SdOrderItemService {
         Page<SdOrderItem> result = sdOrderItemSearchRepository.search(queryStringQuery(query), pageable);
         return result;
     }
+    
+    
+    /**
+     *  修改托运单状态
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    public void updateOrderItemStat(String orderStat,String ids) {
+        log.debug("Request to get all SdOrderItems");
+        sdOrderItemRepository.updateStat(orderStat,ids);
+    }
+    
 }

@@ -21,11 +21,7 @@ public class SdCarInfo extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "car_no")
-    private String carNo;  // 车牌号
+    private String id;// 车牌号
 
     @Column(name = "car_type")
     private String carType;  // 车型号
@@ -63,28 +59,15 @@ public class SdCarInfo extends AbstractAuditingEntity implements Serializable {
     @Column(name = "run_number")
     private String runNumber;  // 运营证号
 
-    public Long getId() {
-        return id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getCarNo() {
-        return carNo;
-    }
-
-    public SdCarInfo carNo(String carNo) {
-        this.carNo = carNo;
-        return this;
-    }
-
-    public void setCarNo(String carNo) {
-        this.carNo = carNo;
-    }
-
-    public String getCarType() {
+	public String getCarType() {
         return carType;
     }
 
@@ -264,7 +247,6 @@ public class SdCarInfo extends AbstractAuditingEntity implements Serializable {
     public String toString() {
         return "SdCarInfo{" +
             "id=" + id +
-            ", carNo='" + carNo + "'" +
             ", carType='" + carType + "'" +
             ", engineNumber='" + engineNumber + "'" +
             ", buyDate='" + buyDate + "'" +

@@ -10,6 +10,7 @@ import java.util.List;
  * Spring Data JPA repository for the SdCarInfo entity.
  */
 @SuppressWarnings("unused")
-public interface SdCarInfoRepository extends JpaRepository<SdCarInfo,Long> {
+public interface SdCarInfoRepository extends JpaRepository<SdCarInfo,String> {
 
+	List<SdCarInfo> findByIdLike(String carNo);
 }

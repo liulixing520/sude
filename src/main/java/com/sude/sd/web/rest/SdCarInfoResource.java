@@ -103,7 +103,7 @@ public class SdCarInfoResource {
      */
     @GetMapping("/sd-car-infos/{id}")
     @Timed
-    public ResponseEntity<SdCarInfo> getSdCarInfo(@PathVariable Long id) {
+    public ResponseEntity<SdCarInfo> getSdCarInfo(@PathVariable String id) {
         log.debug("REST request to get SdCarInfo : {}", id);
         SdCarInfo sdCarInfo = sdCarInfoService.findOne(id);
         return Optional.ofNullable(sdCarInfo)
@@ -121,7 +121,7 @@ public class SdCarInfoResource {
      */
     @DeleteMapping("/sd-car-infos/{id}")
     @Timed
-    public ResponseEntity<Void> deleteSdCarInfo(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteSdCarInfo(@PathVariable String id) {
         log.debug("REST request to delete SdCarInfo : {}", id);
         sdCarInfoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("sdCarInfo", id.toString())).build();
@@ -144,6 +144,24 @@ public class SdCarInfoResource {
         Page<SdCarInfo> page = sdCarInfoService.search(query, pageable);
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/sd-car-infos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+    
+    /**
+     * SEARCH  /_search/searchById?id=:id : 根据车牌号查找车辆信息
+     * to the query.
+     *
+     * @param query the query of the sdCarInfo search 
+     * @param pageable the pagination information
+     * @return the result of the search
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/_search/searchById")
+    @Timed
+    public List<SdCarInfo> searchById(@RequestParam String id)
+    		throws URISyntaxException {
+    	log.debug("REST request to search for a page of SdCarInfos for query {}", id);
+    	List<SdCarInfo> result = sdCarInfoService.findByIdLike("%"+id+"%");
+    	return result;
     }
 
 

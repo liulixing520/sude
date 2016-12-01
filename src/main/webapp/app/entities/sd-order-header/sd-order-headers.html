@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="sd-order-header.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  data-translate="sudeApp.sdOrderHeader.home.createLabel">
-                        Create new Sd Order Header
-                    </span>
-                </button>
+<!--                 <button class="btn btn-primary" ui-sref="sd-order-header.new" > -->
+<!--                     <span class="glyphicon glyphicon-plus"></span> -->
+<!--                     <span class="hidden-xs"  data-translate="sudeApp.sdOrderHeader.home.createLabel"> -->
+<!--                         Create new Sd Order Header -->
+<!--                     </span> -->
+<!--                 </button> -->
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
@@ -34,7 +34,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th> -->
                     <th jh-sort-by="orderHeaderNo"><span data-translate="sudeApp.sdOrderHeader.orderHeaderNo">Order Header No</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="carNo"><span data-translate="sudeApp.sdOrderHeader.carNo">Car No</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="driverName"><span data-translate="sudeApp.sdOrderHeader.driverName">Driver Name</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -44,27 +44,27 @@
                     <th jh-sort-by="toStation"><span data-translate="sudeApp.sdOrderHeader.toStation">To Station</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="unloadPlace"><span data-translate="sudeApp.sdOrderHeader.unloadPlace">Unload Place</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="cashPay"><span data-translate="sudeApp.sdOrderHeader.cashPay">Cash Pay</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="driverCollection"><span data-translate="sudeApp.sdOrderHeader.driverCollection">Driver Collection</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="handlingCharges"><span data-translate="sudeApp.sdOrderHeader.handlingCharges">Handling Charges</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="receiveShipment"><span data-translate="sudeApp.sdOrderHeader.receiveShipment">Receive Shipment</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="otherPay"><span data-translate="sudeApp.sdOrderHeader.otherPay">Other Pay</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="driverCollection"><span data-translate="sudeApp.sdOrderHeader.driverCollection">Driver Collection</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="handlingCharges"><span data-translate="sudeApp.sdOrderHeader.handlingCharges">Handling Charges</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="receiveShipment"><span data-translate="sudeApp.sdOrderHeader.receiveShipment">Receive Shipment</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="otherPay"><span data-translate="sudeApp.sdOrderHeader.otherPay">Other Pay</span> <span class="glyphicon glyphicon-sort"></span></th> -->
                     <th jh-sort-by="departureTime"><span data-translate="sudeApp.sdOrderHeader.departureTime">Departure Time</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="weight"><span data-translate="sudeApp.sdOrderHeader.weight">Weight</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="practical"><span data-translate="sudeApp.sdOrderHeader.practical">Practical</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="loadParter"><span data-translate="sudeApp.sdOrderHeader.loadParter">Load Parter</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="reply"><span data-translate="sudeApp.sdOrderHeader.reply">Reply</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="oilCardNo"><span data-translate="sudeApp.sdOrderHeader.oilCardNo">Oil Card No</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="oilCardBlance"><span data-translate="sudeApp.sdOrderHeader.oilCardBlance">Oil Card Blance</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="freightSum"><span data-translate="sudeApp.sdOrderHeader.freightSum">Freight Sum</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="arriveFreight"><span data-translate="sudeApp.sdOrderHeader.arriveFreight">Arrive Freight</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="arriveDriver"><span data-translate="sudeApp.sdOrderHeader.arriveDriver">Arrive Driver</span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                     <th jh-sort-by="practical"><span data-translate="sudeApp.sdOrderHeader.practical">Practical</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="loadParter"><span data-translate="sudeApp.sdOrderHeader.loadParter">Load Parter</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="reply"><span data-translate="sudeApp.sdOrderHeader.reply">Reply</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="oilCardNo"><span data-translate="sudeApp.sdOrderHeader.oilCardNo">Oil Card No</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="oilCardBlance"><span data-translate="sudeApp.sdOrderHeader.oilCardBlance">Oil Card Blance</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="freightSum"><span data-translate="sudeApp.sdOrderHeader.freightSum">Freight Sum</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="arriveFreight"><span data-translate="sudeApp.sdOrderHeader.arriveFreight">Arrive Freight</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!--                     <th jh-sort-by="arriveDriver"><span data-translate="sudeApp.sdOrderHeader.arriveDriver">Arrive Driver</span> <span class="glyphicon glyphicon-sort"></span></th> -->
                     <th jh-sort-by="orderHeadStat"><span data-translate="sudeApp.sdOrderHeader.orderHeadStat">Order Head Stat</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="sdOrderHeader in vm.sdOrderHeaders track by sdOrderHeader.id">
-                    <td><a ui-sref="sd-order-header-detail({id:sdOrderHeader.id})">{{sdOrderHeader.id}}</a></td>
+<!--                     <td><a ui-sref="sd-order-header-detail({id:sdOrderHeader.id})">{{sdOrderHeader.id}}</a></td> -->
                     <td>{{sdOrderHeader.orderHeaderNo}}</td>
                     <td>{{sdOrderHeader.carNo}}</td>
                     <td>{{sdOrderHeader.driverName}}</td>
@@ -74,29 +74,23 @@
                     <td>{{sdOrderHeader.toStation}}</td>
                     <td>{{sdOrderHeader.unloadPlace}}</td>
                     <td>{{sdOrderHeader.cashPay}}</td>
-                    <td>{{sdOrderHeader.driverCollection}}</td>
-                    <td>{{sdOrderHeader.handlingCharges}}</td>
-                    <td>{{sdOrderHeader.receiveShipment}}</td>
-                    <td>{{sdOrderHeader.otherPay}}</td>
+<!--                     <td>{{sdOrderHeader.driverCollection}}</td> -->
+<!--                     <td>{{sdOrderHeader.handlingCharges}}</td> -->
+<!--                     <td>{{sdOrderHeader.receiveShipment}}</td> -->
+<!--                     <td>{{sdOrderHeader.otherPay}}</td> -->
                     <td>{{sdOrderHeader.departureTime | date:'medium'}}</td>
                     <td>{{sdOrderHeader.weight}}</td>
-                    <td>{{sdOrderHeader.practical}}</td>
-                    <td>{{sdOrderHeader.loadParter}}</td>
-                    <td>{{sdOrderHeader.reply}}</td>
-                    <td>{{sdOrderHeader.oilCardNo}}</td>
-                    <td>{{sdOrderHeader.oilCardBlance}}</td>
-                    <td>{{sdOrderHeader.freightSum}}</td>
-                    <td>{{sdOrderHeader.arriveFreight}}</td>
-                    <td>{{sdOrderHeader.arriveDriver}}</td>
+<!--                     <td>{{sdOrderHeader.practical}}</td> -->
+<!--                     <td>{{sdOrderHeader.loadParter}}</td> -->
+<!--                     <td>{{sdOrderHeader.reply}}</td> -->
+<!--                     <td>{{sdOrderHeader.oilCardNo}}</td> -->
+<!--                     <td>{{sdOrderHeader.oilCardBlance}}</td> -->
+<!--                     <td>{{sdOrderHeader.freightSum}}</td> -->
+<!--                     <td>{{sdOrderHeader.arriveFreight}}</td> -->
+<!--                     <td>{{sdOrderHeader.arriveDriver}}</td> -->
                     <td>{{sdOrderHeader.orderHeadStat}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="sd-order-header-detail({id:sdOrderHeader.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
-                            </button>
                             <button type="submit"
                                     ui-sref="sd-order-header.edit({id:sdOrderHeader.id})"
                                     class="btn btn-primary btn-sm">

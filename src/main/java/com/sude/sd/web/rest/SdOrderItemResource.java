@@ -132,6 +132,22 @@ public class SdOrderItemResource {
     	HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sd-order-items-loading");
     	return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    /**
+     * POST  /sd-order-items : 获取运单状态为*的数据
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of sdOrderItems in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @PutMapping("/sd-order-items-update")
+    @Timed
+    public ResponseEntity<Void> updateOrderItemStat(String orderStat,String ids)
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of SdOrderItems");
+    	sdOrderItemService.updateOrderItemStat(orderStat,ids);
+    	return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("sdOrderItem", ids.toString())).build();
+    }
 
     /**
      * GET  /sd-order-items/:id : get the "id" sdOrderItem.

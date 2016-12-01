@@ -34,8 +34,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="carNo"><span data-translate="sudeApp.sdCarInfo.carNo">Car No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id"><span data-translate="sudeApp.sdCarInfo.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="carType"><span data-translate="sudeApp.sdCarInfo.carType">Car Type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="engineNumber"><span data-translate="sudeApp.sdCarInfo.engineNumber">Engine Number</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="buyDate"><span data-translate="sudeApp.sdCarInfo.buyDate">Buy Date</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -54,7 +53,6 @@
             <tbody>
                 <tr ng-repeat="sdCarInfo in vm.sdCarInfos track by sdCarInfo.id">
                     <td><a ui-sref="sd-car-info-detail({id:sdCarInfo.id})">{{sdCarInfo.id}}</a></td>
-                    <td>{{sdCarInfo.carNo}}</td>
                     <td>{{sdCarInfo.carType}}</td>
                     <td>{{sdCarInfo.engineNumber}}</td>
                         <td>{{sdCarInfo.buyDate | date:'mediumDate'}}</td>

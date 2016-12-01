@@ -26,15 +26,23 @@
     }
     
     function OneSdStation ($resource,$q,$http) {
-    	var resourceUrl =  'api/get-one-station/:id';
-        return function(){
-            var defer = $q.defer();
-            $http.get(resourceUrl).then(function(d){
-                defer.resolve(d);
-            },function(err){
-                defer.reject(err);
-            });
-            return defer.promise;
+    	var resourceUrl =  'api/get-one-station';
+        return {
+            query: function(id) {
+                var defer = $q.defer();//声明延后执行
+                $http({
+                    method: 'GET',
+                    url: resourceUrl,//获取json数据
+                    params: {
+                    	id: id
+                    }
+                }).success(function(data, status, headers, config) {
+                    defer.resolve(data);//执行成功
+                }).error(function(data, status, headers, config) {
+                    defer.reject();//执行失败
+                });
+                return defer.promise;//返回获取的数据
+            }
         }
     }
 })();

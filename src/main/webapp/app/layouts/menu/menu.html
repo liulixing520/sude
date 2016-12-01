@@ -61,8 +61,9 @@
 	<li ng-class="{'opened active expanded': vm.$state.includes('orderManager')}" class="has-sub ">
 		<a href="javascript:void(0);" ><i class="linecons-database"></i><span class="title">货单承运</span></a>
 		<ul style="">
-			<li ui-sref-active="active" ui-sref="sd-order-item"><a href="javascript:void(0);"><span class="title">托运单号</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-order-item"><a href="javascript:void(0);"><span class="title">托运单</span></a></li>
 			<li ui-sref-active="active" ui-sref="sd-order-item-loading"><a href="javascript:void(0);"><span class="title">分单配载</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-order-header"><a href="javascript:void(0);"><span class="title">货运单</span></a></li>
 		</ul>
 	</li>
 	<li ng-class="{'opened active expanded': vm.$state.includes('insureMng')}" class="has-sub">

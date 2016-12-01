@@ -121,7 +121,6 @@ public class SdCarInfoResourceIntTest {
      */
     public static SdCarInfo createEntity(EntityManager em) {
         SdCarInfo sdCarInfo = new SdCarInfo()
-                .carNo(DEFAULT_CAR_NO)
                 .carType(DEFAULT_CAR_TYPE)
                 .engineNumber(DEFAULT_ENGINE_NUMBER)
                 .buyDate(DEFAULT_BUY_DATE)
@@ -159,7 +158,6 @@ public class SdCarInfoResourceIntTest {
         List<SdCarInfo> sdCarInfos = sdCarInfoRepository.findAll();
         assertThat(sdCarInfos).hasSize(databaseSizeBeforeCreate + 1);
         SdCarInfo testSdCarInfo = sdCarInfos.get(sdCarInfos.size() - 1);
-        assertThat(testSdCarInfo.getCarNo()).isEqualTo(DEFAULT_CAR_NO);
         assertThat(testSdCarInfo.getCarType()).isEqualTo(DEFAULT_CAR_TYPE);
         assertThat(testSdCarInfo.getEngineNumber()).isEqualTo(DEFAULT_ENGINE_NUMBER);
         assertThat(testSdCarInfo.getBuyDate()).isEqualTo(DEFAULT_BUY_DATE);
@@ -188,7 +186,7 @@ public class SdCarInfoResourceIntTest {
         restSdCarInfoMockMvc.perform(get("/api/sd-car-infos?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(sdCarInfo.getId().intValue())))
+                .andExpect(jsonPath("$.[*].id").value(hasItem(sdCarInfo.getId())))
                 .andExpect(jsonPath("$.[*].carNo").value(hasItem(DEFAULT_CAR_NO.toString())))
                 .andExpect(jsonPath("$.[*].carType").value(hasItem(DEFAULT_CAR_TYPE.toString())))
                 .andExpect(jsonPath("$.[*].engineNumber").value(hasItem(DEFAULT_ENGINE_NUMBER.toString())))
@@ -214,7 +212,7 @@ public class SdCarInfoResourceIntTest {
         restSdCarInfoMockMvc.perform(get("/api/sd-car-infos/{id}", sdCarInfo.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(sdCarInfo.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(sdCarInfo.getId()))
             .andExpect(jsonPath("$.carNo").value(DEFAULT_CAR_NO.toString()))
             .andExpect(jsonPath("$.carType").value(DEFAULT_CAR_TYPE.toString()))
             .andExpect(jsonPath("$.engineNumber").value(DEFAULT_ENGINE_NUMBER.toString()))
@@ -249,7 +247,6 @@ public class SdCarInfoResourceIntTest {
         // Update the sdCarInfo
         SdCarInfo updatedSdCarInfo = sdCarInfoRepository.findOne(sdCarInfo.getId());
         updatedSdCarInfo
-                .carNo(UPDATED_CAR_NO)
                 .carType(UPDATED_CAR_TYPE)
                 .engineNumber(UPDATED_ENGINE_NUMBER)
                 .buyDate(UPDATED_BUY_DATE)
@@ -272,7 +269,6 @@ public class SdCarInfoResourceIntTest {
         List<SdCarInfo> sdCarInfos = sdCarInfoRepository.findAll();
         assertThat(sdCarInfos).hasSize(databaseSizeBeforeUpdate);
         SdCarInfo testSdCarInfo = sdCarInfos.get(sdCarInfos.size() - 1);
-        assertThat(testSdCarInfo.getCarNo()).isEqualTo(UPDATED_CAR_NO);
         assertThat(testSdCarInfo.getCarType()).isEqualTo(UPDATED_CAR_TYPE);
         assertThat(testSdCarInfo.getEngineNumber()).isEqualTo(UPDATED_ENGINE_NUMBER);
         assertThat(testSdCarInfo.getBuyDate()).isEqualTo(UPDATED_BUY_DATE);
@@ -323,7 +319,7 @@ public class SdCarInfoResourceIntTest {
         restSdCarInfoMockMvc.perform(get("/api/_search/sd-car-infos?query=id:" + sdCarInfo.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(sdCarInfo.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(sdCarInfo.getId())))
             .andExpect(jsonPath("$.[*].carNo").value(hasItem(DEFAULT_CAR_NO.toString())))
             .andExpect(jsonPath("$.[*].carType").value(hasItem(DEFAULT_CAR_TYPE.toString())))
             .andExpect(jsonPath("$.[*].engineNumber").value(hasItem(DEFAULT_ENGINE_NUMBER.toString())))

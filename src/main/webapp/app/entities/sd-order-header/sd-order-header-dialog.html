@@ -27,7 +27,8 @@ table.gridtable td input,select{
 	border-top:0px;
 	border-right:0px;
 	border-bottom:1px;
-	width:100%;padding:0;margin:0
+	width:100%;padding:0;margin:0;
+	padding-left: 12px;
 }
 table.sumStyle {
 	background-color: #red;
@@ -83,18 +84,17 @@ label[for] {
 			</tr>
 			<tr>
 				<td style="width:10%">车号</td>
-				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.carNo"/></td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.carNo" typeahead-on-select="setconCarNo($item, $model)" uib-typeahead="carInfo as carInfo.id for carInfo in getCars($viewValue)" /></td>
 				<td style="width:10%">司机姓名</td>
 				<td style="width:12%">
-					<input type="text" ng-model="vm.sdOrderHeader.driverName"/>
+					<input type="text" ng-model="vm.sdOrderHeader.driverName" typeahead-on-select="setconDriver($item, $model)" uib-typeahead="driver as driver.driverName for driver in getDrivers($viewValue)"/>
 					<input type="hidden" ng-model="vm.sdOrderHeader.driverId"/>
 					</td>
 				<td style="width:10%">联系电话</td>
-				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.mobilePhone" /></td>
+				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.mobilePhone"  /></td>
 				<td>发车批次</td>
 				<td >
-					<input type="text" name="consignerName" autocomplete="off" id="departBatch"  ng-model="vm.sdOrderHeader.departBatch"/>
-					<input type="hidden" name="consignerId" id="consignerId"  ng-model="vm.sdOrderHeader.consignerId" />
+					<input type="text" ng-model="vm.sdOrderHeader.departBatch" readonly="readonly" />
 				</td>
 				
 			</tr>
@@ -102,31 +102,33 @@ label[for] {
 		</table>
 		<table class="gridtable" style="border-bottom: 2px solid;" >
 			<tr>
-				<td style="width:10%">现付运费</td>
-				<td style="width:12%"><input type="text"  ng-model="vm.sdOrderHeader.cashPay"/></td>
-				<td style="width:10%">司机代收款</td>
-				<td style="width:12%" ><input type="text" ng-model="vm.sdOrderHeader.driverCollection" value="" /></td>
-				<td style="width:10%">本车装卸费</td>
-				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.handlingCharges" /></td>
-				<td style="width:10%">本车接货费</td>
-				<td style="width:12%"><input type="text" ng-model="vm.sdOrderHeader.receiveShipment" /></td>
+				<td style="width:12%">现付运费</td>
+				<td style="width:13%"><input type="number"  ng-model="vm.sdOrderHeader.cashPay" ng-keyup="vm.sumPay()" /></td>
+				<td style="width:12%">司机代收款</td>
+				<td style="width:13%" ><input type="number" ng-model="vm.sdOrderHeader.driverCollection" ng-keyup="vm.sumPay()" /></td>
+				<td style="width:12%">本车装卸费</td>
+				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.handlingCharges" ng-keyup="vm.sumPay()"/></td>
+				<td style="width:12%">本车接货费</td>
+				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.receiveShipment" ng-keyup="vm.sumPay()"/></td>
 			</tr>
 			<tr>
 				<td >回付运费</td>
-				<td ><input type="text" ng-model="vm.sdOrderHeader.reply" /></td>
+				<td ><input type="number" ng-model="vm.sdOrderHeader.reply" ng-keyup="vm.sumPay()"/></td>
 				<td>油卡卡号</td>
 				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardNo" /></td>
 				<td>油卡金额</td>
-				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardBlance" /></td>
+				<td ><input type="number" ng-model="vm.sdOrderHeader.oilCardBlance" /></td>
 				<td>运费合计</td>
-				<td ><input type="text" ng-model="vm.sdOrderHeader.freightSum" /></td>
+				<td ><input type="number" readonly="readonly" ng-model="vm.sdOrderHeader.freightSum" /></td>
 				
 			</tr>
 			<tr>
 				<td>本车其他费用</td>
-				<td ><input type="text"  ng-model="vm.sdOrderHeader.otherPay" value="" /></td>
+				<td ><input type="number"  ng-model="vm.sdOrderHeader.otherPay" value="" /></td>
 				<td>发车日期</td>
-				<td><input type="number" ng-model="vm.sdOrderHeader.departureTime"/></td>
+				<td>
+				<input type="datetime-local" datetime-picker="{{dateformat}}" ng-model="vm.sdOrderHeader.departureTime"  />
+				</td>
 				<td>本车载重</td>
 				<td><input type="text" ng-model="vm.sdOrderHeader.weight" value="" /></td>
 				<td>实际重量</td>
