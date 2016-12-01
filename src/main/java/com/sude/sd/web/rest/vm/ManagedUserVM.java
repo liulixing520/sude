@@ -1,13 +1,13 @@
 package com.sude.sd.web.rest.vm;
 
 import java.time.ZonedDateTime;
-
 import java.util.Set;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.sude.sd.domain.User;
 import com.sude.sd.service.dto.UserDTO;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.
@@ -42,8 +42,8 @@ public class ManagedUserVM extends UserDTO {
     }
 
     public ManagedUserVM(Long id, String login, String password, String firstName, String lastName,
-                          String email, boolean activated, String langKey, Set<String> authorities , ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate ) {
-        super(login, firstName, lastName, email, activated, langKey, authorities);
+                          String email, boolean activated, String langKey, Set<String> authorities ,String station, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate ) {
+        super(login, firstName, lastName, email, activated, langKey, authorities,station);
         this.id = id;
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
