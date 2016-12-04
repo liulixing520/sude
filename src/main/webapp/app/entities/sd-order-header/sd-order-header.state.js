@@ -151,6 +151,10 @@
                                 id: null
                             };
                         },
+                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
+                        	var list = SdOrderItemQuery.query({ids:$stateParams.ids});
+                        	return list;
+                        }],
                         sequence: ['SdOrderHeaders',function(SdOrderHeaders){
                         	return SdOrderHeaders.get().$promise;
                         }]
@@ -178,6 +182,10 @@
                     resolve: {
                         entity: ['SdOrderHeader', function(SdOrderHeader) {
                             return SdOrderHeader.get({id : $stateParams.id}).$promise;
+                        }],
+                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
+                        	var list = SdOrderItemQuery.query({ids:$stateParams.ids});
+                        	return list;
                         }],
                         sequence: ['SdOrderHeaders',function(SdOrderHeaders){
                         	return SdOrderHeaders.get().$promise;

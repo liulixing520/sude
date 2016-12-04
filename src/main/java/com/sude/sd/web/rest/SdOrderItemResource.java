@@ -32,7 +32,6 @@ import com.sude.sd.service.SdStationService;
 import com.sude.sd.service.SequenceValueItemService;
 import com.sude.sd.web.rest.util.HeaderUtil;
 import com.sude.sd.web.rest.util.PaginationUtil;
-
 /**
  * REST controller for managing SdOrderItem.
  */
@@ -134,18 +133,56 @@ public class SdOrderItemResource {
     }
     
     /**
-     * POST  /sd-order-items : 获取运单状态为*的数据
+     * GET  /sd-order-items-query : 根据ids获取运单 {ids:303058,303059,303060}
      *
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of sdOrderItems in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
-    @PutMapping("/sd-order-items-update")
+    @GetMapping("/sd-order-items-query")
     @Timed
-    public ResponseEntity<Void> updateOrderItemStat(String orderStat,String ids)
+    public List<SdOrderItem> getSdOrderItemsQuery(String ids)
     		throws URISyntaxException {
     	log.debug("REST request to get a page of SdOrderItems");
-    	sdOrderItemService.updateOrderItemStat(orderStat,ids);
+    	List<SdOrderItem> result = sdOrderItemService.findByQuery(ids);
+    	return result;
+    }
+    
+    /**
+     * GET  /sd-order-items-query : 根据orderHeaderNo获取运单 
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of sdOrderItems in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/sd-order-items-query/{orderHeaderNo}")
+    @Timed
+    public List<SdOrderItem> getSdOrderItemsQueryByNo(@PathVariable String orderHeaderNo)
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of SdOrderItems");
+    	List<SdOrderItem> result = sdOrderItemService.findByOrderHeaderNo(orderHeaderNo);
+    	return result;
+    }
+    
+    /**
+     * PUT  /sd-order-items : 修改运单状态
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of sdOrderItems in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @GetMapping("/sd-order-items-update")
+    @Timed
+    public ResponseEntity<Void> updateOrderItemStat(String orderStat,String ids,String orderHeaderNo)
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of SdOrderItems");
+    	Integer n = 0;
+    	if(ids != null && !"".equals(ids)){
+    		String[] array = ids.split(",");
+    		for (String id : array) {
+    			n = sdOrderItemService.updateOrderItemStat(orderStat,id,orderHeaderNo);
+			}
+    	}
     	return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("sdOrderItem", ids.toString())).build();
     }
 

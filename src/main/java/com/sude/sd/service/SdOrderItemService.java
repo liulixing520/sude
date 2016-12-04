@@ -2,7 +2,7 @@ package com.sude.sd.service;
 
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
-import java.util.Iterator;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sude.sd.domain.SdOrderItem;
 import com.sude.sd.repository.SdOrderItemRepository;
 import com.sude.sd.repository.search.SdOrderItemSearchRepository;
+import com.sude.sd.security.SecurityUtils;
 
 /**
  * Service Implementation for managing SdOrderItem.
@@ -31,6 +32,9 @@ public class SdOrderItemService {
 
     @Inject
     private SdOrderItemSearchRepository sdOrderItemSearchRepository;
+    
+    @Inject
+    private UserService userService;
     
 
     /**
@@ -55,7 +59,8 @@ public class SdOrderItemService {
     @Transactional(readOnly = true) 
     public Page<SdOrderItem> findAll(Pageable pageable) {
         log.debug("Request to get all SdOrderItems");
-        Page<SdOrderItem> result = sdOrderItemRepository.findAll(pageable);
+        String currentLogin = SecurityUtils.getCurrentUserLogin();
+        Page<SdOrderItem> result = sdOrderItemRepository.findByCreatedBy(currentLogin,pageable);
         return result;
     }
     
@@ -69,6 +74,20 @@ public class SdOrderItemService {
     public Page<SdOrderItem> findByOrderStat(String orderStat,Pageable pageable) {
     	log.debug("Request to get all SdOrderItems");
     	Page<SdOrderItem> result = sdOrderItemRepository.findByOrderStat(orderStat,pageable);
+    	return result;
+    }
+    
+    /**
+     *  Get all the sdOrderItems.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<SdOrderItem> findByOrderHeaderNo(String orderHeaderNo) {
+    	log.debug("Request to get all SdOrderItems");
+    	String currentLogin = SecurityUtils.getCurrentUserLogin();
+    	List<SdOrderItem> result = sdOrderItemRepository.findByOrderHeaderNoAndCreatedBy(orderHeaderNo,currentLogin);
     	return result;
     }
 
@@ -116,9 +135,24 @@ public class SdOrderItemService {
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    public void updateOrderItemStat(String orderStat,String ids) {
+    public Integer updateOrderItemStat(String orderStat,String ids,String orderHeaderNo) {
         log.debug("Request to get all SdOrderItems");
-        sdOrderItemRepository.updateStat(orderStat,ids);
+        Integer n = sdOrderItemRepository.updateStat(orderStat,ids,orderHeaderNo);
+        return n;
+    }
+    
+    /**
+     *  查找ids的运单
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<SdOrderItem> findByQuery(String ids) {
+    	log.debug("Request to get all SdOrderItems");
+    	String[] idarray = ids.split(",");
+    	List<SdOrderItem> result = sdOrderItemRepository.findByIdIn(idarray);
+    	return result;
     }
     
 }

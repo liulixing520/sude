@@ -4,11 +4,13 @@
         .module('sudeApp')
         .factory('SdOrderItem', SdOrderItem).factory('SdOrderItemLoading', SdOrderItemLoading)
         .factory('SdOrderItemUpdate', SdOrderItemUpdate)
+        .factory('SdOrderItemQuery', SdOrderItemQuery)
         ;
 
     SdOrderItem.$inject = ['$resource', 'DateUtils'];
     SdOrderItemLoading.$inject = ['$resource', 'DateUtils'];
     SdOrderItemUpdate.$inject = ['$resource'];
+    SdOrderItemQuery.$inject = ['$resource', 'DateUtils'];
 
     function SdOrderItem ($resource, DateUtils) {
         var resourceUrl =  'api/sd-order-items/:id';
@@ -55,10 +57,19 @@
     	});
     }
     
+    function SdOrderItemQuery ($resource, DateUtils) {
+    	var resourceUrl =  'api/sd-order-items-query/:orderHeaderNo';
+    	
+    	return $resource(resourceUrl, {}, {
+    		'query': { method: 'GET', isArray: true},
+    		'get': { method: 'GET', isArray: true}
+    	});
+    }
+    
     function SdOrderItemUpdate ($resource, DateUtils) {
     	var resourceUrl =  'api/sd-order-items-update';
     	return $resource(resourceUrl, {}, {
-    		'update': {method: 'PUT'}
+    		'update': {method: 'GET'}
     	});
     }
 })();

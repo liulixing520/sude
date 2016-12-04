@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('SdOrderHeaderDialogController', SdOrderHeaderDialogController);
 
-    SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate'];
+    SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','orderItems','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate'];
 
-    function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate) {
+    function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,orderItems,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate) {
         var vm = this;
 
         vm.sdOrderHeader = entity;
@@ -21,7 +21,7 @@
         vm.nowDate = $filter("date")(new Date(), "yyyyMM");
         vm.sdOrderHeader.orderHeaderNo = vm.nowDate+"-"+sequence.seqId;
         vm.sdOrderHeader.departBatch = vm.nowDate+"-"+sequence.seqId;
-        
+        vm.sdOrderItems = orderItems;
         Principal.identity().then(function(account) {
             vm.sdOrderHeader.fromStation = account.station;
             vm.station = SdStation.get({id:vm.sdOrderHeader.fromStation}).$promise;
@@ -66,8 +66,17 @@
         /**
          * 修改订单状态
          */
-        function updateOrderItem(){
-        	SdOrderItemUpdate.update("orderStat_2",vm.id,onSaveSuccess,onSaveError);
+        function updateOrderItem(result){
+        	// 从后台搜索获取数据
+            $http.get('/api/sd-order-items-update', {
+                params: {
+                	orderStat: "orderStat_2",
+                	ids: vm.ids,
+                	orderHeaderNo:result.id
+                }
+              }).then(function(response){
+            	  $uibModalInstance.close();
+              });
         }
         
         function onSaveSuccess (result) {

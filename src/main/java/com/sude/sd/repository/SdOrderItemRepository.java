@@ -1,14 +1,15 @@
 package com.sude.sd.repository;
 
-import com.sude.sd.domain.SdOrderItem;
+import java.util.List;
 
-import org.hibernate.annotations.SQLUpdate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.sude.sd.domain.SdOrderItem;
 
 /**
  * Spring Data JPA repository for the SdOrderItem entity.
@@ -20,6 +21,12 @@ public interface SdOrderItemRepository extends JpaRepository<SdOrderItem,String>
 	
 	@Transactional
 	@Modifying
-	@Query("update SdOrderItem set orderStat =?1 where id in (?2)")
-	void updateStat(String orderStat,String ids);
+	@Query("update SdOrderItem set orderStat =?1,orderHeaderNo =?3 where id =?2 ")
+	Integer updateStat(String orderStat,String ids,String orderHeaderNo);
+	
+	List<SdOrderItem> findByIdIn(String[] ids);
+	
+	List<SdOrderItem> findByOrderHeaderNoAndCreatedBy(String orderHeaderNo,String currentLogin);
+
+	Page<SdOrderItem>  findByCreatedBy(String currentLogin,Pageable pageable);
 }

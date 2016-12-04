@@ -1,21 +1,20 @@
 package com.sude.sd.service;
 
-import com.sude.sd.domain.SdOrderHeader;
-import com.sude.sd.repository.SdOrderHeaderRepository;
-import com.sude.sd.repository.search.SdOrderHeaderSearchRepository;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
+
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import com.sude.sd.domain.SdOrderHeader;
+import com.sude.sd.repository.SdOrderHeaderRepository;
+import com.sude.sd.repository.search.SdOrderHeaderSearchRepository;
+import com.sude.sd.security.SecurityUtils;
 
 /**
  * Service Implementation for managing SdOrderHeader.
@@ -57,7 +56,8 @@ public class SdOrderHeaderService {
     @Transactional(readOnly = true) 
     public Page<SdOrderHeader> findAll(Pageable pageable) {
         log.debug("Request to get all SdOrderHeaders");
-        Page<SdOrderHeader> result = sdOrderHeaderRepository.findAll(pageable);
+        String currentLogin = SecurityUtils.getCurrentUserLogin();
+        Page<SdOrderHeader> result = sdOrderHeaderRepository.findByCreatedBy(currentLogin,pageable);
         return result;
     }
 
