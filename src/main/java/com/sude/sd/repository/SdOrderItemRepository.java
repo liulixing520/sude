@@ -17,16 +17,21 @@ import com.sude.sd.domain.SdOrderItem;
 @SuppressWarnings("unused")
 public interface SdOrderItemRepository extends JpaRepository<SdOrderItem,String> {
 
-	Page<SdOrderItem> findByOrderStat(String orderStat,Pageable pageable);
+	//分单配载页面查找
+	Page<SdOrderItem> findByOrderStatAndCreatedBy(String currentLogin,String orderStat,Pageable pageable);
 	
+	//修改运单状态
 	@Transactional
 	@Modifying
 	@Query("update SdOrderItem set orderStat =?1,orderHeaderNo =?3 where id =?2 ")
 	Integer updateStat(String orderStat,String ids,String orderHeaderNo);
 	
+	//根据ids查找运单
 	List<SdOrderItem> findByIdIn(String[] ids);
 	
+	//根据ids查找运单
 	List<SdOrderItem> findByOrderHeaderNoAndCreatedBy(String orderHeaderNo,String currentLogin);
 
-	Page<SdOrderItem>  findByCreatedBy(String currentLogin,Pageable pageable);
+	//查找当前登陆人创建的运单
+	Page<SdOrderItem> findByCreatedBy(String currentLogin,Pageable pageable);
 }
