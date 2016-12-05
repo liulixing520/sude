@@ -40,6 +40,10 @@
             <column name="last_modified_date" type="timestamp"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/station.csv"
+                  separator=";"
+                  tableName="sd_station"/>
         
     </changeSet>
 </databaseChangeLog>

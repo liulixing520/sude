@@ -1,3 +1,4 @@
-name
-ROLE_ADMIN
-ROLE_USER
+name;description
+ROLE_ADMIN;管理员
+ROLE_USER;普通角色
+ROLE_FINANCE;财务角色

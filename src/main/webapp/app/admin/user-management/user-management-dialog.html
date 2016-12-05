@@ -103,9 +103,18 @@
 
         <div class="form-group">
             <label translate="userManagement.profiles">Profiles</label>
-            <select class="form-control" multiple name="authority" ng-model="vm.user.authorities"
-                    ng-options="authority for authority in vm.authorities">
-            </select>
+<!--             <select class="form-control" multiple name="authority" ng-model="vm.user.authorities" -->
+<!--                     ng-options="authority as authority.description for authority in vm.authorities track by authority.name"> -->
+<!--             </select> -->
+            <p>
+				<label class="cbr-inline" ng-repeat="authority in vm.authorities track by authority.name ">
+					<input type="checkbox" class="cbr" name="cbr" 
+					 ng-true-value="'{{authority.name}}'"
+					 value="{{authority.name}}">
+					{{authority.description}}
+				</label>
+			</p>
+            
         </div>
     </div>
     <div class="modal-footer">
