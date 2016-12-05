@@ -95,6 +95,12 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
     
     @Column(name = "recive_driver")
     private String rreciveDriver;  // 接货司机
+    
+    @Column(name = "total_weight")
+    private BigDecimal totalWeight;  // 总重量
+    
+    @Column(name = "total_freight")
+    private BigDecimal totalFreight;  // 总运费
 
     @Column(name = "pay_type")
     private String payType;  // 付款方式
@@ -719,7 +725,23 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
         return this;
     }
 
-    public void setOrderStat(String orderStat) {
+    public BigDecimal getTotalWeight() {
+		return totalWeight;
+	}
+
+	public void setTotalWeight(BigDecimal totalWeight) {
+		this.totalWeight = totalWeight;
+	}
+
+	public BigDecimal getTotalFreight() {
+		return totalFreight;
+	}
+
+	public void setTotalFreight(BigDecimal totalFreight) {
+		this.totalFreight = totalFreight;
+	}
+
+	public void setOrderStat(String orderStat) {
         this.orderStat = orderStat;
     }
 
@@ -766,6 +788,8 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
             ", bankName='" + bankName + "'" +
             ", openName='" + openName + "'" +
             ", idCard='" + idCard + "'" +
+            ", totalWeight='" + totalWeight + "'" +
+            ", totalFreight='" + totalFreight + "'" +
             ", payType='" + payType + "'" +
             ", cashPay='" + cashPay + "'" +
             ", fetchPay='" + fetchPay + "'" +

@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('SdOrderItemDialogController', SdOrderItemDialogController);
 
-    SdOrderItemDialogController.$inject = ['$timeout', '$scope', '$http','$filter','$stateParams', '$uibModalInstance', 'entity','sequence','itemInfos','stations', 'SdOrderItem','SequenceValue','Enumeration','SdItemInfo','SdStation'];
+    SdOrderItemDialogController.$inject = ['$timeout', '$scope', '$http','$filter','$stateParams', '$uibModalInstance','Principal', 'entity','sequence','itemInfos','stations', 'SdOrderItem','SequenceValue','Enumeration','SdItemInfo','SdStation'];
 
-    function SdOrderItemDialogController ($timeout, $scope,$http,$filter, $stateParams, $uibModalInstance, entity,sequence,itemInfos,stations, SdOrderItem,SequenceValue,Enumeration,SdItemInfo,SdStation) {
+    function SdOrderItemDialogController ($timeout, $scope,$http,$filter, $stateParams, $uibModalInstance,Principal, entity,sequence,itemInfos,stations, SdOrderItem,SequenceValue,Enumeration,SdItemInfo,SdStation) {
         var vm = this;
 
         vm.sdOrderItem = entity;
@@ -16,8 +16,10 @@
         vm.openCalendar = openCalendar;
         vm.sumOfItems = sumOfItems;
         vm.save = save;
-        vm.enumerations = Enumeration.query();//保险公司类型
+        vm.enumerations = Enumeration.query();
         vm.sdStations = stations;
+        
+        
         
         function sort() {
             var result = ['id,asc'];
@@ -28,6 +30,10 @@
         	vm.sdOrderItem.consignDate = $filter("date")(new Date(), "yyyy-MM-dd");
         	vm.sdOrderItem.id = sequence.seqId;
         	vm.sdOrderItem.orderStat = 'orderStat_1';//新运单状态为：新建状态
+        	Principal.identity().then(function(account) {
+        		vm.account = account;
+        		vm.sdOrderItem.operator =  vm.account.firstName;
+            });
         }
         //保证货物栏有四条记录
     	while (itemInfos.length<4)
@@ -65,10 +71,12 @@
     				vm.itemNum += itemInfo.itemNum ? itemInfo.itemNum : 0;  
     			}else if(type == 'weight'){
     				vm.weight += itemInfo.weight ? itemInfo.weight : 0;  
+    				vm.sdOrderItem.totalWeight = vm.weight;
     			}else if(type == 'volume'){
     				vm.volume += itemInfo.volume ? itemInfo.volume : 0;  
     			}else if(type == 'freight'){
     				vm.freight += itemInfo.freight ? itemInfo.freight : 0;  
+    				vm.sdOrderItem.totalFreight = vm.freight;
     			}else if(type == 'kickBack'){
     				vm.kickBack += itemInfo.kickBack ? itemInfo.kickBack : 0;  
     			}else if(type == 'cod'){

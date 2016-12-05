@@ -74,7 +74,7 @@ public class SdOrderItemService {
     public Page<SdOrderItem> findByOrderStat(String orderStat,Pageable pageable) {
     	log.debug("Request to get all SdOrderItems");
     	String currentLogin = SecurityUtils.getCurrentUserLogin();
-    	Page<SdOrderItem> result = sdOrderItemRepository.findByOrderStatAndCreatedBy(currentLogin,orderStat,pageable);
+    	Page<SdOrderItem> result = sdOrderItemRepository.findByOrderStatAndCreatedBy(orderStat,currentLogin,pageable);
     	return result;
     }
     

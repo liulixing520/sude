@@ -41,6 +41,8 @@
             "idCard": "身份证号",
             "reciveDriver": "接货司机",
             "reciveCar": "接货车号",
+            "totalWeight": "总重量",
+            "totalFreight": "总运费",
             "payType": "付款方式",
             "cashPay": "现付",
             "fetchPay": "提付",

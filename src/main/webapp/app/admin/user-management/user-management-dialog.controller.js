@@ -5,12 +5,12 @@
         .module('sudeApp')
         .controller('UserManagementDialogController',UserManagementDialogController);
 
-    UserManagementDialogController.$inject = ['$stateParams', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService','SdStation'];
+    UserManagementDialogController.$inject = ['$stateParams','$scope', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService','SdStation'];
 
-    function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User, JhiLanguageService,SdStation) {
+    function UserManagementDialogController ($stateParams,$scope, $uibModalInstance, entity, User, JhiLanguageService,SdStation) {
         var vm = this;
 
-        vm.authorities = [{name:'ROLE_ADMIN',description:"管理员"},{name:'ROLE_FINANCE',description:"财务角色"},{name:'ROLE_USER',description:"普通角色"}];
+        vm.authorities = [{name:'ROLE_ADMIN',description:"管理员"},{name:'ROLE_FINANCE',description:"财务"},{name:'ROLE_USER',description:"普通人员"}];
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;
@@ -42,5 +42,17 @@
                 User.save(vm.user, onSaveSuccess, onSaveError);
             }
         }
+        
+        //选中或不选中
+        $scope.updateSelection = function($event, id){
+	         var checkbox = $event.target;
+	         if(checkbox.checked && vm.user.authorities.indexOf(id) == -1 ){
+	        	 vm.user.authorities.push(id);
+	         }
+	         if(!checkbox.checked && vm.user.authorities.indexOf(id) != -1 ){
+	        	 var idx = vm.user.authorities.indexOf(id);
+	        	 vm.user.authorities.splice(idx,1);
+	         }
+	    }
     }
 })();

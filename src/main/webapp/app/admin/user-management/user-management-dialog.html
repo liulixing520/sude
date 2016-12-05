@@ -45,19 +45,19 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label translate="userManagement.lastName">Last Name</label>
-            <input type="text" class="form-control" name="lastName"
-                   ng-model="vm.user.lastName" ng-maxlength="50">
+<!--         <div class="form-group"> -->
+<!--             <label translate="userManagement.lastName">Last Name</label> -->
+<!--             <input type="text" class="form-control" name="lastName" -->
+<!--                    ng-model="vm.user.lastName" ng-maxlength="50"> -->
 
-            <div ng-show="editForm.lastName.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.lastName.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="50">
-                    This field cannot be longer than 50 characters.
-                </p>
-            </div>
-        </div>
+<!--             <div ng-show="editForm.lastName.$invalid"> -->
+<!--                 <p class="help-block" -->
+<!--                    ng-show="editForm.lastName.$error.maxlength" translate="entity.validation.maxlength" -->
+<!--                    translate-value-max="50"> -->
+<!--                     This field cannot be longer than 50 characters. -->
+<!--                 </p> -->
+<!--             </div> -->
+<!--         </div> -->
         <div class="form-group">
             <label translate="userManagement.station">station</label>
             <select class="form-control" name="station" ng-model="vm.user.station" >
@@ -65,28 +65,28 @@
 			</select>
 
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="userManagement.email">Email</label>
-            <input type="email" class="form-control" name="email"
-                   ng-model="vm.user.email" required ng-maxlength="100">
+<!--         <div class="form-group"> -->
+<!--             <label class="control-label" translate="userManagement.email">Email</label> -->
+<!--             <input type="email" class="form-control" name="email" -->
+<!--                    ng-model="vm.user.email" required ng-maxlength="100"> -->
 
-            <div ng-show="editForm.email.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.email.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+<!--             <div ng-show="editForm.email.$invalid"> -->
+<!--                 <p class="help-block" -->
+<!--                    ng-show="editForm.email.$error.required" translate="entity.validation.required"> -->
+<!--                     This field is required. -->
+<!--                 </p> -->
 
-                <p class="help-block"
-                   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="100">
-                    This field cannot be longer than 100 characters.
-                </p>
-				<p class="help-block"
-                   ng-show="editForm.email.$error.email" translate="global.messages.validate.email.invalid">
-                    Your e-mail is invalid.
-                 </p>
-            </div>
-        </div>
+<!--                 <p class="help-block" -->
+<!--                    ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength" -->
+<!--                    translate-value-max="100"> -->
+<!--                     This field cannot be longer than 100 characters. -->
+<!--                 </p> -->
+<!-- 				<p class="help-block" -->
+<!--                    ng-show="editForm.email.$error.email" translate="global.messages.validate.email.invalid"> -->
+<!--                     Your e-mail is invalid. -->
+<!--                  </p> -->
+<!--             </div> -->
+<!--         </div> -->
         <div class="form-group">
             <label for="activated">
                 <input ng-disabled="vm.user.id === null" name="activated" type="checkbox" id="activated" ng-model="vm.user.activated">
@@ -103,14 +103,11 @@
 
         <div class="form-group">
             <label translate="userManagement.profiles">Profiles</label>
-<!--             <select class="form-control" multiple name="authority" ng-model="vm.user.authorities" -->
-<!--                     ng-options="authority as authority.description for authority in vm.authorities track by authority.name"> -->
-<!--             </select> -->
             <p>
 				<label class="cbr-inline" ng-repeat="authority in vm.authorities track by authority.name ">
 					<input type="checkbox" class="cbr" name="cbr" 
 					 ng-true-value="'{{authority.name}}'"
-					 value="{{authority.name}}">
+					 value="{{authority.name}}" ng-checked="vm.user.authorities.indexOf(authority.name)>=0" ng-click="updateSelection($event,authority.name)">
 					{{authority.description}}
 				</label>
 			</p>

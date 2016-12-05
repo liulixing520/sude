@@ -128,6 +128,16 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "totalWeight",
+        	"fieldDescription":"总重量",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "totalFreight",
+        	"fieldDescription":"总运费",
+        	"fieldType": "BigDecimal"
+        },
+        {
         	"fieldName": "payType",
         	"fieldDescription":"付款方式",
         	"fieldType": "String"

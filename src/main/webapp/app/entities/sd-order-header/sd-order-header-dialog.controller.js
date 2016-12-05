@@ -15,7 +15,7 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-        vm.sumPay = sumPay;
+//        vm.sumPay = sumPay;
         vm.ids = $stateParams.ids;
         vm.sdStations = SdStation.query({page: 0,size: 100,sort: null});
         vm.nowDate = $filter("date")(new Date(), "yyyyMM");
@@ -25,28 +25,37 @@
         Principal.identity().then(function(account) {
             vm.sdOrderHeader.fromStation = account.station;
             vm.station = SdStation.get({id:vm.sdOrderHeader.fromStation}).$promise;
+            
         });
         
-        function sumPay(){
-        	vm.sdOrderHeader.freightSum = 0;
-        	if(vm.sdOrderHeader.cashPay){
-        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.cashPay;
-        	}
-        	if(vm.sdOrderHeader.driverCollection){
-        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.driverCollection;
-        	}
-        	if(vm.sdOrderHeader.handlingCharges){
-        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.handlingCharges;
-        	}
-        	if(vm.sdOrderHeader.receiveShipment){
-        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.receiveShipment;
-        	}
-        	if(vm.sdOrderHeader.reply){
-        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.reply;
-        	}
-        }
+    	
+//        function sumPay(){
+//        	vm.sdOrderHeader.freightSum = 0;
+//        	if(vm.sdOrderHeader.cashPay){
+//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.cashPay;
+//        	}
+//        	if(vm.sdOrderHeader.driverCollection){
+//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.driverCollection;
+//        	}
+//        	if(vm.sdOrderHeader.handlingCharges){
+//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.handlingCharges;
+//        	}
+//        	if(vm.sdOrderHeader.receiveShipment){
+//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.receiveShipment;
+//        	}
+//        	if(vm.sdOrderHeader.reply){
+//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.reply;
+//        	}
+//        }
         
         $timeout(function (){
+        	//统计总运费、实际载重
+            vm.sdOrderHeader.freightSum = 0;
+            vm.sdOrderHeader.practical = 0;
+            for (var i = orderItems.length; i--;) {
+            	vm.sdOrderHeader.freightSum += orderItems[i].totalFreight;
+            	vm.sdOrderHeader.practical += orderItems[i].totalWeight;
+            }
             angular.element('.form-group:eq(1)>input').focus();
         });
 
@@ -157,7 +166,7 @@
         	});
         };
         
-        //选中车号
+        //选中司机
         $scope.setconDriver = function ($item, $model) { 
         	vm.sdOrderHeader.driverId = $item.id;
         	vm.sdOrderHeader.driverName = $item.driverName;

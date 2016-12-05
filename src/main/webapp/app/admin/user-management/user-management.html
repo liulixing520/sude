@@ -14,7 +14,7 @@
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                 <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="login"><span translate="userManagement.login">Login</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th jh-sort-by="email"><span translate="userManagement.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="firstName"><span translate="userManagement.firstName">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
                 <th></th>
                 <th  jh-sort-by="langKey"> <span translate="userManagement.langKey">Lang Key</span> <span class="glyphicon glyphicon-sort"></span></th>                <th><span translate="userManagement.profiles">Profiles</span></th>                <th jh-sort-by="createdDate"><span translate="userManagement.createdDate">Created Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="lastModifiedBy"><span translate="userManagement.lastModifiedBy">Last Modified By</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -26,7 +26,7 @@
             <tr ng-repeat="user in vm.users track by user.id">
                 <td>{{user.id}}</td>
                 <td>{{user.login}}</td>
-                <td>{{user.email}}</td>
+                <td>{{user.firstName}}</td>
                 <td>
                     <span class="label label-danger" ng-click="vm.setActive(user, true)" ng-show="!user.activated"
                           translate="userManagement.deactivated" style="cursor: pointer;">Deactivated</span>
@@ -36,7 +36,9 @@
                 <td>{{user.langKey}}</td>
                 <td>
                     <div ng-repeat="authority in user.authorities">
-                        <span class="label label-info">{{ authority }}</span>
+                    	<span ng-repeat="auth in vm.authorities">
+                    		<span class="" ng-show="auth.name == authority">{{auth.description}}</span>
+                    	</span>
                     </div>
                 </td>
                 <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>

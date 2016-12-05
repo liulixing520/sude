@@ -103,17 +103,17 @@ label[for] {
 		<table class="gridtable" style="border-bottom: 2px solid;" >
 			<tr>
 				<td style="width:12%">现付运费</td>
-				<td style="width:13%"><input type="number"  ng-model="vm.sdOrderHeader.cashPay" ng-keyup="vm.sumPay()" /></td>
+				<td style="width:13%"><input type="number"  ng-model="vm.sdOrderHeader.cashPay"  /></td>
 				<td style="width:12%">司机代收款</td>
-				<td style="width:13%" ><input type="number" ng-model="vm.sdOrderHeader.driverCollection" ng-keyup="vm.sumPay()" /></td>
+				<td style="width:13%" ><input type="number" ng-model="vm.sdOrderHeader.driverCollection"  /></td>
 				<td style="width:12%">本车装卸费</td>
-				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.handlingCharges" ng-keyup="vm.sumPay()"/></td>
+				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.handlingCharges" /></td>
 				<td style="width:12%">本车接货费</td>
-				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.receiveShipment" ng-keyup="vm.sumPay()"/></td>
+				<td style="width:13%"><input type="number" ng-model="vm.sdOrderHeader.receiveShipment" /></td>
 			</tr>
 			<tr>
 				<td >回付运费</td>
-				<td ><input type="number" ng-model="vm.sdOrderHeader.reply" ng-keyup="vm.sumPay()"/></td>
+				<td ><input type="number" ng-model="vm.sdOrderHeader.reply" /></td>
 				<td>油卡卡号</td>
 				<td ><input type="text" ng-model="vm.sdOrderHeader.oilCardNo" /></td>
 				<td>油卡金额</td>
@@ -163,14 +163,14 @@ label[for] {
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="orderHeaderNo"><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="consignDate"><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="fromStationName"><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="toStationName"><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="middleStation"><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="consigneeName"><span data-translate="sudeApp.sdOrderItem.consigneeName">Consignee Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="consigneeAddress"><span data-translate="sudeApp.sdOrderItem.consigneeAddress">Consignee Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th ><span data-translate="global.field.id">ID</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.middleStation">Middle Station</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.consigneeName">Consignee Name</span> </th>
+                    <th ><span data-translate="sudeApp.sdOrderItem.consigneeAddress">Consignee Address</span> </th>
                     <th></th>
                 </tr>
             </thead>

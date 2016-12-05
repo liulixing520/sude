@@ -46,6 +46,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('sdOrderHeader');
+                    $translatePartialLoader.addPart('sdOrderItem');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -184,7 +185,7 @@
                             return SdOrderHeader.get({id : $stateParams.id}).$promise;
                         }],
                         orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
-                        	var list = SdOrderItemQuery.query({ids:$stateParams.ids});
+                        	var list = SdOrderItemQuery.get({orderHeaderNo:$stateParams.id});
                         	return list;
                         }],
                         sequence: ['SdOrderHeaders',function(SdOrderHeaders){
