@@ -15,6 +15,7 @@
                 <th jh-sort-by="id"><span translate="global.field.id">ID</span><span class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="login"><span translate="userManagement.login">Login</span> <span class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="firstName"><span translate="userManagement.firstName">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="station"><span translate="userManagement.station">station</span> <span class="glyphicon glyphicon-sort"></span></th>
                 <th></th>
                 <th  jh-sort-by="langKey"> <span translate="userManagement.langKey">Lang Key</span> <span class="glyphicon glyphicon-sort"></span></th>                <th><span translate="userManagement.profiles">Profiles</span></th>                <th jh-sort-by="createdDate"><span translate="userManagement.createdDate">Created Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="lastModifiedBy"><span translate="userManagement.lastModifiedBy">Last Modified By</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -27,6 +28,7 @@
                 <td>{{user.id}}</td>
                 <td>{{user.login}}</td>
                 <td>{{user.firstName}}</td>
+                <td>{{user.station}}</td>
                 <td>
                     <span class="label label-danger" ng-click="vm.setActive(user, true)" ng-show="!user.activated"
                           translate="userManagement.deactivated" style="cursor: pointer;">Deactivated</span>

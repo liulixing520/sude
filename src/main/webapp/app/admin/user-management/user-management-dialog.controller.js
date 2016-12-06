@@ -5,12 +5,12 @@
         .module('sudeApp')
         .controller('UserManagementDialogController',UserManagementDialogController);
 
-    UserManagementDialogController.$inject = ['$stateParams','$scope', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService','SdStation'];
+    UserManagementDialogController.$inject = ['$stateParams','$scope','Authority', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService','SdStation'];
 
-    function UserManagementDialogController ($stateParams,$scope, $uibModalInstance, entity, User, JhiLanguageService,SdStation) {
+    function UserManagementDialogController ($stateParams,$scope,Authority, $uibModalInstance, entity, User, JhiLanguageService,SdStation) {
         var vm = this;
 
-        vm.authorities = [{name:'ROLE_ADMIN',description:"管理员"},{name:'ROLE_FINANCE',description:"财务"},{name:'ROLE_USER',description:"普通人员"}];
+        vm.authorities = Authority.query();
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;

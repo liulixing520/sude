@@ -96,6 +96,14 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="total_freight" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="total_weight" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="bank_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

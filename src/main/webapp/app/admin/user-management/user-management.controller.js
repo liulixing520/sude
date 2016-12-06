@@ -5,12 +5,12 @@
         .module('sudeApp')
         .controller('UserManagementController', UserManagementController);
 
-    UserManagementController.$inject = ['Principal', 'User', 'ParseLinks', 'AlertService', '$state', 'pagingParams', 'paginationConstants', 'JhiLanguageService'];
+    UserManagementController.$inject = ['Principal', 'User', 'ParseLinks','Authority', 'AlertService', '$state', 'pagingParams', 'paginationConstants', 'JhiLanguageService'];
 
-    function UserManagementController(Principal, User, ParseLinks, AlertService, $state, pagingParams, paginationConstants, JhiLanguageService) {
+    function UserManagementController(Principal, User, ParseLinks,Authority, AlertService, $state, pagingParams, paginationConstants, JhiLanguageService) {
         var vm = this;
 
-        vm.authorities = [{name:'ROLE_ADMIN',description:"管理员"},{name:'ROLE_FINANCE',description:"财务"},{name:'ROLE_USER',description:"普通人员"}];
+        vm.authorities = Authority.query();
         vm.currentAccount = null;
         vm.languages = null;
         vm.loadAll = loadAll;

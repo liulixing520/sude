@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('SdOrderHeaderDialogController', SdOrderHeaderDialogController);
 
-    SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','orderItems','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate'];
+    SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate','SdOrderItemQuery','SdItemInfos'];
 
-    function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,orderItems,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate) {
+    function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate,SdOrderItemQuery,SdItemInfos) {
         var vm = this;
 
         vm.sdOrderHeader = entity;
@@ -15,13 +15,11 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-//        vm.sumPay = sumPay;
         vm.ids = $stateParams.ids;
         vm.sdStations = SdStation.query({page: 0,size: 100,sort: null});
         vm.nowDate = $filter("date")(new Date(), "yyyyMM");
         vm.sdOrderHeader.orderHeaderNo = vm.nowDate+"-"+sequence.seqId;
         vm.sdOrderHeader.departBatch = vm.nowDate+"-"+sequence.seqId;
-        vm.sdOrderItems = orderItems;
         Principal.identity().then(function(account) {
             vm.sdOrderHeader.fromStation = account.station;
             vm.station = SdStation.get({id:vm.sdOrderHeader.fromStation}).$promise;
@@ -29,35 +27,30 @@
         });
         
     	
-//        function sumPay(){
-//        	vm.sdOrderHeader.freightSum = 0;
-//        	if(vm.sdOrderHeader.cashPay){
-//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.cashPay;
-//        	}
-//        	if(vm.sdOrderHeader.driverCollection){
-//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.driverCollection;
-//        	}
-//        	if(vm.sdOrderHeader.handlingCharges){
-//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.handlingCharges;
-//        	}
-//        	if(vm.sdOrderHeader.receiveShipment){
-//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.receiveShipment;
-//        	}
-//        	if(vm.sdOrderHeader.reply){
-//        		vm.sdOrderHeader.freightSum += vm.sdOrderHeader.reply;
-//        	}
-//        }
+        $scope.$on('changeItemDataSuccess', function() {
+        	sumFunc();
+        });
         
         $timeout(function (){
-        	//统计总运费、实际载重
+        	sumFunc();
+            angular.element('.form-group:eq(1)>input').focus();
+        });
+        
+        //统计总运费、实际载重
+        function sumFunc(){
+        	//加载数据
+        	if(entity.id){
+        		vm.sdOrderItems = SdItemInfos.query({orderNo:entity.id}).$promise;
+        	}else{
+        		vm.sdOrderItems = SdOrderItemQuery.query({ids:$stateParams.ids});
+        	}
             vm.sdOrderHeader.freightSum = 0;
             vm.sdOrderHeader.practical = 0;
-            for (var i = orderItems.length; i--;) {
+            for (var i = vm.sdOrderItems.length; i--;) {
             	vm.sdOrderHeader.freightSum += orderItems[i].totalFreight;
             	vm.sdOrderHeader.practical += orderItems[i].totalWeight;
             }
-            angular.element('.form-group:eq(1)>input').focus();
-        });
+        }
 
         function clear () {
             $uibModalInstance.dismiss('cancel');

@@ -248,10 +248,10 @@
                         }],
                         //查询实体序列号
                         sequence: null,
-                        itemInfos: ['SdItemInfos', function(SdItemInfos) {
-                        	//查询运单明细物品
-                    		return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
-                    	}],
+//                        itemInfos: ['SdItemInfos', function(SdItemInfos) {
+//                        	//查询运单明细物品
+//                    		return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
+//                    	}],
                     	stations:['SdStation',function(SdStation){
                     		return SdStation.query({page: 0,size: 100,sort: null}).$promise;
                     	}]
@@ -262,6 +262,65 @@
                     $state.go('^');
                 });
             }]
+        })
+        .state('sd-order-header.edit.edit', {
+        	parent: 'sd-order-header.edit',
+        	url: '/{idm}/edit',
+        	data: {
+        		authorities: ['ROLE_USER']
+        	},
+        	onEnter: ['$stateParams', '$state', '$uibModal','$rootScope', function($stateParams, $state, $uibModal,$rootScope) {
+        		$uibModal.open({
+        			templateUrl: 'app/entities/sd-order-item/sd-order-item-dialog.html',
+        			controller: 'SdOrderItemDialogController',
+        			controllerAs: 'vm',
+        			backdrop: 'static',
+        			size: 'lg',
+        			resolve: {
+        				entity: ['SdOrderItem', function(SdOrderItem) {
+        					return SdOrderItem.get({id : $stateParams.id}).$promise;
+        				}],
+        				//查询实体序列号
+        				sequence: null,
+//        				itemInfos: ['SdItemInfos', function(SdItemInfos) {
+//        					//查询运单明细物品
+//        					return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
+//        				}],
+        				stations:['SdStation',function(SdStation){
+        					return SdStation.query({page: 0,size: 100,sort: null}).$promise;
+        				}]
+        			}
+        		}).result.then(function() {
+        			$state.go('^');
+        			$rootScope.$broadcast('changeItemDataSuccess');
+        		}, function() {
+        			$state.go('^');
+        		});
+        	}]
+        })
+        .state('sd-order-header.edit.delete', {
+        	parent: 'sd-order-header.edit',
+        	url: '/{idm}/delete',
+        	data: {
+        		authorities: ['ROLE_USER']
+        	},
+        	onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        		$uibModal.open({
+        			templateUrl: 'app/entities/sd-order-item/sd-order-item-delete-dialog.html',
+        			controller: 'SdOrderItemDeleteController',
+        			controllerAs: 'vm',
+        			size: 'md',
+        			resolve: {
+        				entity: ['SdOrderItem', function(SdOrderItem) {
+        					return SdOrderItem.get({id : $stateParams.idm}).$promise;
+        				}]
+        			}
+        		}).result.then(function() {
+        			$state.go('sd-order-header.edit({id:$stateParams.id})', null, { reload: 'sd-order-header.edit({id:$stateParams.id})' });
+        		}, function() {
+        			$state.go('^');
+        		});
+        	}]
         })
         .state('sd-order-item.delete', {
             parent: 'sd-order-item',

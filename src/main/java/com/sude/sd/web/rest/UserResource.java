@@ -1,16 +1,17 @@
 package com.sude.sd.web.rest;
 
-import com.sude.sd.config.Constants;
-import com.codahale.metrics.annotation.Timed;
-import com.sude.sd.domain.User;
-import com.sude.sd.repository.UserRepository;
-import com.sude.sd.repository.search.UserSearchRepository;
-import com.sude.sd.security.AuthoritiesConstants;
-import com.sude.sd.service.MailService;
-import com.sude.sd.service.UserService;
-import com.sude.sd.web.rest.vm.ManagedUserVM;
-import com.sude.sd.web.rest.util.HeaderUtil;
-import com.sude.sd.web.rest.util.PaginationUtil;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,17 +21,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import java.net.URI;
-import java.net.URISyntaxException;
-import javax.servlet.http.HttpServletRequest;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import com.codahale.metrics.annotation.Timed;
+import com.sude.sd.config.Constants;
+import com.sude.sd.domain.Authority;
+import com.sude.sd.domain.SdStation;
+import com.sude.sd.domain.User;
+import com.sude.sd.repository.AuthorityRepository;
+import com.sude.sd.repository.SdStationRepository;
+import com.sude.sd.repository.UserRepository;
+import com.sude.sd.repository.search.UserSearchRepository;
+import com.sude.sd.security.AuthoritiesConstants;
+import com.sude.sd.service.MailService;
+import com.sude.sd.service.UserService;
+import com.sude.sd.web.rest.util.HeaderUtil;
+import com.sude.sd.web.rest.util.PaginationUtil;
+import com.sude.sd.web.rest.vm.ManagedUserVM;
 
 /**
  * REST controller for managing users.
@@ -70,9 +81,14 @@ public class UserResource {
 
     @Inject
     private UserService userService;
+    
+    @Inject
+    private SdStationRepository sdStationRepository;
 
     @Inject
     private UserSearchRepository userSearchRepository;
+    @Inject
+    private AuthorityRepository authorityRepository;
 
     /**
      * POST  /users  : Creates a new user.
@@ -169,6 +185,13 @@ public class UserResource {
         List<ManagedUserVM> managedUserVMs = page.getContent().stream()
             .map(ManagedUserVM::new)
             .collect(Collectors.toList());
+        for (ManagedUserVM userVM : managedUserVMs) {
+			if(userVM.getStation()!=null && !"".equals(userVM.getStation())){
+				SdStation sdStation = sdStationRepository.findOne(Long.valueOf(userVM.getStation()));
+				userVM.setStation(sdStation.getStationName());
+			}
+		}
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
         return new ResponseEntity<>(managedUserVMs, headers, HttpStatus.OK);
     }
@@ -223,5 +246,23 @@ public class UserResource {
         return StreamSupport
             .stream(userSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * GET  /authority : get all authoritys.
+     * 
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and with body all users
+     * @throws URISyntaxException if the pagination headers couldn't be generated
+     */
+    @RequestMapping(value = "/authority",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Authority>> getAllAuthority(Pageable pageable)
+        throws URISyntaxException {
+        Page<Authority> page = authorityRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/authority");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

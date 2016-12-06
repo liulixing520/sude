@@ -125,8 +125,7 @@
   	    	   }
       	    }
         	
-        	$scope.$emit('sudeApp:sdOrderItemUpdate', result);
-            $uibModalInstance.close(result);
+            $uibModalInstance.close();
             vm.isSaving = false;
         }
 
