@@ -114,7 +114,23 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
         this.id = id;
     }
 
-    public String getOrderHeaderNo() {
+    public String getFromStationName() {
+		return fromStationName;
+	}
+
+	public void setFromStationName(String fromStationName) {
+		this.fromStationName = fromStationName;
+	}
+
+	public String getToStationName() {
+		return toStationName;
+	}
+
+	public void setToStationName(String toStationName) {
+		this.toStationName = toStationName;
+	}
+
+	public String getOrderHeaderNo() {
         return orderHeaderNo;
     }
 

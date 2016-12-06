@@ -159,6 +159,9 @@ public class SdStationService {
      * @return
      */
     public String checkHasStation(String stationName) {
+    	if(stationName == null){
+    		return stationName;
+    	}
     	List<SdStation> list = sdStationRepository.findByStationName(stationName);
     	SdStation sdStation = new SdStation();
     	if(list.size() == 0){
@@ -167,6 +170,8 @@ public class SdStationService {
 			String enName = PinYin2Abbreviation.cn2py(stationName);
 			sdStation.setStationNM(enName);
 			sdStation = save(sdStation);
+		}else{
+			sdStation = list.get(0);
 		}
 		return sdStation.getId()+"";
     }
@@ -177,6 +182,7 @@ public class SdStationService {
      * @return
      */
     public String getStationName(String stationId) {
+    	if(stationId == null){return stationId;}
     	SdStation sdStation = sdStationRepository.findOne(Long.valueOf(stationId));
     	return sdStation.getStationName();
     }

@@ -107,4 +107,19 @@ public class SdCarInfoService {
     	List<SdCarInfo> result = sdCarInfoRepository.findByIdLike(id);
     	return result;
     }
+    
+    /**
+     * 检查是否存在车辆信息
+     * @param carNo
+     */
+    public void checkHasCar(String carNo){
+    	if(carNo!=null){
+    		SdCarInfo sdCarInfo = findOne(carNo);
+    		if(sdCarInfo==null){
+    			sdCarInfo = new SdCarInfo();
+    			sdCarInfo.setId(carNo);
+    			save(sdCarInfo);
+    		}
+    	}
+    }
 }

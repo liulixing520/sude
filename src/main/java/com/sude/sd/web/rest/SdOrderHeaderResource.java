@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 import com.sude.sd.domain.SdOrderHeader;
 import com.sude.sd.domain.SequenceValueItem;
+import com.sude.sd.service.SdCarInfoService;
 import com.sude.sd.service.SdOrderHeaderService;
+import com.sude.sd.service.SdStationService;
 import com.sude.sd.web.rest.util.HeaderUtil;
 import com.sude.sd.web.rest.util.PaginationUtil;
 
@@ -42,6 +44,11 @@ public class SdOrderHeaderResource {
         
     @Inject
     private SdOrderHeaderService sdOrderHeaderService;
+    
+    @Inject
+    private SdStationService sdStationService;
+    @Inject
+    private SdCarInfoService sdCarInfoService;
 
     /**
      * POST  /sd-order-headers : Create a new sdOrderHeader.
@@ -57,6 +64,12 @@ public class SdOrderHeaderResource {
         if (sdOrderHeader.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sdOrderHeader", "idexists", "A new sdOrderHeader cannot already have an ID")).body(null);
         }
+        //检查是否存在站点
+        String toStationId = sdStationService.checkHasStation(sdOrderHeader.getToStationName());
+        sdOrderHeader.setToStation(toStationId);
+        sdOrderHeader.setFromStationName(sdStationService.getStationName(sdOrderHeader.getFromStation()));
+        
+        sdCarInfoService.checkHasCar(sdOrderHeader.getCarNo());
         SdOrderHeader result = sdOrderHeaderService.save(sdOrderHeader);
         return ResponseEntity.created(new URI("/api/sd-order-headers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("sdOrderHeader", result.getId().toString()))
