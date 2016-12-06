@@ -29,7 +29,7 @@
 	<!--</div>-->
 </header>
 <ul id="main-menu" class="main-menu">
-	<li ng-class="{'opened active expanded': vm.$state.includes('baseInfo')}" class="has-sub">
+	<li ng-class="{'opened active expanded': vm.$state.includes('baseInfo')}" class="has-sub" has-authority="ROLE_ADMIN">
 		<a href="javascript:void(0);"> <i class="linecons-cog"></i><span class="title">基础信息</span></a>
 		<ul style="">
 			<li ui-sref-active="active" ui-sref="sd-company.new"><a href="javascript:void(0);" ><span  class="title">公司资料</span></a></li>
@@ -38,7 +38,7 @@
 			<li ui-sref-active="active" ><a href="javascript:void(0);" ><span class="title">操作日志</span></a></li>
 		</ul>
 	</li>
-	<li ng-class="{'opened active expanded': vm.$state.includes('userManager')}" class="has-sub">
+	<li ng-class="{'opened active expanded': vm.$state.includes('userManager')}" class="has-sub" has-authority="ROLE_ADMIN">
 		<a href="javascript:void(0);" ><i class="linecons-desktop"></i><span class="title">用户管理</span></a>
 		<ul style="">
 			<li ui-sref-active="active" ui-sref="user-management"><a href="javascript:void(0);"><span class="title">用户信息</span></a></li>

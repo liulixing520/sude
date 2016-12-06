@@ -11,7 +11,7 @@
             "updated": "ID 为 {{ param }} 的公司信息被更新",
             "deleted": "ID 为 {{ param }} 的公司信息被删除",
             "delete": {
-                "question": "你确定要删除ID 为 {{ param }}公司信息?"
+                "question": "你确定要删除ID 为{{ id }} 的公司信息?"
             },
             "detail": {
                 "title": "公司信息"

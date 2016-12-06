@@ -63,7 +63,9 @@ public class SdOrderItemResource {
         //检查是否存在客户
         sdOrderItem = sdCustomerService.checkHasCustomer(sdOrderItem);
         //检查是否存在站点
-        sdOrderItem = sdStationService.checkHasStation(sdOrderItem);
+        String toStationId = sdStationService.checkHasStation(sdOrderItem.getToStationName());
+        sdOrderItem.setToStation(toStationId);
+        sdOrderItem.setFromStationName(sdStationService.getStationName(sdOrderItem.getFromStation()));
         SdOrderItem result = sdOrderItemService.save(sdOrderItem);
         //更新seqId
         sequenceValueItemService.updateSeqId("SdOrderItem", Long.valueOf(result.getId()));
@@ -155,11 +157,11 @@ public class SdOrderItemResource {
      * @return the ResponseEntity with status 200 (OK) and the list of sdOrderItems in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
-    @GetMapping("/sd-order-items-query/{orderHeaderNo}")
+    @GetMapping("/queryItemsByOrderNo")
     @Timed
-    public List<SdOrderItem> getSdOrderItemsQueryByNo(@PathVariable String orderHeaderNo)
+    public List<SdOrderItem> queryByOrderNo(String orderHeaderNo)
     		throws URISyntaxException {
-    	log.debug("REST request to get a page of SdOrderItems");
+    	log.debug("REST request to get a page of orderHeaderNo="+orderHeaderNo);
     	List<SdOrderItem> result = sdOrderItemService.findByOrderHeaderNo(orderHeaderNo);
     	return result;
     }

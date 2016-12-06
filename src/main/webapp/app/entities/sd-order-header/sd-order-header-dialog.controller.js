@@ -26,9 +26,22 @@
             
         });
         
-    	
+        if(entity.id){
+        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.id}).then(function(response){
+        		vm.sdOrderItems = response.data;
+        	})
+        }else{
+        	SdOrderItemQuery.getByIds({ids:$stateParams.ids}).then(function(response) {
+        		vm.sdOrderItems = response.data;
+        	});
+        }
+        
+        //item保存完通知
         $scope.$on('changeItemDataSuccess', function() {
-        	sumFunc();
+        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.id}).then(function(response){
+        		vm.sdOrderItems = response.data;
+        		sumFunc();
+        	})
         });
         
         $timeout(function (){
@@ -38,20 +51,14 @@
         
         //统计总运费、实际载重
         function sumFunc(){
-        	//加载数据
-        	if(entity.id){
-        		vm.sdOrderItems = SdItemInfos.query({orderNo:entity.id}).$promise;
-        	}else{
-        		vm.sdOrderItems = SdOrderItemQuery.query({ids:$stateParams.ids});
-        	}
             vm.sdOrderHeader.freightSum = 0;
             vm.sdOrderHeader.practical = 0;
             for (var i = vm.sdOrderItems.length; i--;) {
-            	vm.sdOrderHeader.freightSum += orderItems[i].totalFreight;
-            	vm.sdOrderHeader.practical += orderItems[i].totalWeight;
+            	vm.sdOrderHeader.freightSum += vm.sdOrderItems[i].totalFreight;
+            	vm.sdOrderHeader.practical += vm.sdOrderItems[i].totalWeight;
             }
         }
-
+        
         function clear () {
             $uibModalInstance.dismiss('cancel');
         }

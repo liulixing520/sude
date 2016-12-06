@@ -10,7 +10,7 @@
     SdOrderItem.$inject = ['$resource', 'DateUtils'];
     SdOrderItemLoading.$inject = ['$resource', 'DateUtils'];
     SdOrderItemUpdate.$inject = ['$resource'];
-    SdOrderItemQuery.$inject = ['$resource', 'DateUtils'];
+    SdOrderItemQuery.$inject = ['$q', '$http'];
 
     function SdOrderItem ($resource, DateUtils) {
         var resourceUrl =  'api/sd-order-items/:id';
@@ -57,13 +57,45 @@
     	});
     }
     
-    function SdOrderItemQuery ($resource, DateUtils) {
-    	var resourceUrl =  'api/sd-order-items-query/:orderHeaderNo';
+    function SdOrderItemQuery ($q, $http) {
     	
-    	return $resource(resourceUrl, {}, {
-    		'query': { method: 'GET', isArray: true},
-    		'get': { method: 'GET', isArray: true}
-    	});
+    	var dataPromise;
+
+        var service = {
+        		getByIds : getByIds,
+        		getByOrderNo : getByOrderNo
+        };
+
+        return service;
+
+        function getByIds(ids) {
+            dataPromise = $http.get('api/sd-order-items-query/',{params: ids}).then(function(result) {
+                if (result.data) {
+                    var response = {};
+                    response.data = result.data;
+                    return response;
+                }
+            });
+            return dataPromise;
+        }
+        
+        function getByOrderNo(orderHeaderNo) {
+        	dataPromise = $http.get('api/queryItemsByOrderNo/',{params: orderHeaderNo}).then(function(result) {
+                if (result.data) {
+                    var response = {};
+                    response.data = result.data;
+                    return response;
+                }
+            });
+            return dataPromise;
+        }
+        
+//    	var resourceUrl =  'api/sd-order-items-query/:orderHeaderNo';
+//    	
+//    	return $resource(resourceUrl, {}, {
+//    		'query': { method: 'GET', isArray: true},
+//    		'get': { method: 'GET', isArray: true}
+//    	});
     }
     
     function SdOrderItemUpdate ($resource, DateUtils) {
@@ -72,4 +104,6 @@
     		'update': {method: 'GET'}
     	});
     }
+    
+
 })();

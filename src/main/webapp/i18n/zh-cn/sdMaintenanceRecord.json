@@ -11,7 +11,7 @@
             "updated": "ID 为 {{ param }} 的车辆维修记录被更新",
             "deleted": "ID 为 {{ param }} 的车辆维修记录被删除",
             "delete": {
-                "question": "你确定要删除ID 为 {{ param }}车辆维修记录?"
+                "question": "你确定要删除ID 为 {{ id }} 的车辆维修记录?"
             },
             "detail": {
                 "title": "车辆维修记录"

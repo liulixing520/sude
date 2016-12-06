@@ -11,7 +11,7 @@
             "updated": "ID 为 {{ param }} 的运单明细被更新",
             "deleted": "ID 为 {{ param }} 的运单明细被删除",
             "delete": {
-                "question": "你确定要删除ID 为 {{ param }}运单明细?"
+                "question": "你确定要删除ID 为 {{ id }} 的运单明细?"
             },
             "detail": {
                 "title": "运单明细"

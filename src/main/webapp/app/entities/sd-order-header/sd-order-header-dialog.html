@@ -185,7 +185,7 @@ label[for] {
                     <td>{{sdOrderItem.consigneeName}}</td>
                     <td>{{sdOrderItem.consigneeAddress}}</td>
                     <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
+                        <div class="btn-group flex-btn-group-container" ng-show="vm.sdOrderHeader.id">
                             <button type="submit"
                                     ui-sref="sd-order-header.edit.edit({idm:sdOrderItem.id})"
                                     class="btn btn-primary btn-sm">

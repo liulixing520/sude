@@ -152,16 +152,16 @@
                                 id: null
                             };
                         },
-                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
-                        	var list = SdOrderItemQuery.query({ids:$stateParams.ids});
-                        	return list;
-                        }],
+//                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
+//                        	var list = SdOrderItemQuery.query({ids:$stateParams.ids});
+//                        	return list;
+//                        }],
                         sequence: ['SdOrderHeaders',function(SdOrderHeaders){
                         	return SdOrderHeaders.get().$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('sd-order-item-loading', null, { reload: 'sd-order-item-loading' });
+                    $state.go('sd-order-header', null, { reload: 'sd-order-header' });
                 }, function() {
                     $state.go('sd-order-item-loading');
                 });
@@ -184,10 +184,10 @@
                         entity: ['SdOrderHeader', function(SdOrderHeader) {
                             return SdOrderHeader.get({id : $stateParams.id}).$promise;
                         }],
-                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
-                        	var list = SdOrderItemQuery.get({orderHeaderNo:$stateParams.id});
-                        	return list;
-                        }],
+//                        orderItems: ['SdOrderItemQuery',function(SdOrderItemQuery){
+//                        	var list = SdOrderItemQuery.get({orderHeaderNo:$stateParams.id});
+//                        	return list;
+//                        }],
                         sequence: ['SdOrderHeaders',function(SdOrderHeaders){
                         	return SdOrderHeaders.get().$promise;
                         }]

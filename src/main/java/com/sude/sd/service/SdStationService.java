@@ -152,4 +152,33 @@ public class SdStationService {
     	}
 		return sdOrderItem;
 	}
+    
+    /**
+     * 检测是否已存在站点
+     * @param stationName
+     * @return
+     */
+    public String checkHasStation(String stationName) {
+    	List<SdStation> list = sdStationRepository.findByStationName(stationName);
+    	SdStation sdStation = new SdStation();
+    	if(list.size() == 0){
+			sdStation.setStationName(stationName);
+			//汉字转字母
+			String enName = PinYin2Abbreviation.cn2py(stationName);
+			sdStation.setStationNM(enName);
+			sdStation = save(sdStation);
+		}
+		return sdStation.getId()+"";
+    }
+    
+    /**
+     * 获取站点名称
+     * @param stationId
+     * @return
+     */
+    public String getStationName(String stationId) {
+    	SdStation sdStation = sdStationRepository.findOne(Long.valueOf(stationId));
+    	return sdStation.getStationName();
+    }
+    
 }

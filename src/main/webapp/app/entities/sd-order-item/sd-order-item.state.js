@@ -248,10 +248,10 @@
                         }],
                         //查询实体序列号
                         sequence: null,
-//                        itemInfos: ['SdItemInfos', function(SdItemInfos) {
-//                        	//查询运单明细物品
-//                    		return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
-//                    	}],
+                        itemInfos: ['SdItemInfos', function(SdItemInfos) {
+                        	//查询运单明细物品
+                    		return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
+                    	}],
                     	stations:['SdStation',function(SdStation){
                     		return SdStation.query({page: 0,size: 100,sort: null}).$promise;
                     	}]
@@ -278,14 +278,14 @@
         			size: 'lg',
         			resolve: {
         				entity: ['SdOrderItem', function(SdOrderItem) {
-        					return SdOrderItem.get({id : $stateParams.id}).$promise;
+        					return SdOrderItem.get({id : $stateParams.idm}).$promise;
         				}],
         				//查询实体序列号
         				sequence: null,
-//        				itemInfos: ['SdItemInfos', function(SdItemInfos) {
-//        					//查询运单明细物品
-//        					return SdItemInfos.query({orderNo:$stateParams.id+""}).$promise;
-//        				}],
+        				itemInfos: ['SdItemInfos', function(SdItemInfos) {
+        					//查询运单明细物品
+        					return SdItemInfos.query({orderNo:$stateParams.idm+""}).$promise;
+        				}],
         				stations:['SdStation',function(SdStation){
         					return SdStation.query({page: 0,size: 100,sort: null}).$promise;
         				}]
@@ -304,7 +304,7 @@
         	data: {
         		authorities: ['ROLE_USER']
         	},
-        	onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        	onEnter: ['$stateParams', '$state', '$uibModal','$rootScope', function($stateParams, $state, $uibModal,$rootScope) {
         		$uibModal.open({
         			templateUrl: 'app/entities/sd-order-item/sd-order-item-delete-dialog.html',
         			controller: 'SdOrderItemDeleteController',
@@ -316,7 +316,8 @@
         				}]
         			}
         		}).result.then(function() {
-        			$state.go('sd-order-header.edit({id:$stateParams.id})', null, { reload: 'sd-order-header.edit({id:$stateParams.id})' });
+        			$state.go('^');
+        			$rootScope.$broadcast('changeItemDataSuccess');
         		}, function() {
         			$state.go('^');
         		});

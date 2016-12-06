@@ -11,7 +11,7 @@
             "updated": "ID 为 {{ param }} 的序列单号被更新",
             "deleted": "ID 为 {{ param }} 的序列单号被删除",
             "delete": {
-                "question": "你确定要删除ID 为 {{ param }}序列单号?"
+                "question": "你确定要删除ID 为{{ id }} 的序列单号?"
             },
             "detail": {
                 "title": "序列单号"

@@ -12,7 +12,7 @@
             "updated": "ID 为 {{ param }} 的托运单被更新",
             "deleted": "ID 为 {{ param }} 的托运单被删除",
             "delete": {
-                "question": "你确定要删除ID 为 {{ param }}托运单?"
+                "question": "你确定要删除ID 为 {{ id }} 的托运单?"
             },
             "detail": {
                 "title": "托运单"
