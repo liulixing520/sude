@@ -7,6 +7,23 @@
 
     SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate','SdOrderItemQuery','SdItemInfos'];
 
+    /**
+     * @param Principal
+     * @param $timeout
+     * @param $filter
+     * @param $scope
+     * @param $http
+     * @param $stateParams
+     * @param sequence
+     * @param $uibModalInstance
+     * @param entity
+     * @param SdStation
+     * @param OneSdStation
+     * @param SdOrderHeader
+     * @param SdOrderItemUpdate
+     * @param SdOrderItemQuery
+     * @param SdItemInfos
+     */
     function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate,SdOrderItemQuery,SdItemInfos) {
         var vm = this;
 
@@ -72,11 +89,9 @@
             }
         }
         
-        /**
-         * 修改订单状态
-         */
+        
+        //修改订单状态
         function updateOrderItem(result){
-        	// 从后台搜索获取数据
             $http.get('/api/sd-order-items-update', {
                 params: {
                 	orderStat: "orderStat_2",
