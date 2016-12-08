@@ -5,9 +5,9 @@
         .module('sudeApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope','$rootScope', 'Principal', 'LoginService', '$state'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope,$rootScope, Principal, LoginService, $state) {
         var vm = this;
 
         vm.account = null;
@@ -24,6 +24,12 @@
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
+                if(vm.account == null){
+                	LoginService.open();
+                	$rootScope.showNavbar = false;
+                }else{
+                	$rootScope.showNavbar = true;
+                }
             });
         }
         function register () {

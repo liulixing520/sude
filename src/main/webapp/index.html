@@ -41,7 +41,7 @@
 	<!-- TS147203479619759: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 	<div class="page-container">
 		<!-- TS14720347965778: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
-		<div class="sidebar-menu toggle-others" style="">
+		<div class="sidebar-menu toggle-others" ng-show="showNavbar" style="" >
 			<div class="sidebar-menu-inner">
 				<div ui-view="menu" ng-cloak>
 				<!-- 菜单-->
@@ -50,7 +50,7 @@
 		</div>
 		<div class="main-content" style="">
 			<!-- TS147203479615232: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
-			<div ui-view="navbar" ng-cloak>
+			<div ui-view="navbar" ng-show="showNavbar" ng-cloak >
 			<!-- 头部bar-->
 			</div>
 			<!-- TS14720347962496: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
@@ -61,16 +61,10 @@
 
 			<!-- TS14720347969555: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 			<!-- Main Footer -->
-			<footer class="main-footer sticky footer-type-1" style="">
+			<footer class="main-footer sticky footer-type-1"  style="">
 				<div class="footer-inner">
 					<div class="footer-text">
-						© 2016 <strong>Xenon</strong> theme by <a
-							href="http://laborator.co" target="_blank">Laborator</a> - <a
-							href="http://themeforest.net/item/xenon-bootstrap-admin-theme/9059661?ref=Laborator"
-					</div>
-					<div class="go-up">
-						<a href="#" rel="go-top"> <i class="fa-angle-up"></i>
-						</a>
+						© 2016 {{showNavbar}}
 					</div>
 				</div>
 			</footer>
@@ -242,6 +236,7 @@
     <script src="app/components/util/base64.service.js"></script>
     <script src="app/components/login/login.service.js"></script>
     <script src="app/components/login/login.controller.js"></script>
+    <script src="app/components/login/login.state.js"></script>
     <script src="app/components/language/language.service.js"></script>
     <script src="app/components/language/language.filter.js"></script>
     <script src="app/components/language/language.controller.js"></script>

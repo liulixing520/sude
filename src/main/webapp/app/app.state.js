@@ -17,9 +17,7 @@
                     controllerAs: 'vm'
                 },
                 'menu@': {
-		            templateUrl: 'app/layouts/menu/menu.html',
-		            controller: 'NavbarController',
-		            controllerAs: 'vm'
+		            templateUrl: 'app/layouts/menu/menu.html'
 		        }
             },
             resolve: {

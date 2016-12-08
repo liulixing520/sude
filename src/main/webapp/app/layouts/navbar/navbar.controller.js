@@ -5,11 +5,13 @@
         .module('sudeApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state','$scope', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$state','$scope','$rootScope', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
 
-    function NavbarController ($state,$scope, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($state,$scope,$rootScope, Auth, Principal, ProfileService, LoginService) {
         var vm = this;
 
+        $rootScope.showNavbar = true;
+        
         vm.isNavbarCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
 
@@ -45,7 +47,8 @@
             collapseNavbar();
             Auth.logout();
             vm.account = null;
-            $state.go('home');
+            $rootScope.showNavbar = false;
+            $state.go('login');
         }
 
         function toggleNavbar() {
