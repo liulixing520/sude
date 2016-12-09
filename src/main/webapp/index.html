@@ -33,44 +33,44 @@
 <script async="" src="content/js/jquery.bootstrap.wizard.min.js"></script>
 <script async="" src="content/js/typeahead.bundle.js"></script>
 <script async="" src="content/js/handlebars-v4.0.5.js"></script>
+<script async="" src="content/js/resizeable.js"></script>
+<script async="" src="content/js/jquery.validate.min.js"></script>
+<script async="" src="content/js/xenon-custom.js"></script>
+
+
 
 
 </head>
-<body class="page-body" ng-app="sudeApp" ng-strict-di>
+<body class="page-body" ng-app="sudeApp" ng-strict-di ng-class="{'login-page login-light login-bg':showNavbar == false}">
 	<!-- TS14720347964249: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 	<!-- TS147203479619759: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
-	<div class="page-container">
+	<div class="page-container" >
 		<!-- TS14720347965778: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
-		<div class="sidebar-menu toggle-others" ng-show="showNavbar" style="" >
-			<div class="sidebar-menu-inner">
-				<div ui-view="menu" ng-cloak>
-				<!-- 菜单-->
+		<div class="sidebar-menu" ng-show="showNavbar">
+			<div class="toggle-others "  style="" >
+				<div class="sidebar-menu-inner">
+					<div ui-view="menu" ng-cloak>
+					<!-- 菜单-->
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="main-content" style="">
+		<div ng-class="{'main-content':showNavbar == true}" >
 			<!-- TS147203479615232: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 			<div ui-view="navbar" ng-show="showNavbar" ng-cloak >
 			<!-- 头部bar-->
 			</div>
 			<!-- TS14720347962496: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 
-			<div class="well" ui-view="content">
+			<div ng-class="{'well':showNavbar == true}" ui-view="content" >
 	            <!-- 正文内容-->
 	        </div>
 
-			<!-- TS14720347969555: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
-			<!-- Main Footer -->
-			<footer class="main-footer sticky footer-type-1"  style="">
-				<div class="footer-inner">
-					<div class="footer-text">
-						© 2016 {{showNavbar}}
-					</div>
-				</div>
-			</footer>
+			
 		</div>
 		<!-- TS147203479618947: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 	</div>
+	<div class="page-loading-overlay"> <div class="loader-2"></div> </div>
 	<!-- TS147203479619425: Xenon - Boostrap Admin Template created by Laborator / Please buy this theme and support the updates -->
 
 	<textarea tabindex="-1"
@@ -109,11 +109,13 @@
     <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+    
     <!-- endinject -->
     <!-- endbuild -->
 
     <!-- build:js app/app.js  -->
     <!-- inject:js -->
+    
     <script src="app/app.module.js"></script>
     <script src="app/services/user/user.service.js"></script>
     <script src="app/services/profiles/profile.service.js"></script>

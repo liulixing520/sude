@@ -2974,7 +2974,7 @@ button.toast-close-button {
   display: inline-block !important;
 }
 .login-page {
-  background: #2c2e2f;
+/*   background: #2c2e2f; */
   color: #fff;
   padding-top: 150px;
 }
@@ -3259,7 +3259,7 @@ button.toast-close-button {
   background-color: #c23321;
 }
 .login-page.login-light {
-  background: #eeeeee;
+/*   background: #eeeeee; */
 }
 .login-page.login-light .errors-container,
 .login-page.login-light .external-login {
@@ -3313,6 +3313,7 @@ button.toast-close-button {
 .login-container {
   max-width: 960px;
   margin: 0 auto;
+  margin-top: 119px;
 }
 .lockscreen-page {
   background: #2c2e2f;

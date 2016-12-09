@@ -124,7 +124,7 @@ Generic styles
 ========================================================================== */
 .error {
     color: white;
-    background-color: red;
+/*     background-color: red; */
 }
 
 .pad {

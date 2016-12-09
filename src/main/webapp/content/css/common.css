@@ -352,7 +352,7 @@ footer.main-footer .footer-text{
 }
 
 label[for] {
-  text-align: right;
+  /*text-align: right;*/
   padding-top: 7px;
   padding-right: 0px;
 }

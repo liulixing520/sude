@@ -23,5 +23,15 @@
     function run(stateHandler, translationHandler) {
         stateHandler.initialize();
         translationHandler.initialize();
+        
+        // Define Public Vars
+		public_vars.$body = jQuery("body");
+        // Page Loading Overlay
+    	public_vars.$pageLoadingOverlay = jQuery('.page-loading-overlay');
+
+    	jQuery(window).load(function()
+    	{
+    		public_vars.$pageLoadingOverlay.addClass('loaded');
+    	})
     }
 })();

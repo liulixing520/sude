@@ -53,8 +53,12 @@
                 // since login is succesful, go to stored previousState and clear previousState
                 if (Auth.getPreviousState()) {
                     var previousState = Auth.getPreviousState();
-                    Auth.resetPreviousState();
-                    $state.go(previousState.name, previousState.params);
+                    if(previousState.name == 'login'){
+                    	$state.go('home');
+                    }else{
+                    	Auth.resetPreviousState();
+                    	$state.go(previousState.name, previousState.params);
+                    }
                 }else{
                 	$state.go('home');
                 }

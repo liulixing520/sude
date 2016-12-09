@@ -18,7 +18,10 @@
                 },
                 'menu@': {
 		            templateUrl: 'app/layouts/menu/menu.html'
-		        }
+		        },
+                'footer@': {
+                	templateUrl: 'app/layouts/menu/menu.html'
+                }
             },
             resolve: {
                 authorize: ['Auth',

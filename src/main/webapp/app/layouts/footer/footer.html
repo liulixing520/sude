@@ -1,0 +1,72 @@
+<script src="content/js/bootstrap.min.js" id="script-resource-1"></script>
+<script src="content/js/TweenMax.min.js" id="script-resource-2"></script>
+<script src="content/js/resizeable.js" id="script-resource-3"></script>
+<script src="content/js/joinable.js" id="script-resource-4"></script>
+<script src="content/js/xenon-api.js" id="script-resource-5"></script>
+<script src="content/js/xenon-toggles.js" id="script-resource-6"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="content/js/xenon-custom.js" id="script-resource-7"></script>
+
+<header class="logo-env">
+	<!-- logo -->
+	<div class="logo">
+		<a href="" class="logo-expanded"> <img
+			src="content/images/logo@2x.png" width="80" alt="">
+		</a> <a href="" class="logo-collapsed"> <img
+			src="content/images/logo-collapsed@2x.png" width="40" alt="">
+		</a>
+	</div>
+	<div class="mobile-menu-toggle visible-xs">
+		<a href="#" data-toggle="user-info-menu"> <i class="fa-bell-o"></i>
+			<span class="badge badge-success">7</span>
+		</a> <a href="#" data-toggle="mobile-menu"> <i class="fa-bars"></i>
+		</a>
+	</div>
+	<!--<div class="settings-icon">-->
+		<!--<a href="#" data-toggle="settings-pane" data-animate="true"> <i-->
+			<!--class="linecons-cog"></i>-->
+		<!--</a>-->
+	<!--</div>-->
+</header>
+<ul id="main-menu" class="main-menu">
+	<li ng-class="{'opened active expanded': vm.$state.includes('baseInfo')}" class="has-sub" has-authority="ROLE_ADMIN">
+		<a href="javascript:void(0);"> <i class="linecons-cog"></i><span class="title">基础信息</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="sd-company.new"><a href="javascript:void(0);" ><span  class="title">公司资料</span></a></li>
+			<li ui-sref-active="active" ui-sref="enumeration"><a href="javascript:void(0);" ><span class="title">数据字典</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-station"><a href="javascript:void(0);" ><span class="title">收发货站</span></a></li>
+			<li ui-sref-active="active" ><a href="javascript:void(0);" ><span class="title">操作日志</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('userManager')}" class="has-sub" has-authority="ROLE_ADMIN">
+		<a href="javascript:void(0);" ><i class="linecons-desktop"></i><span class="title">用户管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="user-management"><a href="javascript:void(0);"><span class="title">用户信息</span></a></li>
+		</ul>
+	</li>
+	<li	ng-class="{'opened active expanded': vm.$state.includes('custManager')}" class="has-sub">
+		<a href="javascript:void(0);" ><i class="linecons-star"></i><span class="title">客户资料</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="sd-customer"><a href="javascript:void(0);"><span class="title">客户信息</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('carManager')}"class="has-sub">
+		<a href=""><i class="linecons-mail"></i><span class="title">车辆管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="sd-car-info"><a href="javascript:void(0);"><span class="title">车辆信息</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-maintenance-record"><a href="javascript:void(0);"><span class="title">车辆维护保养</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-driver"><a href="javascript:void(0);"><span class="title">司机信息</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('orderManager')}" class="has-sub ">
+		<a href="javascript:void(0);" ><i class="linecons-database"></i><span class="title">货单承运</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="sd-order-item"><a href="javascript:void(0);"><span class="title">托运单</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-order-item-loading"><a href="javascript:void(0);"><span class="title">分单配载</span></a></li>
+			<li ui-sref-active="active" ui-sref="sd-order-header"><a href="javascript:void(0);"><span class="title">货运单</span></a></li>
+		</ul>
+	</li>
+	<li ng-class="{'opened active expanded': vm.$state.includes('insureMng')}" class="has-sub">
+		<a href="javascript:void(0);"><i class="linecons-params"></i><span class="title">财务管理</span></a>
+	</li>
+</ul>
