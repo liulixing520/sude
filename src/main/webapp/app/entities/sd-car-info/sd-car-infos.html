@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdCarInfo in vm.sdCarInfos track by sdCarInfo.id">
-                    <td><a ui-sref="sd-car-info-detail({id:sdCarInfo.id})">{{sdCarInfo.id}}</a></td>
+                    <td>{{sdCarInfo.id}}</td>
                     <td>{{sdCarInfo.carType}}</td>
                     <td>{{sdCarInfo.engineNumber}}</td>
                         <td>{{sdCarInfo.buyDate | date:'mediumDate'}}</td>

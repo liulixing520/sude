@@ -17,7 +17,9 @@
                     controllerAs: 'vm'
                 },
                 'menu@': {
-		            templateUrl: 'app/layouts/menu/menu.html'
+		            templateUrl: 'app/layouts/menu/menu.html',
+	            	controller: 'MenuController',
+                    controllerAs: 'vm'
 		        },
                 'footer@': {
                 	templateUrl: 'app/layouts/menu/menu.html'

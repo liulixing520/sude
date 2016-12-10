@@ -79,7 +79,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdOrderItem in vm.sdOrderItems track by sdOrderItem.id">
-                    <td><a ui-sref="sd-order-item-detail({id:sdOrderItem.id})">{{sdOrderItem.id}}</a></td>
+                    <td>{{sdOrderItem.id}}</td>
                     <td>{{sdOrderItem.orderHeaderNo}}</td>
                     <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
                     <td>{{sdOrderItem.fromStationName}}</td>

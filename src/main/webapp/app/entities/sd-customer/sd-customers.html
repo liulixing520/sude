@@ -53,7 +53,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdCustomer in vm.sdCustomers track by sdCustomer.id">
-                    <td><a ui-sref="sd-customer-detail({customerName:sdCustomer.customerName})">{{sdCustomer.customerName}}</a></td>
+                    <td>{{sdCustomer.id}}</td>
                     <td>{{sdCustomer.customerName}}</td>
                     <td>{{sdCustomer.customerNM}}</td>
                     <td>{{sdCustomer.sex}}</td>

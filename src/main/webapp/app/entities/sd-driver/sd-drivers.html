@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdDriver in vm.sdDrivers track by sdDriver.id">
-                    <td><a ui-sref="sd-driver-detail({id:sdDriver.id})">{{sdDriver.id}}</a></td>
+                    <td>{{sdDriver.id}}</td>
                     <td>{{sdDriver.driverName}}</td>
                     <td>{{sdDriver.sex}}</td>
                     <td>{{sdDriver.mobilePhone}}</td>

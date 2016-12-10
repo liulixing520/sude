@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdCompany in vm.sdCompanies track by sdCompany.id">
-                    <td><a ui-sref="sd-company-detail({id:sdCompany.id})">{{sdCompany.id}}</a></td>
+                    <td>{{sdCompany.id}}</td>
                     <td>{{sdCompany.companyName}}</td>
                     <td>{{sdCompany.phone}}</td>
                     <td>{{sdCompany.fax}}</td>

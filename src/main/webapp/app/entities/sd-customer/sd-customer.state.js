@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider
         .state('sd-customer', {
-            parent: 'entity',
+            parent: 'custManager',
             url: '/sd-customer?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
@@ -52,7 +52,7 @@
             }
         })
         .state('sd-customer-detail', {
-            parent: 'entity',
+            parent: 'custManager',
             url: '/sd-customer/{id}',
             data: {
                 authorities: ['ROLE_USER'],

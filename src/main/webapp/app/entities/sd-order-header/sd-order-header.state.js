@@ -148,7 +148,8 @@
                                 freightSum: null,
                                 arriveFreight: null,
                                 arriveDriver: null,
-                                orderHeadStat: null,
+                                orderHeadStat: 'ORDER_HEAD_STAT_1',
+                                orderHeadStatName: '进行中',
                                 id: null
                             };
                         },

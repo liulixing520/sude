@@ -164,7 +164,6 @@ label[for] {
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th ><span data-translate="global.field.id">ID</span> </th>
-                    <th ><span data-translate="sudeApp.sdOrderItem.orderHeaderNo">Order Header No</span> </th>
                     <th ><span data-translate="sudeApp.sdOrderItem.consignDate">Consign Date</span> </th>
                     <th ><span data-translate="sudeApp.sdOrderItem.fromStation">From Station</span> </th>
                     <th ><span data-translate="sudeApp.sdOrderItem.toStation">To Station</span> </th>
@@ -177,7 +176,6 @@ label[for] {
             <tbody>
                 <tr ng-repeat="sdOrderItem in vm.sdOrderItems track by sdOrderItem.id">
                     <td>{{sdOrderItem.id}}</td>
-                    <td>{{sdOrderItem.orderHeaderNo}}</td>
                     <td>{{sdOrderItem.consignDate | date:'mediumDate'}}</td>
                     <td>{{sdOrderItem.fromStationName}}</td>
                     <td>{{sdOrderItem.toStationName}}</td>

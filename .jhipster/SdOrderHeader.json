@@ -136,6 +136,11 @@
         	"fieldName": "orderHeadStat",
         	"fieldDescription":"合同状态",
         	"fieldType": "String"
+        },
+        {
+        	"fieldName": "orderHeadStatName",
+        	"fieldDescription":"合同状态",
+        	"fieldType": "String"
         }
     ],
     "changelogDate": "20161114130422",

@@ -16,7 +16,7 @@
     <!--
         Added the entity SdOrderHeader.
     -->
-    <changeSet id="20161114130422-1" author="jhipster">
+    <changeSet id="20161114130422-1" author="jhipster" >
         <createTable tableName="sd_order_header">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -125,6 +125,9 @@
             </column>
             
             <column name="order_head_stat" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="order_head_stat_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

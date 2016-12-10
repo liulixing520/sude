@@ -42,7 +42,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdStation in vm.sdStations track by sdStation.id">
-                    <td><a ui-sref="sd-station-detail({id:sdStation.id})">{{sdStation.id}}</a></td>
+                    <td>{{sdStation.id}}</td>
                     <td>{{sdStation.stationName}}</td>
                     <td>{{sdStation.stationNM}}</td>
                     <td class="text-right">

@@ -24,6 +24,7 @@
         stateHandler.initialize();
         translationHandler.initialize();
         
+        var public_vars = public_vars || {};
         // Define Public Vars
 		public_vars.$body = jQuery("body");
         // Page Loading Overlay

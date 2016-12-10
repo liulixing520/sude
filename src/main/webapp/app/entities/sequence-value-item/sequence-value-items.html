@@ -41,7 +41,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sequenceValueItem in vm.sequenceValueItems track by sequenceValueItem.id">
-                    <td><a ui-sref="sequence-value-item-detail({id:sequenceValueItem.id})">{{sequenceValueItem.id}}</a></td>
+                    <td>{{sequenceValueItem.id}}</td>
                     <td>{{sequenceValueItem.seqId}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

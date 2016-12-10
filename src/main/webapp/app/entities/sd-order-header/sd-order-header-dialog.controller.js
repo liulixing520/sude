@@ -35,8 +35,6 @@
         vm.ids = $stateParams.ids;
         vm.sdStations = SdStation.query({page: 0,size: 100,sort: null});
         vm.nowDate = $filter("date")(new Date(), "yyyyMM");
-        vm.sdOrderHeader.orderHeaderNo = vm.nowDate+"-"+sequence.seqId;
-        vm.sdOrderHeader.departBatch = vm.nowDate+"-"+sequence.seqId;
         Principal.identity().then(function(account) {
             vm.sdOrderHeader.fromStation = account.station;
             vm.station = SdStation.get({id:vm.sdOrderHeader.fromStation}).$promise;
@@ -44,10 +42,12 @@
         });
         
         if(entity.id){
-        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.id}).then(function(response){
+        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.orderHeaderNo}).then(function(response){
         		vm.sdOrderItems = response.data;
         	})
         }else{
+        	vm.sdOrderHeader.orderHeaderNo = vm.nowDate+"-"+sequence.seqId;
+        	vm.sdOrderHeader.departBatch = vm.nowDate+"-"+sequence.seqId;
         	SdOrderItemQuery.getByIds({ids:$stateParams.ids}).then(function(response) {
         		vm.sdOrderItems = response.data;
         	});
@@ -96,7 +96,7 @@
                 params: {
                 	orderStat: "orderStat_2",
                 	ids: vm.ids,
-                	orderHeaderNo:result.id
+                	orderHeaderNo:result.orderHeaderNo
                 }
               }).then(function(response){
             	  $uibModalInstance.close();

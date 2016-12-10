@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,7 @@ import com.sude.sd.domain.SequenceValueItem;
 import com.sude.sd.service.SdCarInfoService;
 import com.sude.sd.service.SdOrderHeaderService;
 import com.sude.sd.service.SdStationService;
+import com.sude.sd.service.SequenceValueItemService;
 import com.sude.sd.web.rest.util.HeaderUtil;
 import com.sude.sd.web.rest.util.PaginationUtil;
 
@@ -49,6 +51,8 @@ public class SdOrderHeaderResource {
     private SdStationService sdStationService;
     @Inject
     private SdCarInfoService sdCarInfoService;
+    @Inject
+    private SequenceValueItemService sequenceValueItemService;
 
     /**
      * POST  /sd-order-headers : Create a new sdOrderHeader.
@@ -58,6 +62,7 @@ public class SdOrderHeaderResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/sd-order-headers")
+    @Transactional
     @Timed
     public ResponseEntity<SdOrderHeader> createSdOrderHeader(@RequestBody SdOrderHeader sdOrderHeader) throws URISyntaxException {
         log.debug("REST request to save SdOrderHeader : {}", sdOrderHeader);
@@ -71,6 +76,8 @@ public class SdOrderHeaderResource {
         
         sdCarInfoService.checkHasCar(sdOrderHeader.getCarNo());
         SdOrderHeader result = sdOrderHeaderService.save(sdOrderHeader);
+        //更新seqId
+        sequenceValueItemService.updateSeqId("SdOrderHeader", Long.valueOf(result.getOrderHeaderNo().split("-")[1]));
         return ResponseEntity.created(new URI("/api/sd-order-headers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("sdOrderHeader", result.getId().toString()))
             .body(result);

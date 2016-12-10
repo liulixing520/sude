@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdMaintenanceRecord in vm.sdMaintenanceRecords track by sdMaintenanceRecord.id">
-                    <td><a ui-sref="sd-maintenance-record-detail({id:sdMaintenanceRecord.id})">{{sdMaintenanceRecord.id}}</a></td>
+                    <td>{{sdMaintenanceRecord.id}}</td>
                     <td>{{sdMaintenanceRecord.carNo}}</td>
                         <td>{{sdMaintenanceRecord.maintainDate | date:'mediumDate'}}</td>
                     <td>{{sdMaintenanceRecord.sender}}</td>

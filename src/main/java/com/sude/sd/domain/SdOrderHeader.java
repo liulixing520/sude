@@ -105,6 +105,9 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
 
     @Column(name = "order_head_stat")
     private String orderHeadStat;  // 合同状态
+    
+    @Column(name = "order_head_stat_name")
+    private String orderHeadStatName;  // 合同状态
 
     public Long getId() {
         return id;
@@ -450,7 +453,15 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
         this.orderHeadStat = orderHeadStat;
     }
 
-    @Override
+    public String getOrderHeadStatName() {
+		return orderHeadStatName;
+	}
+
+	public void setOrderHeadStatName(String orderHeadStatName) {
+		this.orderHeadStatName = orderHeadStatName;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -498,6 +509,7 @@ public class SdOrderHeader extends AbstractAuditingEntity implements Serializabl
             ", arriveFreight='" + arriveFreight + "'" +
             ", arriveDriver='" + arriveDriver + "'" +
             ", orderHeadStat='" + orderHeadStat + "'" +
+            ", orderHeadStatName='" + orderHeadStatName + "'" +
             '}';
     }
 }

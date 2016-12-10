@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdItemInfo in vm.sdItemInfos track by sdItemInfo.id">
-                    <td><a ui-sref="sd-item-info-detail({id:sdItemInfo.id})">{{sdItemInfo.id}}</a></td>
+                    <td>{{sdItemInfo.id}}</td>
                     <td>{{sdItemInfo.orderNo}}</td>
                     <td>{{sdItemInfo.tradName}}</td>
                     <td>{{sdItemInfo.itemNum}}</td>

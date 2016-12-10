@@ -1,17 +1,9 @@
-<style>
-.login-bg{
-    background-image: url(http://www.sxhb56.com/UpLoadFile/20140522/262407d5-71c6-4e45-a0b7-4ba943578039.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-}
-</style>
 <div class="login-container ng-scope">
 
 	<div class="row">
 
-		<div class="col-sm-6">
+		<div class="col-sm-6" style="    margin-left: 62%;
+    margin-top: 5%;">
 
 			<script type="text/javascript">
 				jQuery(document).ready(function($)
@@ -50,9 +42,7 @@
 				});
 			</script>
 
-			<div class="errors-container" ng-show="vm.authenticationError">
-	                <strong>登陆失败!</strong> 请重新检查用户名或密码错误.
-	        </div>
+			
 			<form method="post" role="form" ng-submit="vm.login($event)" id="login" class="login-form fade-in-effect ng-pristine ng-valid in" 
 				novalidate="novalidate">
 
@@ -78,7 +68,7 @@
                     </label>
                 </div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary  btn-block text-left">
+					<button type="submit" class="btn btn-primary  btn-block text-center">
 						<i class="fa-lock"></i>
 						登陆
 					</button>
@@ -89,7 +79,9 @@
 				</div>
 
 			</form>
-
+			<div class="errors-container" ng-show="vm.authenticationError" style="color:red;">
+	                <strong>登陆失败!</strong> 请重新检查用户名或密码错误.
+	        </div>
 
 		</div>
 
