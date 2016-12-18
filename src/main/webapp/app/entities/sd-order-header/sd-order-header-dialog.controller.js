@@ -7,23 +7,6 @@
 
     SdOrderHeaderDialogController.$inject = ['Principal','$timeout','$filter', '$scope','$http', '$stateParams','sequence', '$uibModalInstance', 'entity','SdStation','OneSdStation', 'SdOrderHeader','SdOrderItemUpdate','SdOrderItemQuery','SdItemInfos'];
 
-    /**
-     * @param Principal
-     * @param $timeout
-     * @param $filter
-     * @param $scope
-     * @param $http
-     * @param $stateParams
-     * @param sequence
-     * @param $uibModalInstance
-     * @param entity
-     * @param SdStation
-     * @param OneSdStation
-     * @param SdOrderHeader
-     * @param SdOrderItemUpdate
-     * @param SdOrderItemQuery
-     * @param SdItemInfos
-     */
     function SdOrderHeaderDialogController (Principal,$timeout,$filter, $scope,$http, $stateParams,sequence, $uibModalInstance, entity,SdStation,OneSdStation, SdOrderHeader,SdOrderItemUpdate,SdOrderItemQuery,SdItemInfos) {
         var vm = this;
 
@@ -55,7 +38,7 @@
         
         //item保存完通知
         $scope.$on('changeItemDataSuccess', function() {
-        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.id}).then(function(response){
+        	SdOrderItemQuery.getByOrderNo({orderHeaderNo:entity.orderHeaderNo}).then(function(response){
         		vm.sdOrderItems = response.data;
         		sumFunc();
         	})
@@ -70,9 +53,11 @@
         function sumFunc(){
             vm.sdOrderHeader.freightSum = 0;
             vm.sdOrderHeader.practical = 0;
+            vm.sdOrderHeader.cashPay = 0;
             for (var i = vm.sdOrderItems.length; i--;) {
             	vm.sdOrderHeader.freightSum += vm.sdOrderItems[i].totalFreight;
             	vm.sdOrderHeader.practical += vm.sdOrderItems[i].totalWeight;
+            	vm.sdOrderHeader.cashPay += vm.sdOrderItems[i].cashPay;
             }
         }
         

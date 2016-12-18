@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sude.sd.domain.Enumeration;
 import com.sude.sd.domain.SdOrderHeader;
 import com.sude.sd.repository.SdOrderHeaderRepository;
 import com.sude.sd.repository.search.SdOrderHeaderSearchRepository;
@@ -33,6 +34,9 @@ public class SdOrderHeaderService {
     
     @Inject
     private SequenceValueItemService sequenceValueItemService;
+    
+    @Inject
+    private EnumerationService enumerationService;
 
     /**
      * Save a sdOrderHeader.
@@ -42,6 +46,10 @@ public class SdOrderHeaderService {
      */
     public SdOrderHeader save(SdOrderHeader sdOrderHeader) {
         log.debug("Request to save SdOrderHeader : {}", sdOrderHeader);
+        if(sdOrderHeader.getOrderHeadStat()!=null && !"".equals(sdOrderHeader.getOrderHeadStat())){
+        	Enumeration enumeration = enumerationService.findOne(sdOrderHeader.getOrderHeadStat());
+        	sdOrderHeader.setOrderHeadStatName(enumeration.getDescription());
+        }
         SdOrderHeader result = sdOrderHeaderRepository.save(sdOrderHeader);
         sdOrderHeaderSearchRepository.save(result);
         return result;

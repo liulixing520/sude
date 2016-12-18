@@ -20,7 +20,17 @@
         vm.loadAll = loadAll;
         vm.searchQuery = pagingParams.search;
         vm.currentSearch = pagingParams.search;
-
+        vm.setStat = setStat;
+        
+        //修改运单状态
+    	function setStat (sdOrderHeader, stat) {
+    		sdOrderHeader.orderHeadStat = stat;
+    		SdOrderHeader.update(sdOrderHeader, function () {
+                vm.loadAll();
+                vm.clear();
+            });
+        }
+        
         loadAll();
 
         function loadAll () {
@@ -39,7 +49,7 @@
                 }, onSuccess, onError);
             }
             function sort() {
-                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                var result = [vm.predicate + ',' + (vm.reverse ? 'desc' : 'asc')];
                 if (vm.predicate !== 'id') {
                     result.push('id');
                 }

@@ -28,7 +28,7 @@
                     squash: true
                 },
                 sort: {
-                    value: 'id,asc',
+                    value: 'createdDate,desc',
                     squash: true
                 }
             },
