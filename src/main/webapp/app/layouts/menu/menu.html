@@ -11,7 +11,7 @@
 	<!-- logo -->
 	<div class="logo">
 		<a href="" class="logo-expanded"> <img
-			src="content/images/logo@2x.png" width="80" alt="">
+			src="content/images/logo2@2x.png" width="80" alt="速达物流">
 		</a> <a href="" class="logo-collapsed"> <img
 			src="content/images/logo-collapsed@2x.png" width="40" alt="">
 		</a>
@@ -68,5 +68,8 @@
 	</li>
 	<li ng-class="{'opened active expanded': vm.$state.includes('insureMng')}" class="has-sub">
 		<a href="javascript:void(0);"><i class="linecons-params"></i><span class="title">财务管理</span></a>
+		<ul style="">
+			<li ui-sref-active="active" ui-sref="sd-balance"><a href="javascript:void(0);"><span class="title">收支明细</span></a></li>
+		</ul>
 	</li>
 </ul>

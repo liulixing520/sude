@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="sudeApp.sdBalance.detail.title">Sd Balance</span> {{vm.sdBalance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="sudeApp.sdBalance.orderNo">Order No</span></dt>
+        <dd>
+            <span>{{vm.sdBalance.orderNo}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdBalance.summary">Summary</span></dt>
+        <dd>
+            <span>{{vm.sdBalance.summary}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdBalance.money">Money</span></dt>
+        <dd>
+            <span>{{vm.sdBalance.money}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdBalance.remark">Remark</span></dt>
+        <dd>
+            <span>{{vm.sdBalance.remark}}</span>
+        </dd>
+        <dt><span data-translate="sudeApp.sdBalance.inOutType">In Out Type</span></dt>
+        <dd>
+            <a ui-sref="enumeration-detail({id:vm.sdBalance.inOutType.id})">{{vm.sdBalance.inOutType.id}}</a>
+        </dd>
+        <dt><span data-translate="sudeApp.sdBalance.payMent">Pay Ment</span></dt>
+        <dd>
+            <a ui-sref="enumeration-detail({id:vm.sdBalance.payMent.id})">{{vm.sdBalance.payMent.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sd-balance-detail.edit({id:vm.sdBalance.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

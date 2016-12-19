@@ -1,0 +1,27 @@
+{
+    "sudeApp": {
+        "sdBalance" : {
+            "home": {
+                "title": "Sd Balances",
+                "createLabel": "Create a new Sd Balance",
+                "createOrEditLabel": "Create or edit a Sd Balance",
+                "search": "Search for Sd Balance"
+            },
+            "created": "A new Sd Balance is created with identifier {{ param }}",
+            "updated": "A Sd Balance is updated with identifier {{ param }}",
+            "deleted": "A Sd Balance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sd Balance {{ id }}?"
+            },
+            "detail": {
+                "title": "Sd Balance"
+            },
+            "orderNo": "Order No",
+            "summary": "Summary",
+            "money": "Money",
+            "remark": "Remark",
+            "inOutType": "In Out Type",
+            "payMent": "Pay Ment"
+        }
+    }
+}

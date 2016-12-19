@@ -32,5 +32,9 @@
         	abstract: true,
         	parent: 'app'
         });
+        $stateProvider.state('financialManager', {
+        	abstract: true,
+        	parent: 'app'
+        });
     }
 })();

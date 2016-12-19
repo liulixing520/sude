@@ -5885,7 +5885,7 @@ blockquote small {
 .table > tfoot > tr > td .btn,
 .table > tbody > tr > th .btn,
 .table > tfoot > tr > th .btn {
-  margin-bottom: 0;
+/*   margin-bottom: 0; */
 }
 .table > tfoot > tr > td,
 .table > tfoot > tr > th {

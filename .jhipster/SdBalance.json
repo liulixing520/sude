@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+                      {
+                          "relationshipName": "inOutType",
+                          "fieldDescription": "收支类型",
+                          "otherEntityName": "enumeration",
+                          "relationshipType": "many-to-one",
+                          "otherEntityField": "id"
+                      },
+                      {
+                    	  "relationshipName": "payMent",
+                    	  "fieldDescription": "结算方式",
+                    	  "otherEntityName": "enumeration",
+                    	  "relationshipType": "many-to-one",
+                    	  "otherEntityField": "id"
+                      }
+      ],
+    "fields": [
+        {
+            "fieldName": "orderNo",
+            "fieldDescription":"托运单号",
+            "fieldType": "String"
+        },
+        {
+        	"fieldName": "summary",
+        	"fieldDescription":"摘要",
+        	"fieldType": "String"
+        },
+        {
+        	"fieldName": "money",
+        	"fieldDescription":"金额",
+        	"fieldType": "BigDecimal"
+        },
+        {
+        	"fieldName": "remark",
+        	"fieldDescription":"备注",
+        	"fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114130422",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "sd_balance",
+    "entityName": "收支明细",
+    "pagination": "pagination"
+}

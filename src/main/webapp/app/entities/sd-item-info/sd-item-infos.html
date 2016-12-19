@@ -66,26 +66,12 @@
                     <td>{{sdItemInfo.claimingValue}}</td>
                     <td>{{sdItemInfo.premium}}</td>
                     <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="sd-item-info-detail({id:sdItemInfo.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="sd-item-info.edit({id:sdItemInfo.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="sd-item-info.delete({id:sdItemInfo.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
+                    	<a ui-sref="sd-item-info.edit({id:sdItemInfo.id})" class="btn btn-secondary btn-sm btn-icon icon-left" data-translate="entity.action.edit">
+							Edit
+						</a>
+						<a ui-sref="sd-item-info.delete({id:sdItemInfo.id})"  class="btn btn-danger btn-sm btn-icon icon-left" data-translate="entity.action.delete">
+							Delete
+						</a>
                     </td>
                 </tr>
             </tbody>

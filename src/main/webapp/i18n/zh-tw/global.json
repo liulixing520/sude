@@ -19,6 +19,7 @@
                 "sdItemInfo": "Sd Item Info",
                 "sequenceValueItem": "Sequence Value Item",
                 "sdStation": "Sd Station",
+                "sdBalance": "Sd Balance",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

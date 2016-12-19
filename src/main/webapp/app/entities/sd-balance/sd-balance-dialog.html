@@ -1,0 +1,57 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySdBalanceLabel" data-translate="sudeApp.sdBalance.home.createOrEditLabel">Create or edit a Sd Balance</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+<!--         <div class="form-group" ng-show="vm.sdBalance.id"> -->
+<!--             <label for="id" data-translate="global.field.id">ID</label> -->
+            <input type="hidden" class="form-control" id="id" name="id"
+                    ng-model="vm.sdBalance.id"  />
+<!--         </div> -->
+        <div class="form-group">
+            <label  data-translate="sudeApp.sdBalance.orderNo" for="field_orderNo">Order No</label>
+            	<input type="text" class="form-control" name="orderNo" id="field_orderNo"
+                    ng-model="vm.sdBalance.orderNo"  />
+        </div>
+        <div class="form-group">
+            <label  data-translate="sudeApp.sdBalance.summary" for="field_summary">Summary</label>
+            	<input type="text" class="form-control" name="summary" id="field_summary"
+                    ng-model="vm.sdBalance.summary"  />
+        </div>
+        <div class="form-group">
+            <label data-translate="sudeApp.sdBalance.money" for="field_money">Money</label>
+            	<input type="number" class="form-control" name="money" id="field_money"
+                    ng-model="vm.sdBalance.money"  />
+        </div>
+        <div class="form-group">
+            <label data-translate="sudeApp.sdBalance.remark" for="field_remark">Remark</label>
+            	<input type="text" class="form-control" name="remark" id="field_remark"
+                    ng-model="vm.sdBalance.remark"  />
+        </div>
+        <div class="form-group">
+            <label data-translate="sudeApp.sdBalance.inOutType" for="field_inOutType">In Out Type</label>
+            <select class="form-control" id="field_inOutType" name="inOutType" ng-model="vm.sdBalance.inOutType" ng-options="enumeration as enumeration.description for enumeration in vm.enumerations track by enumeration.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="sudeApp.sdBalance.payMent" for="field_payMent">Pay Ment</label>
+            <select class="form-control" id="field_payMent" name="payMent" ng-model="vm.sdBalance.payMent" ng-options="enumeration as enumeration.description for enumeration in vm.enumerations track by enumeration.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

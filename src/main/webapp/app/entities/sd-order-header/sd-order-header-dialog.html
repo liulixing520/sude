@@ -183,20 +183,12 @@ label[for] {
                     <td>{{sdOrderItem.consigneeName}}</td>
                     <td>{{sdOrderItem.consigneeAddress}}</td>
                     <td class="text-right">
-                        <div class="btn-group flex-btn-group-container" ng-show="vm.sdOrderHeader.id">
-                            <button type="submit"
-                                    ui-sref="sd-order-header.edit.edit({idm:sdOrderItem.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="sd-order-header.edit.delete({idm:sdOrderItem.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
+                    	<a ui-sref="sd-order-header.edit.edit({idm:sdOrderItem.id})" class="btn btn-secondary btn-sm btn-icon icon-left" data-translate="entity.action.edit">
+							Edit
+						</a>
+						<a ui-sref="sd-order-header.edit.delete({idm:sdOrderItem.id})"  class="btn btn-danger btn-sm btn-icon icon-left" data-translate="entity.action.delete">
+							Delete
+						</a>
                     </td>
                 </tr>
             </tbody>
