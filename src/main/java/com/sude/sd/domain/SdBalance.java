@@ -37,10 +37,10 @@ public class SdBalance extends AbstractAuditingEntity implements Serializable {
     private String remark;  // 备注
 
     @ManyToOne
-    private Enumeration inOutType; //备注
+    private Enumeration inOutType; //收支类型
 
     @ManyToOne
-    private Enumeration payMent; //备注
+    private Enumeration payMent; //结算方式
 
     public Long getId() {
         return id;

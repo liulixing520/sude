@@ -57,6 +57,19 @@ public class SdBalanceService {
         Page<SdBalance> result = sdBalanceRepository.findAll(pageable);
         return result;
     }
+    
+    /**
+     *  Get all the sdBalances.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<SdBalance> findByOrderNo(String orderNo) {
+    	log.debug("Request to get all SdBalances");
+    	List<SdBalance> result = sdBalanceRepository.findByOrderNo(orderNo);
+    	return result;
+    }
 
     /**
      *  Get one sdBalance by id.

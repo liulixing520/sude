@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sude.sd.domain.Enumeration;
+import com.sude.sd.domain.SdBalance;
 import com.sude.sd.domain.SdOrderItem;
 import com.sude.sd.repository.SdOrderItemRepository;
 import com.sude.sd.repository.search.SdOrderItemSearchRepository;
@@ -36,6 +38,8 @@ public class SdOrderItemService {
     @Inject
     private UserService userService;
     
+    @Inject
+    private SdBalanceService sdBalanceService;
 
     /**
      * Save a sdOrderItem.
@@ -47,6 +51,45 @@ public class SdOrderItemService {
         log.debug("Request to save SdOrderItem : {}", sdOrderItem);
         SdOrderItem result = sdOrderItemRepository.save(sdOrderItem);
         sdOrderItemSearchRepository.save(result);
+        //入账
+        List<SdBalance> list = sdBalanceService.findByOrderNo(result.getId()+"");
+        SdBalance sdBalance = new SdBalance();
+        if(list.size() > 0 ){
+        	sdBalance = list.get(0);
+        }
+        sdBalance.setOrderNo(result.getId()+"");
+        Enumeration enums = new Enumeration();
+        //收入
+        enums.setId("IN_OUT_TYPE_1");
+        sdBalance.setInOutType(enums);
+        if(result.getPayType()!=null && !"".equals(result.getPayType())){
+        	Enumeration enums2 = new Enumeration();
+        	switch (result.getPayType()) {
+			case "现付":
+				enums2.setId("PAYTYPE_1");
+				sdBalance.setMoney(result.getCashPay());
+				break;
+			case "提付":
+				enums2.setId("PAYTYPE_2");
+				sdBalance.setMoney(result.getFetchPay());
+				break;
+			case "回单付":
+				enums2.setId("PAYTYPE_3");
+				sdBalance.setMoney(result.getReceiptPay());
+				break;
+			case "月结":
+				enums2.setId("PAYTYPE_4");
+				sdBalance.setMoney(result.getMonthPay());
+				break;
+			case "贷款扣":
+				enums2.setId("PAYTYPE_5");
+				sdBalance.setMoney(result.getChargePay());
+				break;
+			}
+        	sdBalance.setPayMent(enums2);
+        }
+        sdBalance.setSummary(result.getRemark());
+        sdBalanceService.save(sdBalance);
         return result;
     }
 

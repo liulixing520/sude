@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface SdBalanceRepository extends JpaRepository<SdBalance,Long> {
 
+	List<SdBalance> findByOrderNo(String orderNo);
 }

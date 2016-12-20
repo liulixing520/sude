@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="sd-balance.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  data-translate="sudeApp.sdBalance.home.createLabel">
-                        Create new Sd Balance
-                    </span>
-                </button>
+<!--                 <button class="btn btn-primary" ui-sref="sd-balance.new" > -->
+<!--                     <span class="glyphicon glyphicon-plus"></span> -->
+<!--                     <span class="hidden-xs"  data-translate="sudeApp.sdBalance.home.createLabel"> -->
+<!--                         Create new Sd Balance -->
+<!--                     </span> -->
+<!--                 </button> -->
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
@@ -37,9 +37,9 @@
                     <th jh-sort-by="orderNo"><span data-translate="sudeApp.sdBalance.orderNo">Order No</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="summary"><span data-translate="sudeApp.sdBalance.summary">Summary</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="money"><span data-translate="sudeApp.sdBalance.money">Money</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="remark"><span data-translate="sudeApp.sdBalance.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="inOutType.id"><span data-translate="sudeApp.sdBalance.inOutType">In Out Type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="payMent.id"><span data-translate="sudeApp.sdBalance.payMent">Pay Ment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remark"><span data-translate="sudeApp.sdBalance.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -49,24 +49,24 @@
                     <td>{{sdBalance.orderNo}}</td>
                     <td>{{sdBalance.summary}}</td>
                     <td>{{sdBalance.money}}</td>
-                    <td>{{sdBalance.remark}}</td>
                     <td>
                         {{sdBalance.inOutType.description}}
                     </td>
                     <td>
                         {{sdBalance.payMent.description}}
                     </td>
-                    <td class="text-right">
-                    		<a ui-sref="sd-balance-detail({id:sdBalance.id})" class="btn btn-info btn-sm btn-icon icon-left" data-translate="entity.action.view">
-								Profile
-							</a>
-                			<a ui-sref="sd-balance.edit({id:sdBalance.id})" class="btn btn-secondary btn-sm btn-icon icon-left" data-translate="entity.action.edit">
-								Edit
-							</a>
-							<a ui-sref="sd-balance.delete({id:sdBalance.id})" class="btn btn-danger btn-sm btn-icon icon-left" data-translate="entity.action.delete">
-								Delete
-							</a>
-                    </td>
+                    <td>{{sdBalance.remark}}</td>
+<!--                     <td class="text-right"> -->
+<!--                     		<a ui-sref="sd-balance-detail({id:sdBalance.id})" class="btn btn-info btn-sm btn-icon icon-left" data-translate="entity.action.view"> -->
+<!-- 								Profile -->
+<!-- 							</a> -->
+<!--                 			<a ui-sref="sd-balance.edit({id:sdBalance.id})" class="btn btn-secondary btn-sm btn-icon icon-left" data-translate="entity.action.edit"> -->
+<!-- 								Edit -->
+<!-- 							</a> -->
+<!-- 							<a ui-sref="sd-balance.delete({id:sdBalance.id})" class="btn btn-danger btn-sm btn-icon icon-left" data-translate="entity.action.delete"> -->
+<!-- 								Delete -->
+<!-- 							</a> -->
+<!--                     </td> -->
                 </tr>
             </tbody>
         </table>
