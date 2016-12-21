@@ -2,6 +2,7 @@ package com.sude.sd.service;
 
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,9 +37,6 @@ public class SdOrderItemService {
     private SdOrderItemSearchRepository sdOrderItemSearchRepository;
     
     @Inject
-    private UserService userService;
-    
-    @Inject
     private SdBalanceService sdBalanceService;
 
     /**
@@ -63,32 +61,75 @@ public class SdOrderItemService {
         enums.setId("IN_OUT_TYPE_1");
         sdBalance.setInOutType(enums);
         if(result.getPayType()!=null && !"".equals(result.getPayType())){
+        	BigDecimal total = result.getTotalFreight();
         	Enumeration enums2 = new Enumeration();
+        	String summary = "";
         	switch (result.getPayType()) {
 			case "现付":
 				enums2.setId("PAYTYPE_1");
 				sdBalance.setMoney(result.getCashPay());
+				BigDecimal pay =  result.getCashPay();
+				if(pay!= null && !"".equals(pay)){
+					if(total.compareTo(pay) > 0 ){
+						summary = "未收款:"+total.subtract(pay);
+					}else if(total.compareTo(pay) < 0 ){
+						summary = "多收款:"+pay.subtract(total);
+					}
+				}
 				break;
 			case "提付":
 				enums2.setId("PAYTYPE_2");
 				sdBalance.setMoney(result.getFetchPay());
+				pay =  result.getFetchPay();
+				if(pay!= null && !"".equals(pay)){
+					if(total.compareTo(pay) > 0 ){
+						summary = "未收款:"+total.subtract(pay);
+					}else if(total.compareTo(pay) < 0 ){
+						summary = "多收款:"+pay.subtract(total);
+					}
+				}
 				break;
 			case "回单付":
 				enums2.setId("PAYTYPE_3");
 				sdBalance.setMoney(result.getReceiptPay());
+				pay =  result.getReceiptPay();
+				if(pay!= null && !"".equals(pay)){
+					if(total.compareTo(pay) > 0 ){
+						summary = "未收款:"+total.subtract(pay);
+					}else if(total.compareTo(pay) < 0 ){
+						summary = "多收款:"+pay.subtract(total);
+					}
+				}
 				break;
 			case "月结":
 				enums2.setId("PAYTYPE_4");
 				sdBalance.setMoney(result.getMonthPay());
+				pay =  result.getMonthPay();
+				if(pay!= null && !"".equals(pay)){
+					if(total.compareTo(pay) > 0 ){
+						summary = "未收款:"+total.subtract(pay);
+					}else if(total.compareTo(pay) < 0 ){
+						summary = "多收款:"+pay.subtract(total);
+					}
+				}
 				break;
 			case "贷款扣":
 				enums2.setId("PAYTYPE_5");
 				sdBalance.setMoney(result.getChargePay());
+				pay =  result.getChargePay();
+				if(pay!= null && !"".equals(pay)){
+					if(total.compareTo(pay) > 0 ){
+						summary = "未收款:"+total.subtract(pay);
+					}else if(total.compareTo(pay) < 0 ){
+						summary = "多收款:"+pay.subtract(total);
+					}
+				}
 				break;
 			}
         	sdBalance.setPayMent(enums2);
+        	sdBalance.setSummary(summary);
         }
-        sdBalance.setSummary(result.getRemark());
+        sdBalance.setShouldMoney(result.getTotalFreight());
         sdBalanceService.save(sdBalance);
         return result;
     }

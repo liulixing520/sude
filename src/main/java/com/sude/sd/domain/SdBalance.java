@@ -31,7 +31,10 @@ public class SdBalance extends AbstractAuditingEntity implements Serializable {
     private String summary;  // 摘要
 
     @Column(name = "money", precision=10, scale=2)
-    private BigDecimal money;  // 金额
+    private BigDecimal money;  // 实收金额
+    
+    @Column(name = "should_money", precision=10, scale=2)
+    private BigDecimal shouldMoney;  // 应收金额
 
     @Column(name = "remark")
     private String remark;  // 备注
@@ -89,7 +92,16 @@ public class SdBalance extends AbstractAuditingEntity implements Serializable {
         this.money = money;
     }
 
-    public String getRemark() {
+    
+    public BigDecimal getShouldMoney() {
+		return shouldMoney;
+	}
+
+	public void setShouldMoney(BigDecimal shouldMoney) {
+		this.shouldMoney = shouldMoney;
+	}
+
+	public String getRemark() {
         return remark;
     }
 
@@ -155,6 +167,7 @@ public class SdBalance extends AbstractAuditingEntity implements Serializable {
             ", orderNo='" + orderNo + "'" +
             ", summary='" + summary + "'" +
             ", money='" + money + "'" +
+            ", shouldMoney='" + shouldMoney + "'" +
             ", remark='" + remark + "'" +
             '}';
     }

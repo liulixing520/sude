@@ -28,8 +28,13 @@
         	"fieldType": "String"
         },
         {
+        	"fieldName": "shouldMoney",
+        	"fieldDescription":"应收金额",
+        	"fieldType": "BigDecimal"
+        },
+        {
         	"fieldName": "money",
-        	"fieldDescription":"金额",
+        	"fieldDescription":"实收金额",
         	"fieldType": "BigDecimal"
         },
         {

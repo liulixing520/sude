@@ -35,8 +35,9 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="orderNo"><span data-translate="sudeApp.sdBalance.orderNo">Order No</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shouldMoney"><span data-translate="sudeApp.sdBalance.shouldMoney">shouldMoney</span> (元)<span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="money"><span data-translate="sudeApp.sdBalance.money">Money</span> (元)<span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="summary"><span data-translate="sudeApp.sdBalance.summary">Summary</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="money"><span data-translate="sudeApp.sdBalance.money">Money</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="inOutType.id"><span data-translate="sudeApp.sdBalance.inOutType">In Out Type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="payMent.id"><span data-translate="sudeApp.sdBalance.payMent">Pay Ment</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="remark"><span data-translate="sudeApp.sdBalance.remark">Remark</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -45,10 +46,11 @@
             </thead>
             <tbody>
                 <tr ng-repeat="sdBalance in vm.sdBalances track by sdBalance.id">
-                    <td><a ui-sref="sd-balance-detail({id:sdBalance.id})">{{sdBalance.id}}</a></td>
+                    <td>{{sdBalance.id}}</td>
                     <td>{{sdBalance.orderNo}}</td>
-                    <td>{{sdBalance.summary}}</td>
+                    <td>{{sdBalance.shouldMoney}}</td>
                     <td>{{sdBalance.money}}</td>
+                    <td>{{sdBalance.summary}}</td>
                     <td>
                         {{sdBalance.inOutType.description}}
                     </td>
@@ -56,7 +58,7 @@
                         {{sdBalance.payMent.description}}
                     </td>
                     <td>{{sdBalance.remark}}</td>
-<!--                     <td class="text-right"> -->
+                    <td class="text-right">
 <!--                     		<a ui-sref="sd-balance-detail({id:sdBalance.id})" class="btn btn-info btn-sm btn-icon icon-left" data-translate="entity.action.view"> -->
 <!-- 								Profile -->
 <!-- 							</a> -->
@@ -66,7 +68,7 @@
 <!-- 							<a ui-sref="sd-balance.delete({id:sdBalance.id})" class="btn btn-danger btn-sm btn-icon icon-left" data-translate="entity.action.delete"> -->
 <!-- 								Delete -->
 <!-- 							</a> -->
-<!--                     </td> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

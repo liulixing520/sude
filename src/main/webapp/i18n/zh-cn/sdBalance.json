@@ -18,7 +18,8 @@
             },
             "orderNo": "托运单号",
             "summary": "摘要",
-            "money": "金额",
+            "money": "实收金额",
+            "shouldMoney": "应收金额",
             "remark": "备注",
             "inOutType": "收支类型",
             "payMent": "结算方式"
