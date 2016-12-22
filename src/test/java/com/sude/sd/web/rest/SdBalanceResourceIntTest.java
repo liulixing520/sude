@@ -49,6 +49,9 @@ public class SdBalanceResourceIntTest {
 
     private static final BigDecimal DEFAULT_MONEY = new BigDecimal(1);
     private static final BigDecimal UPDATED_MONEY = new BigDecimal(2);
+    
+    private static final BigDecimal DEFAULT_SHOULD_MONEY = new BigDecimal(1);
+    private static final BigDecimal UPDATED_SHOULD_MONEY = new BigDecimal(2);
 
     private static final String DEFAULT_REMARK = "AAAAA";
     private static final String UPDATED_REMARK = "BBBBB";
@@ -96,6 +99,7 @@ public class SdBalanceResourceIntTest {
                 .orderNo(DEFAULT_ORDER_NO)
                 .summary(DEFAULT_SUMMARY)
                 .money(DEFAULT_MONEY)
+                .shouldMoney(DEFAULT_SHOULD_MONEY)
                 .remark(DEFAULT_REMARK);
         return sdBalance;
     }
@@ -125,6 +129,7 @@ public class SdBalanceResourceIntTest {
         assertThat(testSdBalance.getOrderNo()).isEqualTo(DEFAULT_ORDER_NO);
         assertThat(testSdBalance.getSummary()).isEqualTo(DEFAULT_SUMMARY);
         assertThat(testSdBalance.getMoney()).isEqualTo(DEFAULT_MONEY);
+        assertThat(testSdBalance.getShouldMoney()).isEqualTo(DEFAULT_SHOULD_MONEY);
         assertThat(testSdBalance.getRemark()).isEqualTo(DEFAULT_REMARK);
 
         // Validate the SdBalance in ElasticSearch
@@ -146,6 +151,7 @@ public class SdBalanceResourceIntTest {
                 .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
                 .andExpect(jsonPath("$.[*].summary").value(hasItem(DEFAULT_SUMMARY.toString())))
                 .andExpect(jsonPath("$.[*].money").value(hasItem(DEFAULT_MONEY.intValue())))
+                .andExpect(jsonPath("$.[*].shouldMoney").value(hasItem(DEFAULT_SHOULD_MONEY.intValue())))
                 .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK.toString())));
     }
 
@@ -163,6 +169,7 @@ public class SdBalanceResourceIntTest {
             .andExpect(jsonPath("$.orderNo").value(DEFAULT_ORDER_NO.toString()))
             .andExpect(jsonPath("$.summary").value(DEFAULT_SUMMARY.toString()))
             .andExpect(jsonPath("$.money").value(DEFAULT_MONEY.intValue()))
+            .andExpect(jsonPath("$.shouldMoney").value(DEFAULT_SHOULD_MONEY.intValue()))
             .andExpect(jsonPath("$.remark").value(DEFAULT_REMARK.toString()));
     }
 
@@ -188,6 +195,7 @@ public class SdBalanceResourceIntTest {
                 .orderNo(UPDATED_ORDER_NO)
                 .summary(UPDATED_SUMMARY)
                 .money(UPDATED_MONEY)
+                .shouldMoney(DEFAULT_SHOULD_MONEY)
                 .remark(UPDATED_REMARK);
 
         restSdBalanceMockMvc.perform(put("/api/sd-balances")
@@ -202,6 +210,7 @@ public class SdBalanceResourceIntTest {
         assertThat(testSdBalance.getOrderNo()).isEqualTo(UPDATED_ORDER_NO);
         assertThat(testSdBalance.getSummary()).isEqualTo(UPDATED_SUMMARY);
         assertThat(testSdBalance.getMoney()).isEqualTo(UPDATED_MONEY);
+        assertThat(testSdBalance.getShouldMoney()).isEqualTo(UPDATED_SHOULD_MONEY);
         assertThat(testSdBalance.getRemark()).isEqualTo(UPDATED_REMARK);
 
         // Validate the SdBalance in ElasticSearch
@@ -245,6 +254,7 @@ public class SdBalanceResourceIntTest {
             .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
             .andExpect(jsonPath("$.[*].summary").value(hasItem(DEFAULT_SUMMARY.toString())))
             .andExpect(jsonPath("$.[*].money").value(hasItem(DEFAULT_MONEY.intValue())))
+            .andExpect(jsonPath("$.[*].shouldMoney").value(hasItem(DEFAULT_SHOULD_MONEY.intValue())))
             .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK.toString())));
     }
 }

@@ -43,6 +43,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SudeApp.class)
 public class SdOrderItemResourceIntTest {
 
+	private static final String DEFAULT_ID = "AAAAA";
+	
     private static final String DEFAULT_ORDER_NO = "AAAAA";
     private static final String UPDATED_ORDER_NO = "BBBBB";
 
@@ -206,6 +208,7 @@ public class SdOrderItemResourceIntTest {
      */
     public static SdOrderItem createEntity(EntityManager em) {
         SdOrderItem sdOrderItem = new SdOrderItem()
+        		.id(DEFAULT_ID)
                 .orderHeaderNo(DEFAULT_ORDER_HEADER_NO)
                 .consignDate(DEFAULT_CONSIGN_DATE)
                 .fromStation(DEFAULT_FROM_STATION)
@@ -270,6 +273,7 @@ public class SdOrderItemResourceIntTest {
         List<SdOrderItem> sdOrderItems = sdOrderItemRepository.findAll();
         assertThat(sdOrderItems).hasSize(databaseSizeBeforeCreate + 1);
         SdOrderItem testSdOrderItem = sdOrderItems.get(sdOrderItems.size() - 1);
+        assertThat(testSdOrderItem.getId()).isEqualTo(DEFAULT_ID);
         assertThat(testSdOrderItem.getOrderHeaderNo()).isEqualTo(DEFAULT_ORDER_HEADER_NO);
         assertThat(testSdOrderItem.getConsignDate()).isEqualTo(DEFAULT_CONSIGN_DATE);
         assertThat(testSdOrderItem.getFromStation()).isEqualTo(DEFAULT_FROM_STATION);
@@ -326,9 +330,7 @@ public class SdOrderItemResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId())))
-                .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
                 .andExpect(jsonPath("$.[*].orderHeaderNo").value(hasItem(DEFAULT_ORDER_HEADER_NO.toString())))
-                .andExpect(jsonPath("$.[*].itemNo").value(hasItem(DEFAULT_ITEM_NO.toString())))
                 .andExpect(jsonPath("$.[*].consignDate").value(hasItem(DEFAULT_CONSIGN_DATE.toString())))
                 .andExpect(jsonPath("$.[*].fromStation").value(hasItem(DEFAULT_FROM_STATION.toString())))
                 .andExpect(jsonPath("$.[*].toStation").value(hasItem(DEFAULT_TO_STATION.toString())))
@@ -380,9 +382,7 @@ public class SdOrderItemResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(sdOrderItem.getId()))
-            .andExpect(jsonPath("$.orderNo").value(DEFAULT_ORDER_NO.toString()))
             .andExpect(jsonPath("$.orderHeaderNo").value(DEFAULT_ORDER_HEADER_NO.toString()))
-            .andExpect(jsonPath("$.itemNo").value(DEFAULT_ITEM_NO.toString()))
             .andExpect(jsonPath("$.consignDate").value(DEFAULT_CONSIGN_DATE.toString()))
             .andExpect(jsonPath("$.fromStation").value(DEFAULT_FROM_STATION.toString()))
             .andExpect(jsonPath("$.toStation").value(DEFAULT_TO_STATION.toString()))
@@ -569,9 +569,7 @@ public class SdOrderItemResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(sdOrderItem.getId())))
-            .andExpect(jsonPath("$.[*].orderNo").value(hasItem(DEFAULT_ORDER_NO.toString())))
             .andExpect(jsonPath("$.[*].orderHeaderNo").value(hasItem(DEFAULT_ORDER_HEADER_NO.toString())))
-            .andExpect(jsonPath("$.[*].itemNo").value(hasItem(DEFAULT_ITEM_NO.toString())))
             .andExpect(jsonPath("$.[*].consignDate").value(hasItem(DEFAULT_CONSIGN_DATE.toString())))
             .andExpect(jsonPath("$.[*].fromStation").value(hasItem(DEFAULT_FROM_STATION.toString())))
             .andExpect(jsonPath("$.[*].toStation").value(hasItem(DEFAULT_TO_STATION.toString())))

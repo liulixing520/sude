@@ -40,6 +40,10 @@ public class EnumerationType extends AbstractAuditingEntity implements Serializa
         return isDelete;
     }
 
+    public EnumerationType id(String id) {
+    	this.id = id;
+    	return this;
+    }
     public EnumerationType isDelete(String isDelete) {
         this.isDelete = isDelete;
         return this;

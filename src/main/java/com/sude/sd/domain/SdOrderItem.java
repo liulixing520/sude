@@ -210,6 +210,10 @@ public class SdOrderItem extends AbstractAuditingEntity implements Serializable 
         return orderHeaderNo;
     }
 
+    public SdOrderItem id(String id) {
+    	this.id = id;
+    	return this;
+    }
     public SdOrderItem orderHeaderNo(String orderHeaderNo) {
         this.orderHeaderNo = orderHeaderNo;
         return this;

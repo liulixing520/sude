@@ -40,6 +40,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SudeApp.class)
 public class EnumerationResourceIntTest {
 
+	private static final String DEFAULT_ID = "AAAAA";
+	private static final String UPDATED_ID = "BBBBB";
+	
     private static final String DEFAULT_IS_DELETE = "AAAAA";
     private static final String UPDATED_IS_DELETE = "BBBBB";
 
@@ -89,6 +92,7 @@ public class EnumerationResourceIntTest {
      */
     public static Enumeration createEntity(EntityManager em) {
         Enumeration enumeration = new Enumeration()
+        		.id(DEFAULT_ID)
                 .isDelete(DEFAULT_IS_DELETE)
                 .description(DEFAULT_DESCRIPTION)
                 .enumTypeId(DEFAULT_ENUM_TYPE_ID);
@@ -177,7 +181,7 @@ public class EnumerationResourceIntTest {
         // Update the enumeration
         Enumeration updatedEnumeration = enumerationRepository.findOne(enumeration.getId());
         updatedEnumeration
-                .isDelete(UPDATED_IS_DELETE)
+        .isDelete(UPDATED_IS_DELETE)
                 .description(UPDATED_DESCRIPTION)
                 .enumTypeId(UPDATED_ENUM_TYPE_ID);
 
