@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SudeApp.class)
 public class SdCarInfoResourceIntTest {
 
+	private static final String DEFAULT_ID = "AAAAA";
+	private static final String UPDATED_ID = "BBBBB";
+	
     private static final String DEFAULT_CAR_NO = "AAAAA";
     private static final String UPDATED_CAR_NO = "BBBBB";
 
@@ -121,6 +124,7 @@ public class SdCarInfoResourceIntTest {
      */
     public static SdCarInfo createEntity(EntityManager em) {
         SdCarInfo sdCarInfo = new SdCarInfo()
+        		.id(DEFAULT_ID)
                 .carType(DEFAULT_CAR_TYPE)
                 .engineNumber(DEFAULT_ENGINE_NUMBER)
                 .buyDate(DEFAULT_BUY_DATE)
@@ -158,6 +162,7 @@ public class SdCarInfoResourceIntTest {
         List<SdCarInfo> sdCarInfos = sdCarInfoRepository.findAll();
         assertThat(sdCarInfos).hasSize(databaseSizeBeforeCreate + 1);
         SdCarInfo testSdCarInfo = sdCarInfos.get(sdCarInfos.size() - 1);
+        assertThat(testSdCarInfo.getId()).isEqualTo(DEFAULT_ID);
         assertThat(testSdCarInfo.getCarType()).isEqualTo(DEFAULT_CAR_TYPE);
         assertThat(testSdCarInfo.getEngineNumber()).isEqualTo(DEFAULT_ENGINE_NUMBER);
         assertThat(testSdCarInfo.getBuyDate()).isEqualTo(DEFAULT_BUY_DATE);

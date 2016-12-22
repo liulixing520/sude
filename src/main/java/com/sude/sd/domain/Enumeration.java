@@ -43,6 +43,10 @@ public class Enumeration extends AbstractAuditingEntity implements Serializable 
         return isDelete;
     }
 
+    public Enumeration id(String id) {
+    	this.id = id;
+    	return this;
+    }
     public Enumeration isDelete(String isDelete) {
         this.isDelete = isDelete;
         return this;

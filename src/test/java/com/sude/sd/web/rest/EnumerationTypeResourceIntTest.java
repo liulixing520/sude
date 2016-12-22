@@ -40,6 +40,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SudeApp.class)
 public class EnumerationTypeResourceIntTest {
 
+	private static final String DEFAULT_ID = "AAAAA";
+	private static final String UPDATED_ID = "BBBBB";
+	
     private static final String DEFAULT_IS_DELETE = "AAAAA";
     private static final String UPDATED_IS_DELETE = "BBBBB";
 
@@ -86,6 +89,7 @@ public class EnumerationTypeResourceIntTest {
      */
     public static EnumerationType createEntity(EntityManager em) {
         EnumerationType enumerationType = new EnumerationType()
+        		.id(DEFAULT_ID)
                 .isDelete(DEFAULT_IS_DELETE)
                 .description(DEFAULT_DESCRIPTION);
         return enumerationType;
@@ -113,6 +117,7 @@ public class EnumerationTypeResourceIntTest {
         List<EnumerationType> enumerationTypes = enumerationTypeRepository.findAll();
         assertThat(enumerationTypes).hasSize(databaseSizeBeforeCreate + 1);
         EnumerationType testEnumerationType = enumerationTypes.get(enumerationTypes.size() - 1);
+        assertThat(testEnumerationType.getId()).isEqualTo(DEFAULT_ID);
         assertThat(testEnumerationType.getIsDelete()).isEqualTo(DEFAULT_IS_DELETE);
         assertThat(testEnumerationType.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
 

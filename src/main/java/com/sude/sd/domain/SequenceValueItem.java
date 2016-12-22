@@ -37,6 +37,10 @@ public class SequenceValueItem extends AbstractAuditingEntity implements Seriali
         return seqId;
     }
 
+    public SequenceValueItem id(String id) {
+    	this.id = id;
+    	return this;
+    }
     public SequenceValueItem seqId(Long seqId) {
         this.seqId = seqId;
         return this;
