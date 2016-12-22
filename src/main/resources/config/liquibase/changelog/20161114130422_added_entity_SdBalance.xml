@@ -29,7 +29,7 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="shouldMoney" type="decimal(10,2)">
+            <column name="should_money" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             <column name="money" type="decimal(10,2)">

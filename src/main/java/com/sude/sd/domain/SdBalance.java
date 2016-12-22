@@ -87,6 +87,11 @@ public class SdBalance extends AbstractAuditingEntity implements Serializable {
         this.money = money;
         return this;
     }
+    
+    public SdBalance shouldMoney(BigDecimal shouldMoney) {
+    	this.shouldMoney = shouldMoney;
+    	return this;
+    }
 
     public void setMoney(BigDecimal money) {
         this.money = money;

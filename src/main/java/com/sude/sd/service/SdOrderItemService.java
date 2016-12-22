@@ -125,6 +125,9 @@ public class SdOrderItemService {
 					}
 				}
 				break;
+			 default:
+				 enums2.setId("PAYTYPE_1");
+				 break;
 			}
         	sdBalance.setPayMent(enums2);
         	sdBalance.setSummary(summary);

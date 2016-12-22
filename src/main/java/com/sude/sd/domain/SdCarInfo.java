@@ -71,6 +71,10 @@ public class SdCarInfo extends AbstractAuditingEntity implements Serializable {
         return carType;
     }
 
+	public SdCarInfo id(String id) {
+		this.id = id;
+		return this;
+	}
     public SdCarInfo carType(String carType) {
         this.carType = carType;
         return this;

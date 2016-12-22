@@ -40,6 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SudeApp.class)
 public class SequenceValueItemResourceIntTest {
 
+	private static final String DEFAULT_ID = "AAAAA";
+	
     private static final Long DEFAULT_SEQ_ID = 1L;
     private static final Long UPDATED_SEQ_ID = 2L;
 
@@ -83,6 +85,7 @@ public class SequenceValueItemResourceIntTest {
      */
     public static SequenceValueItem createEntity(EntityManager em) {
         SequenceValueItem sequenceValueItem = new SequenceValueItem()
+        		.id(DEFAULT_ID)
                 .seqId(DEFAULT_SEQ_ID);
         return sequenceValueItem;
     }

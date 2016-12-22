@@ -150,7 +150,7 @@ public class SdCustomerService {
 	    String consignerAddress = sdOrderItem.getConsignerAddress();
 	    String consignerPhone = sdOrderItem.getConsignerPhone();
 		List<SdCustomer> result = sdCustomerRepository.findByCustomerNameAndMobilePhone(consignerName,consignerMbPhone);
-		if(result.size() == 0 ){
+		if(result == null || result.size() == 0){
 			SdCustomer sdCustomer = new SdCustomer();
 			sdCustomer.setCustomerName(consignerName);
 			sdCustomer.setMobilePhone(consignerMbPhone);
@@ -164,7 +164,7 @@ public class SdCustomerService {
 		String consigneeAddress = sdOrderItem.getConsigneeAddress();
 		String consigneePhone = sdOrderItem.getConsigneePhone();
 		List<SdCustomer> result2 = sdCustomerRepository.findByCustomerNameAndMobilePhone(consigneeName,consigneeMbPhone);
-		if(result2.size() == 0 ){
+		if(result2 == null || result2.size() == 0 ){
 			SdCustomer sdCustomer = new SdCustomer();
 			sdCustomer.setCustomerName(consigneeName);
 			sdCustomer.setMobilePhone(consigneeMbPhone);
