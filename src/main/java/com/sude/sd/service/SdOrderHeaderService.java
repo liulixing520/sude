@@ -48,7 +48,7 @@ public class SdOrderHeaderService {
         log.debug("Request to save SdOrderHeader : {}", sdOrderHeader);
         if(sdOrderHeader.getOrderHeadStat()!=null && !"".equals(sdOrderHeader.getOrderHeadStat())){
         	Enumeration enumeration = enumerationService.findOne(sdOrderHeader.getOrderHeadStat());
-        	if(enumeration!=null){
+        	if(enumeration !=null){
         		sdOrderHeader.setOrderHeadStatName(enumeration.getDescription());
         	}
         }
