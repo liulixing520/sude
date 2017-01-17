@@ -10,7 +10,7 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
- 
+
 spring:
     devtools:
         restart:
@@ -21,10 +21,10 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/sude?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://123.57.134.108:3306/sude?useUnicode=true&characterEncoding=utf8&useSSL=false
         name:
         username: root
-        password: ofbiz
+        password: root
         hikari:
             data-source-properties:
                 cachePrepStmts: true
